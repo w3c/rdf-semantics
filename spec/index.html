@@ -19,12 +19,14 @@
       previousMaturity:     "REC",
       prevRecShortname:     "rdf11-mt",
 
-      editors:  [
-          { name: "Patrick J. Hayes", url: "http://www.ihmc.us/groups/phayes/",
-            company: "Florida IHMC", companyURL: "http://www.ihmc.us/index.php" },
-          { name: "Peter F. Patel-Schneider",
-            company: "Nuance Communications", companyURL: "http://www.nuance.com/" },
+      editors: [
+        { name: "Peter Patel-Schneider", w3cid: "13382"},
+        { name: "Dörthe Arndt", w3cid: "111308"},
+        { name: "Timothée Haudebourg", w3cid: "138654"},
+      ],
 
+      formerEditors:  [
+        { name: "Patrick J. Hayes" },
       ],
 
       xref:   [ "RDF11-CONCEPTS" ], // Fixme: change to RDF12-CONCEPTS
@@ -768,7 +770,7 @@ Changes</a>. </p>
     <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     but when IRIs listed in 
-    a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
     are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to refer to the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>refers to</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
@@ -2004,36 +2006,6 @@ Changes</a>. </p>
 
 </section>
 
-<section id="ChangeLog" class="informative appendix" >
-  <h2>Change Log (informative)</h2>
-
-  <p>Changes since Proposed Recommendation:</p>
-
-  <ul>
-  <li> <a href="http://lists.w3.org/Archives/Public/public-rdf-comments/2014Feb/0012.html">Typo</a> fixed in Sec. 7.</li>
-  </ul>
-
-  <p>Changes since Candidate Recommendation:</p>
-  <ul>
-    <li> Minor typos corrected. Some text added to section 7 defining datatype maps.</li>
-  </ul>
-
-  <p>Changes since Last Call:</p>
-  <ul>
-  <li> Repaired several broken internal links and typos.</li>
-  <li> Added table of RDF vocabulary. </li>
-  <li> Added text mentioning lexical spaces in datatypes.</li>
-  <li> Added extended change note defining datatype map.</li>
-  <li> Removed informative section on intuitive summary of truth conditions 	</li>
-  <li> Added a general description of the notion of interpretation. </li>
-  <li> Adjusted several uses of "interpretation" and related terminology to state the particular kind of interpretation in question or use a more appropriate term. </li>
-  <li> Brian McBride was acknowledged as series editor of the previous
-    version. </li>
-  <li> The wording looking like a definition of RDF Datasets was replaced by
-    more informative wording. </li>
-  </ul>
-</section>
-
 <section id="acknowledgements" class="informative appendix" >
   <h2>Acknowledgements</h2>
 
@@ -2060,6 +2032,26 @@ Changes</a>. </p>
   <p>This document was prepared using the <a href="http://dev.w3.org/2009/dap/ReSpec.js/documentation.html">ReSpec.js specification writing tool</a>
     developed by Robin Berjon. </p>
 
+</section>
+
+<section id="ChangeLog-11" class="informative appendix" >
+  <h2>Changes since RDF 1.0</h2>
+
+  <ul>
+    <li><a href="http://lists.w3.org/Archives/Public/public-rdf-comments/2014Feb/0012.html">Typo</a> fixed in Sec. 7.</li>
+    <li> Minor typos corrected. Some text added to section 7 defining datatype maps.</li>
+    <li> Repaired several broken internal links and typos.</li>
+    <li> Added table of RDF vocabulary. </li>
+    <li> Added text mentioning lexical spaces in datatypes.</li>
+    <li> Added extended change note defining datatype map.</li>
+    <li> Removed informative section on intuitive summary of truth conditions 	</li>
+    <li> Added a general description of the notion of interpretation. </li>
+    <li> Adjusted several uses of "interpretation" and related terminology to state the particular kind of interpretation in question or use a more appropriate term. </li>
+    <li> Brian McBride was acknowledged as series editor of the previous
+      version. </li>
+    <li> The wording looking like a definition of RDF Datasets was replaced by
+      more informative wording. </li>
+  </ul>
 </section>
 
 <section id="index"></section>
