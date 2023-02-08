@@ -1582,7 +1582,7 @@ Changes</a>. </p>
     <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
     <li>If no triples were added in step 2., add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
     <li>Apply the rules <a>GrdfD1</a> and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
-      with D={<code>rdf:langString</code>, <code>xsd:string</code>), to the set in all possible ways, to exhaustion.</li>
+      with D={<code>rdf:langString</code>, <code>xsd:string</code>}, to the set in all possible ways, to exhaustion.</li>
   </ol>
 
   <p>Then we have the completeness result:</p>
@@ -1625,10 +1625,10 @@ Changes</a>. </p>
     More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> V to be a structure I
     similar to a <a>simple interpretation</a> but with a mapping only from V to its universe IR.
     Then when determining whether G entails E, consider only pre-interpretations over the finite vocabulary
-    of <a>names</a> actually used in G union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which which will give the same truth values for any triples in G or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.</p>
+    of <a>names</a> actually used in G union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in G or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.</p>
 
   <p>When considering D-entailment, <a>pre-interpretation</a>s may be kept finite
-    by weakening the semantic conditions for datatyped literals so that IR need contain literal values
+    by weakening the semantic conditions for datatyped literals so that IR needs to contain literal values
     only for literals which actually occur in G or E, and the size of the universe restricted to (N+B)×(D+1),
     where D is the number of recognized datatypes.
     (A tighter bound is possible.) For RDF entailment,
@@ -1703,7 +1703,7 @@ Changes</a>. </p>
     so every IRI in E must occur in that <a>subgraph</a>,
     so must occur in S. QED.</p>
 
-  <p class="fact">For any graph H, if sk(G) <a>simply entails</a> H there there is a graph H'
+  <p class="fact">For any graph H, if sk(G) <a>simply entails</a> H then there is a graph H'
     such that G entails H' and H=sk(H').</p>
 
   <p>The skolemization mapping sk substitutes a unique new IRI for each blank node,
