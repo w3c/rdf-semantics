@@ -243,7 +243,7 @@
       or other components of RDF syntax.
       Some cases are illustrated by node-arc diagrams showing the graph structure directly.</p>
 
-    <p>A <dfn>name</dfn> is any IRI or literal. A typed literal contains
+    <p>A <dfn>name</dfn> is any IRI or literal. A literal contains
       two <a>names</a>: itself and its internal type
       IRI. A <dfn>vocabulary</dfn> is a set of <a>names</a>.</p>
 
@@ -780,7 +780,7 @@
     The <a>value space</a> of <code>rdf:langString</code> is the set of all pairs of a string with a language tag.
     The semantics of literals with this as their type are given below.</p>
 
-  <p>RDF literal syntax allows any IRI to be used in a typed literal,
+  <p>RDF allows any IRI to be used in a literal,
     even when it is not <a>recognized</a> as referring to a datatype.
     Literals with such an "unknown" datatype IRI,
     which is not in the set of <a>recognized</a> datatypes,
@@ -804,7 +804,7 @@
       which satisfies the following conditions:</p>
 
     <table>
-      <caption>Semantic conditions for datatyped literals.</caption>
+      <caption>Semantic conditions for literals.</caption>
       <tbody>
         <tr><td class="semantictable">If <code>rdf:langString</code> is in D,
           then for every language-tagged string E with lexical form sss and language tag ttt,
@@ -1628,7 +1628,7 @@
     of <a>names</a> actually used in G union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in G or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.</p>
 
   <p>When considering D-entailment, <a>pre-interpretation</a>s may be kept finite
-    by weakening the semantic conditions for datatyped literals so that IR needs to contain literal values
+    by weakening the semantic conditions for literals so that IR needs to contain literal values
     only for literals which actually occur in G or E, and the size of the universe restricted to (N+B)×(D+1),
     where D is the number of recognized datatypes.
     (A tighter bound is possible.) For RDF entailment,
