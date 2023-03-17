@@ -96,6 +96,11 @@
     table, td, th { border:1px solid black; }
     caption { font-weight: bold; text-align: left ; }
     code {color: #ff4500;}  /* Old W3C Style */
+
+    .new {
+      background-color: rgba(255, 128, 0, 0.2);
+      color: darkred;
+    }
   </style>
 </head>
 <body>
@@ -252,7 +257,7 @@
       so that each triple in a graph is considered to be a subgraph.
       A <dfn>proper subgraph</dfn> is a proper subset of the triples in the graph.</p>
 
-    <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
+    <p><span class="new">A <dfn>ground</dfn> term is either a <a>name</a> or a quoted triple containing only ground terms.</span> A ground RDF graph is one that contains no blank nodes (only ground terms).</p>
 
     <p>Suppose that M is a functional mapping from a set of blank
       nodes to some set of literals, blank nodes and IRIs. Any graph obtained
@@ -400,6 +405,7 @@
               set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
         <p>4. A mapping IS from IRIs into (IR union IP)</p>
         <p>5. A partial mapping IL from literals into IR </p>
+        <p class="new">6. A mapping IT from <a>ground</a> quoted triples into IR</p>
        </td>
     </tr>
   </table>
@@ -457,10 +463,14 @@
       </tr>
 
       <tr>
+        <td class="new semantictable">if E is a <a>ground</a> quoted triple then I(E) = IT(E)</td>
+      </tr>
+
+      <tr>
         <td class="semantictable">if E is a ground triple `s p o.`
           then I(E) = true if<br/>
-          I(p) is in IP and the pair &lt;I(s),I(o)&gt;
-          is in IEXT(I(p))<br/>
+          I'(p) is in IP and the pair &lt;I'(s),I'(o)&gt;
+          is in IEXT(I'(p))<br/>
           otherwise I(E) = false.</td>
       </tr>
 
@@ -495,24 +505,41 @@
       without using an IRI to <a>identify</a> any particular thing.
       This is not the same as assuming that the blank node indicates an 'unknown' IRI.</p>
 
-    <p>Suppose I is a simple interpretation and A is a mapping from a set of blank nodes
-      to the universe IR of I.
-      Define the mapping [I+A] to be I on <a>names</a>,
-      and A on blank nodes on the set: [I+A](x)=I(x) when x is a <a>name</a>
-      and [I+A](x)=A(x) when x is a blank node;
-      and extend this mapping to triples and RDF graphs using the rules given above for ground graphs.
-      Then the semantic conditions for an RDF graph are:</p>
+    <p>Suppose that</p>
+    <ul>
+      <li>I is a simple interpretation,</li>
+      <li>A is a mapping from a set N of blank nodes to the universe IR of I, and</li>
+      <li class="new">B is a mapping from a subset of N to the set of <a>ground</a> terms, such that for every x in that subset, I(B(x)) = A(x).</li>
+      <li>B is extended to names and quoted triples:
+        <ul>
+          <li>if x is a <a>name</a>, B(x) = x</li>
+          <li>if x is a quoted triple (s, p, o), B(x) = (B(s), B(p), B(o))</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Define the mapping [I+A+B] as follows:</p>
+    <ul>
+      <li>if x is a <a>ground</a> term, [I+A+B](x)=I(x)</li>
+      <li>if x is a blank node, [I+A+B](x)=A(x)</li>
+      <li class="new">if x is a non-<a>ground</a> quoted triple, then [I+A+B](x)=I(B(x)) </li>
+      <li>and extend this mapping to triples and RDF graphs using the rules given above for ground graphs.</li>
+    </ul>
+
+    <p>Then the semantic conditions for an RDF graph are:</p>
 
     <table>
       <caption>Semantic condition for blank nodes.</caption>
       <tbody>
         <tr>
-          <td class="semantictable">If E is an RDF graph then I(E) = true if [I+A](E) =
-          true for some mapping A from the set of blank nodes in E to IR, otherwise
+          <td class="semantictable">If E is an RDF graph then I(E) = true if [I+A+B](E) =
+          true for some mappings A <span class="new">and B as defined above</span>, otherwise
           I(E)= false.</td>
         </tr>
       </tbody>
     </table>
+
+    <p class="new note">For a given RDF graph E, in order for [I+A+B](E) to be true, A must be defined on the set of blank nodes occurring in E, and B must be defined on the set of blank nodes occuring inside quoted triples of E.</p>
 
     <p>Mappings from blank nodes to referents are not part of the definition of a simple interpretation,
       since the truth condition refers only to <em>some</em> such mapping.
