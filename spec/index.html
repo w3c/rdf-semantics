@@ -172,7 +172,7 @@
         None of the <a>semantic extension</a>s normatively defined in this document
         impose such syntactic restrictions on RDF graphs.</p>
 
-      <p>All entailment regimes MUST be <dfn class="export">monotonic</dfn> extensions
+      <p>All entailment regimes MUST be <dfn class="no-export lint-ignore">monotonic</dfn> extensions
         of the simple entailment regime described in the document,
         in the sense that if A simply <a>entail</a>s B then A also entails B under any extended notion of entailment,
         provided that any syntactic conditions of the extension are also satisfied.
@@ -210,14 +210,15 @@
       any compatible kind of interpretation in general,
       but if clear from the context might refer to a specific kind of interpretation.</p>
 
-    <p>The words <dfn data-lt="denote" data-local-lt="denoted">denotes</dfn> and <dfn>refers to</dfn>
+    <p>The words <dfn id="dfn-denote" data-cite="RDF12-CONCEPTS#dfn-denote" data-lt="denote" data-local-lt="denoted">denotes</dfn>
+      and <dfn>refers to</dfn>
       are used interchangeably as synonyms for the relationship between an <a>IRI</a> or <a>literal</a>
       and what it refers to in a given interpretation,
-      itself called the <dfn class="export">denotation</dfn>
-      or <dfn class="export">referent</dfn>.
+      itself called the <dfn id="dfn-denotation" data-cite="RDF12-CONCEPTS#dfn-referent">denotation</dfn>
+      or <dfn id="dfn-referent" data-cite="RDF12-CONCEPTS#dfn-referent">referent</dfn>.
       IRI meanings may also be determined by other constraints external to the RDF semantics;
       when we wish to refer to such an externally defined naming relationship,
-      we will use the word <dfn data-local-lt="identified">identify</dfn> and its cognates.
+      we will use the word <dfn class="no-export lint-ignore" data-local-lt="identified">identify</dfn> and its cognates.
       For example, the fact that the IRI <code>http://www.w3.org/2001/XMLSchema#decimal</code>
       is widely used as the name of a datatype described in the XML Schema document [[XMLSCHEMA11-2]]
       might be described by saying that the IRI <em>identifies</em> that datatype.
@@ -262,7 +263,7 @@
       and if H is an instance of G then every triple in H is an instance of at least one triple
       in G.</p>
 
-    <p>An <dfn class="export">instance with respect to</dfn> a vocabulary
+    <p>An <dfn class="no-export lint-ignore">instance with respect to</dfn> a vocabulary
       V is an <a>instance</a> in which all the
       <a>names</a> in the instance that were substituted
       for blank nodes in the original are <a>names</a>
@@ -316,7 +317,7 @@
       the occurrences of "<code>_:x</code>" in one document
       will identify a different blank node than the one in the graph described by the other document.
       When graphs are formed by combining RDF from multiple sources,
-      it may be necessary to <dfn>standardize</dfn> apart the blank node identifiers
+      it may be necessary to <dfn class="no-export lint-ignore">standardize</dfn> apart the blank node identifiers
       by replacing them by others which do not occur in the other document(s).
       For example, the two graphs represented  by the following texts:</p>
 
@@ -354,10 +355,10 @@
       In general, the union of a set of RDF graphs accurately represents the same semantic content
       as the graphs themselves, whether or not they share blank nodes.</p>
 
-    <p>A related operation, called <dfn class="export">merging</dfn>,
+    <p>A related operation, called <dfn class="no-export lint-ignore">merging</dfn>,
       takes the union after forcing any shared blank nodes,
       which occur in more than one graph, to be distinct in each graph.
-      The resulting graph is called the <dfn class="export">merge</dfn>.
+      The resulting graph is called the <dfn class="no-export lint-ignore">merge</dfn>.
       The merge of <a>subgraphs</a> of a graph may be larger than the original graph.
       For example, the result of merging the two singleton subgraphs of the three-node graph</p>
 
@@ -424,7 +425,7 @@
     supporting decidable algorithms.
     Details are given in <a href="#finite_interpretations" class="sectionRef"></a>. </p>
 
-  <p>IEXT(x), called the <dfn class="export">extension</dfn> of x,
+  <p>IEXT(x), called the <dfn class="no-export lint-ignore">extension</dfn> of x,
     is a set of pairs which identify the arguments for which the property is true,
     that is, a binary relational extension.</p>
 
@@ -562,9 +563,9 @@
       E when I(E)=true, that E is (simply) <dfn>satisfiable</dfn>
       when a simple interpretation exists which <a>satisfies</a> it,
       otherwise (simply) <dfn>unsatisfiable</dfn>,
-      and that a graph G simply <dfn data-lt="entail" data-local-lt="simple entailment|entailment">entails</dfn>
+      and that a graph G simply <dfn  id="dfn-entail" data-cite="RDF12-CONCEPTS#dfn-entailment" data-lt="entail" data-local-lt="simple entailment|entailment">entails</dfn>
       a graph E when every interpretation which <a>satisfies</a> G also satisfies E.
-      If two graphs E and F each entail the other then they are logically <dfn>equivalent</dfn>.</p>
+      If two graphs E and F each entail the other then they are logically <dfn  id="dfn-equivalent" data-cite="RDF12-CONCEPTS#dfn-equivalence">equivalent</dfn>.</p>
 
     <p>In later sections these notions will be adapted to other classes of interpretations,
       but throughout this section 'entailment' should be interpreted as meaning simple entailment.</p>
@@ -581,7 +582,7 @@
     <p>Any process which constructs a graph E from
       some other graph S is (simply) <dfn>valid</dfn> if S
       <a>simply entails</a> E in every case,
-      otherwise <dfn class="export">invalid</dfn><span id="dfn-invalid.x"><!-- obsolete term --></span>.</p>
+      otherwise <dfn class="no-export lint-ignore">invalid</dfn><span id="dfn-invalid.x"><!-- obsolete term --></span>.</p>
 
     <p>The fact that an inference is valid should not be understood as meaning
       that any RDF application is obliged or required to make the inference.
@@ -682,7 +683,7 @@
 <section id="skolemization" class="informative">
   <h2>Skolemization (Informative)</h2>
 
-  <p><dfn class="export">Skolemization</dfn> is a transformation on RDF graphs
+  <p><dfn class="no-export lint-ignore">Skolemization</dfn> is a transformation on RDF graphs
     which eliminates blank nodes by replacing them with "new" IRIs,
     which means IRIs which are coined for this purpose and are therefore guaranteed
     to not occur in any other RDF graph (at the time of creation).
@@ -842,15 +843,15 @@
   <section id="D_entailment">
     <h3>Datatype entailment</h3>
 
-    <p>A graph is (simply) <dfn class="export">D-satisfiable</dfn> or
-      <dfn class="export">satisfiable recognizing D</dfn> when it has the value true
+    <p>A graph is (simply) <dfn class="no-export lint-ignore">D-satisfiable</dfn> or
+      <dfn class="no-export lint-ignore">satisfiable recognizing D</dfn> when it has the value true
       in some D-interpretation, and a graph S (simply) <dfn>D-entails</dfn> or
       <dfn>entails recognizing D</dfn> a graph G when every D-interpretation which
       <a>satisfies</a> S also D-satisfies G.</p>
 
     <p> Unlike the case with <a>simple interpretation</a>s,
       it is possible for a graph to have no satisfying D-interpretations
-       i.e. to be <dfn data-lt="D-unsatisfiability">D-unsatisfiable</dfn>.
+       i.e. to be <dfn class="no-export lint-ignore" data-lt="D-unsatisfiability">D-unsatisfiable</dfn>.
        RDF processors MAY treat an unsatisfiable graph as signaling an error condition,
        but this is not required.</p>
 
@@ -1341,78 +1342,78 @@
             <th >then S RDFS <a>entails recognizing D</a>:</th>
           </tr>
           <tr >
-           <td class="othertable"><dfn class="export">rdfs1</dfn></td>
+           <td class="othertable"><dfn class="no-export lint-ignore">rdfs1</dfn></td>
            <td class="othertable">any IRI aaa in D</td>
            <td class="othertable">aaa <code>rdf:type rdfs:Datatype . </code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs2</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs2</dfn></td>
             <td class="othertable"> aaa <code>rdfs:domain</code> xxx <code>.</code><br />
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">yyy <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs3</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs3</dfn></td>
             <td class="othertable">aaa <code>rdfs:range</code> xxx <code>.</code><br />
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs4a</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs4a</dfn></td>
             <td class="othertable">xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs4b</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs4b</dfn></td>
             <td class="othertable">xxx aaa yyy<code>.</code></td>
             <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs5</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs6</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs6</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdf:Property .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs7</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs7</dfn></td>
             <td class="othertable"> aaa <code>rdfs:subPropertyOf</code> bbb <code>.</code><br />
                 xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx bbb yyy <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs8</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs8</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs9</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs9</dfn></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br />
                 zzz <code>rdf:type</code> xxx <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> yyy <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs10</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs10</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs11</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs11</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subClassOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> zzz <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs12</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs12</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:ContainerMembershipProperty .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf rdfs:member .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="export">rdfs13</dfn></td>
+            <td class="othertable"><dfn class="no-export lint-ignore">rdfs13</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Datatype .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Literal .</code></td>
           </tr>
