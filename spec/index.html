@@ -211,25 +211,25 @@
       any compatible kind of interpretation in general,
       but if clear from the context might refer to a specific kind of interpretation.</p>
 
-    <p>The words <dfn id="dfn-denote" data-cite="RDF12-CONCEPTS#dfn-denote" data-lt="denote" data-local-lt="denoted">denotes</dfn>
-      and <dfn>refers to</dfn>
-      are used interchangeably as synonyms for the relationship between an <a>IRI</a> or <a>literal</a>
+    <p>The word <dfn id="dfn-denote" data-cite="RDF12-CONCEPTS#dfn-denote" data-lt="denote" data-local-lt="denoted">denotes</dfn>
+      is used here for the relationship between an <a>IRI</a> or <a>literal</a>
       and what it refers to in a given interpretation,
-      itself called the <dfn id="dfn-denotation" data-cite="RDF12-CONCEPTS#dfn-referent">denotation</dfn>
-      or <dfn id="dfn-referent" data-cite="RDF12-CONCEPTS#dfn-referent">referent</dfn>.
+      itself called the <dfn id="dfn-referent" data-cite="RDF12-CONCEPTS#dfn-referent">referent</dfn>.
+      (The phrase <dfn class="no-export lint-ignore">refer to</dfn> is often used instead of denote and 
+      <dfn class="no-export lint-ignore">denotation</dfn> instead of referent.)
       IRI meanings may also be determined by other constraints external to the RDF semantics;
       when we wish to refer to such an externally defined naming relationship,
       we will use the word <dfn class="no-export lint-ignore" data-local-lt="identified">identify</dfn> and its cognates.
       For example, the fact that the IRI <code>http://www.w3.org/2001/XMLSchema#decimal</code>
       is widely used as the name of a datatype described in the XML Schema document [[XMLSCHEMA11-2]]
       might be described by saying that the IRI <em>identifies</em> that datatype.
-      If an IRI identifies something it may or may not refer to it in a given interpretation,
+      If an IRI identifies something it may or may not denote it in a given interpretation,
       depending on how the semantics is specified.
       For example, an IRI used as a graph name <a>identify</a>ing a named graph in an
-      <a>RDF dataset</a> may refer to something different from the graph it identifies.</p>
+      <a>RDF dataset</a> may denote something different from the graph it identifies.</p>
 
     <p>Throughout this document, the equality sign `=` indicates strict identity.
-      The statement "A = B" means that there is one entity to which both expressions "A" and "B" refer. 
+      The statement "A = B" means that there is one entity which both expressions "A" and "B" denote. 
       Angle brackets &lt; x, y &gt; are used to indicate an ordered pair of x and y.</p>
 
     <p>Throughout this document, <a>RDF graph</a>s and other fragments of RDF abstract syntax
@@ -444,7 +444,7 @@
     from its set-theoretic extension.
     A similar technique is used in the ISO/IEC Common Logic standard [[ISO24707]].</p>
 
-  <p>The denotation of a ground RDF graph in a simple interpretation I is then given by the following rules,
+  <p>The referent of a ground RDF graph in a simple interpretation I is then given by the following rules,
     where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:</p>
 
   <table>
@@ -481,14 +481,14 @@
 
   <p>The sets IP and IR may overlap, indeed IP can be a subset of IR.
     Because of the domain conditions on IEXT,
-    the denotation of the subject and object of any true triple will be in IR;
+    the referent of the subject and object of any true triple will be in IR;
     so any IRI which occurs in a graph both as a predicate and as a subject or object
     will denote something in the intersection of IP and IR.</p>
 
   <p><a>Semantic extensions</a> may impose further constraints upon interpretation mappings
-    by requiring some IRIs to refer in particular ways.
+    by requiring some IRIs to denote in particular ways.
     For example, D-interpretations, described below, require some IRIs,
-    understood as <a>identify</a>ing and referring to datatypes, to have a fixed denotation.</p>
+    understood as <a>identify</a>ing and referring to datatypes, to have a fixed referent.</p>
 
   <section id="blank_nodes">
     <h3>Blank nodes</h3>
@@ -519,7 +519,7 @@
     <p>Mappings from blank nodes to referents are not part of the definition of a simple interpretation,
       since the truth condition refers only to <em>some</em> such mapping.
       Blank nodes themselves differ from other nodes in not being assigned
-      a denotation by a simple interpretation, reflecting the intuition that
+      a referent by a simple interpretation, reflecting the intuition that
       they have no 'global' meaning.</p>
 
     <section id="shared_blank_nodes" class="informative">
@@ -760,8 +760,8 @@
     so that the lexical-to-value mapping gives no value for the literal string,
     then the literal has no referent.
     The <dfn>value space</dfn> of a datatype is the range of the <a>lexical-to-value mapping</a>.
-    Every literal with that type either <a>refers to</a> a value in the value space of the type,
-    or fails to refer at all.
+    Every literal with that type either <a>denotes</a> a value in the value space of the type,
+    or fails to denote at all.
     An  <dfn>ill-typed</dfn> literal is one whose datatype IRI is <a>recognized</a>,
     but whose character string is assigned no value by the <a>lexical-to-value mapping</a>
     for that datatype.</p>
@@ -771,12 +771,12 @@
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     but when IRIs listed in 
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
-    are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to refer to the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>refers to</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
+    are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>denotes</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     as their datatype are an exceptional case which are given a special treatment.
     The IRI <code>rdf:langString</code> is classified as a datatype IRI,
-    and interpreted to refer to a datatype, even though no <a>L2V</a> mapping is defined for it.
+    and interpreted to denote a datatype, even though no <a>L2V</a> mapping is defined for it.
     The <a>value space</a> of <code>rdf:langString</code> is the set of all pairs of a string with a language tag.
     The semantics of literals with this as their type are given below.</p>
 
@@ -1242,7 +1242,7 @@
   <p>The semantic conditions on <a>RDF interpretation</a>s,
     together with the RDFS conditions on ICEXT, mean that every <a>recognized</a> datatype
     can be treated as a class whose extension is the <a>value space</a> of the datatype,
-    and every literal with that datatype either fails to refer, or <a>refers to</a> a value in that class.</p>
+    and every literal with that datatype either fails to denote, or <a>denotes</a> a value in that class.</p>
 
   <p>When using RDFS semantics, the referents of all <a>recognized</a> datatype IRIs can be considered
     to be in the <a>class</a> <code>rdfs:Datatype</code>.</p>
@@ -1297,7 +1297,7 @@
     <h4>A note on rdfs:Literal (Informative)</h4>
 
     <p>The class <code>rdfs:Literal</code> is not the class of literals,
-      but rather that of literal values, which may also be referred to by IRIs.
+      but rather that of literal values, which may also be denoted by IRIs.
       For example, LV does not contain the literal <code>"foodle"^^xsd:string</code>
       but it does contain the string "foodle".</p>
 
@@ -1307,7 +1307,7 @@
 
     <p>is consistent even though its subject is an IRI rather
       than a literal. It says that the IRI '<code>ex:a</code>'
-      <a>refers to</a> a literal value, which is quite possible since literal values are things in the universe.
+      <a>denotes</a> a literal value, which is quite possible since literal values are things in the universe.
       Blank nodes may range over literal values, for the same reason.</p>
 
   </section>
@@ -1451,13 +1451,13 @@
     The association of graph name IRIs with graphs is used by SPARQL [[SPARQL12-QUERY]]
     to allow queries to be directed against particular graphs.</p>
 
-  <p>Graph names in a dataset may refer to something other than the graph they are paired with.
-    This allows IRI referring to other kinds of entities, such as persons,
+  <p>Graph names in a dataset may denote something other than the graph they are paired with.
+    This allows IRIs denoting other kinds of entities, such as persons,
     to be used in a dataset to <a>identify</a> graphs of information relevant to the entity <a>denoted</a> by the graph name IRI.</p>
 
-  <p>When a graph name is used inside RDF triples in a dataset it may or may not refer to the graph it names.
+  <p>When a graph name is used inside RDF triples in a dataset it may or may not denote the graph it names.
     The semantics does not require, nor should RDF engines presume,
-    without some external reason to do so, that graph names used in RDF triples refer to the graph they name.</p>
+    without some external reason to do so, that graph names used in RDF triples denote to the graph they name.</p>
 
   <p>RDF datasets MAY be used to express RDF content.
     When used in this way, a dataset SHOULD be understood to have at least the same content as its default graph.
@@ -1764,7 +1764,7 @@
       Exactly how this identification is achieved is external to the RDF model,
       but it might be by the IRI resolving to a concrete syntax document describing the graph,
       or by the IRI being the associated name of a named graph in a dataset.
-      Assuming that the IRI can be used to refer to the triple,
+      Assuming that the IRI can be used to denote the triple,
       then the reification vocabulary allows us to describe the first graph in another graph:</p>
 
     <p><code>ex:graph1 rdf:type rdf:Statement .<br/>
@@ -1775,20 +1775,20 @@
     <p>The second graph is called a <dfn>reification</dfn> of the triple in the first graph.</p>
 
     <p>Reification is not a form of quotation. Rather, the reification describes the
-      relationship between a token of a triple and the resources that the triple refers
-      to. The value of the <code>rdf:subject</code> property is not the
+      relationship between a token of a triple and the resources that the triple denotes. 
+      The value of the <code>rdf:subject</code> property is not the
       subject IRI itself but the thing it <a>denotes</a>, and similarly for <code>rdf:predicate</code> and <code>rdf:object</code>.
       For example, if the referent of <code>ex:a</code> is Mount Everest,
-      then the subject of the reified triple is also the mountain, not the IRI which refers to it.</p>
+      then the subject of the reified triple is also the mountain, not the IRI which denotes it.</p>
 
     <p><a>Reification</a>s can be written with a blank node as subject,
       or with an IRI subject which does not <a>identify</a> any concrete realization of a triple,
       in both of which cases they simply assert the existence of the described triple. </p>
 
-    <p>The subject of a <a>reification</a> is intended to refer to a concrete realization of an RDF triple, such as a document in a surface syntax, rather than a triple considered as an abstract object.  This supports use cases where properties such as dates of
+    <p>The subject of a <a>reification</a> is intended to denote a concrete realization of an RDF triple, such as a document in a surface syntax, rather than a triple considered as an abstract object.  This supports use cases where properties such as dates of
       composition or provenance information are applied to the
       reified triple, which are meaningful only when thought of as
-      referring to a particular instance or token of a triple. </p>
+      denoting a particular instance or token of a triple. </p>
 
     <p>A <a>reification</a> of a triple does not entail the triple, and is not entailed by it.
       The <a>reification</a> only says that the triple token exists and what it is about,
@@ -1995,7 +1995,7 @@
       exclude interpretations of the collection vocabulary which violate the convention
       that the subject of a 'linked' collection of two-triple items of the form described
       above, ending with an item ending with <code>rdf:nil</code>, <a>denotes</a> a totally
-      ordered sequence whose members are the denotations of the <code>rdf:first</code>
+      ordered sequence whose members are the referents of the <code>rdf:first</code>
       values of the items, in the order got by tracing the <code>rdf:rest</code> properties
       from the subject to <code>rdf:nil</code>. This permits sequences which contain
       other sequences.</p>
