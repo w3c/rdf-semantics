@@ -519,12 +519,12 @@
     </ul>
 
     <p>Define the mapping [I+A+B] as follows:</p>
-    <ul>
-      <li>if x is a <a>ground</a> term, [I+A+B](x)=I(x)</li>
-      <li>if x is a blank node, [I+A+B](x)=A(x)</li>
-      <li class="new">if x is a non-<a>ground</a> quoted triple, then [I+A+B](x)=I(B(x)) </li>
-      <li>and extend this mapping to triples and RDF graphs using the rules given above for ground graphs.</li>
-    </ul>
+    <ol>
+      <li>If x is a <a>ground</a> term, then [I+A+B](x)=I(x)</li>
+      <li>If x is a blank node, then [I+A+B](x)=A(x)</li>
+      <li class="new">If x is a non-<a>ground</a> quoted triple, then [I+A+B](x)=I(B(x)) </li>
+      <li>Extend this mapping to triples and RDF graphs using the rules given above for ground graphs.</li>
+    </ol>
 
     <p>Then the semantic conditions for an RDF graph are:</p>
 
