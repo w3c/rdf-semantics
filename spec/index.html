@@ -304,7 +304,7 @@
       graph are the same as the blank nodes coming from other downloads of
       the same document or from the same <a>RDF source</a>.</p>
 
-    <p> RDF applications which manipulate concrete syntaxes for RDF which use <a data-cite="RDF12-CONCEPTS#blank-node-identifier">blank node identifiers</a>
+    <p> RDF applications which manipulate concrete syntaxes for RDF which use <a data-cite="RDF12-CONCEPTS#dfn-blank-node-identifier">blank node identifiers</a>
       should take care to keep track of the identity of the blank nodes they identify.
       Blank node identifiers often have a local scope,
       so when RDF from different sources is combined,
@@ -413,7 +413,7 @@
       Usage has shown that it is important that every literal have a type.
       RDF 1.1 replaces plain literals without language tags by literals typed with
       the XML Schema <code>string</code> datatype,
-      and introduces the special type <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
+      and introduces the special type <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
       for language-tagged strings.
       The full semantics for typed literals is given in the next section.</p>
   </div>
@@ -744,7 +744,7 @@
   <p>RDF literals and datatypes are fully described in
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
     In summary: with one exception, RDF literals combine a string and an IRI <a data-lt="identify">identifing</a> a datatype.
-    The exception is <a data-cite="RDF12-CONCEPTS#language-tagged-string">language-tagged strings</a>,
+    The exception is <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>,
     which have two syntactic components, a string and a language tag,
     and are assigned the type <code>rdf:langString</code>.
     A datatype is understood to define a partial mapping, 
@@ -766,13 +766,13 @@
     for that datatype.</p>
 
   <p>RDF processors are not required to <a>recognize</a> any datatype IRIs other than
-    <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
+    <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     but when IRIs listed in 
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
     are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to refer to the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>refers to</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
-  <p>Literals with <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
+  <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     as their datatype are an exceptional case which are given a special treatment.
     The IRI <code>rdf:langString</code> is classified as a datatype IRI,
     and interpreted to refer to a datatype, even though no <a>L2V</a> mapping is defined for it.
@@ -824,7 +824,7 @@
      literals with an unrecognized type IRI are not <a>ill-typed</a> and cannot give rise to
      a <a>D-unsatisfiable</a> graph.</p>
 
-    <p>The special datatype <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
+    <p>The special datatype <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
       has no <a>ill-typed</a> literals.
       Any syntactically legal literal with this type will denote a value in every
       D-interpretation where D includes <code>rdf:langString</code>.
@@ -969,7 +969,7 @@
   <p>RDF imposes no particular normative meanings on the rest of the RDF vocabulary.
     <a href="#whatnot">Appendix D</a> describes the intended uses of some of this vocabulary.</p>
 
-  <p>The datatype IRIs <a data-cite="RDF12-CONCEPTS#language-tagged-string"><code>rdf:langString</code></a>
+  <p>The datatype IRIs <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
