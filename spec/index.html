@@ -144,7 +144,7 @@
       <span id="semantic-extensions-and-entailment-regimes"><!-- obsolete identifier --></span>
       <h2>Semantic Extensions and Entailment Regimes</h2>
       <p>RDF is intended for use as a base notation for a variety of extended notations
-        such as OWL [[OWL2-OVERVIEW]] and RIF [[RIF-OVERVIEW]],
+        such as OWL [[?OWL2-OVERVIEW]] and RIF [[?RIF-OVERVIEW]],
         whose expressions can be encoded as RDF graphs
         which use a particular vocabulary with a specially defined meaning.
         Also, particular IRI vocabularies may be given meanings by other specifications or conventions.
@@ -155,7 +155,7 @@
 
       <p>A particular such set of semantic assumptions is called a <dfn>semantic extension</dfn>.
         Each <a>semantic extension</a> defines an <dfn>entailment regime</dfn>
-        (used here in the same sense as in the [[[!SPARQL12-ENTAILMENT]]] recommendation [[!SPARQL12-ENTAILMENT]] )
+        (used here in the same sense as in the [[[?SPARQL12-ENTAILMENT]]] recommendation [[?SPARQL12-ENTAILMENT]] )
         of entailments which are valid under that extension.
         RDFS, described later in this document, is one such <a>semantic extension</a>.
         We will refer to entailment regimes by names such as <em> RDFS entailment</em>,
@@ -167,7 +167,7 @@
         and MAY consider RDF graphs which do not conform to these conditions to be errors.
         For example, RDF statements of the form <br/><br/>
         <code>ex:a rdfs:subClassOf "Thing"^^xsd:string .</code><br/><br/>
-        are prohibited in the OWL <a>semantic extension</a> based on description logics [[OWL2-SYNTAX]].
+        are prohibited in the OWL <a>semantic extension</a> based on description logics [[?OWL2-SYNTAX]].
         In such cases, basic RDF operations such as taking a subset of triples,
         or combining RDF graphs, may cause syntax errors in parsers which recognize the extension conditions.
         None of the <a>semantic extension</a>s normatively defined in this document
@@ -442,7 +442,7 @@
     accommodates both of these requirements.
     It also provides for a notion of RDFS 'class' which can be distinguished
     from its set-theoretic extension.
-    A similar technique is used in the ISO/IEC Common Logic standard [[ISO24707]].</p>
+    A similar technique is used in the ISO/IEC Common Logic standard [[?ISO24707]].</p>
 
   <p>The referent of a ground RDF graph in a simple interpretation I is then given by the following rules,
     where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:</p>
@@ -603,7 +603,7 @@
       not to their suitability for any other purpose.
       It is possible for an RDF graph to be fitted for a given purpose and yet validly entail
       another graph which is not appropriate for the same purpose.
-      An example is the RDF test cases manifest [[RDF-TESTCASES]] which is provided as an
+      An example is the RDF test cases manifest [[?RDF-TESTCASES]] which is provided as an
       RDF document for user convenience.
       This document lists examples of correct entailments by describing their
       antecedents and conclusions.
@@ -1440,7 +1440,7 @@
     is a finite set of RDF graphs each paired with an IRI or blank node called the <strong>graph name</strong>,
     plus a <strong>default graph</strong>, without a name.
     Graphs in a single dataset may share blank nodes.
-    The association of graph name IRIs with graphs is used by SPARQL [[SPARQL12-QUERY]]
+    The association of graph name IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
     to allow queries to be directed against particular graphs.</p>
   -->
 
@@ -1448,7 +1448,7 @@
     defined in RDF Concepts [[!RDF12-CONCEPTS]],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
-    The association of graph name IRIs with graphs is used by SPARQL [[SPARQL12-QUERY]]
+    The association of graph name IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
     to allow queries to be directed against particular graphs.</p>
 
   <p>Graph names in a dataset may denote something other than the graph they are paired with.
