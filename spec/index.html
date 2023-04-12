@@ -566,7 +566,10 @@
       otherwise (simply) <dfn>unsatisfiable</dfn>,
       and that a graph G simply <dfn  id="dfn-entail" data-cite="RDF12-CONCEPTS#dfn-entailment" data-lt="entail" data-local-lt="simple entailment|entailment">entails</dfn>
       a graph E when every interpretation which <a>satisfies</a> G also satisfies E.
-      If two graphs E and F each entail the other then they are logically <dfn  id="dfn-equivalent" data-cite="RDF12-CONCEPTS#dfn-equivalence">equivalent</dfn>.</p>
+      If two graphs E and F each entail the other then they are logically <dfn  id="dfn-equivalent" data-cite="RDF12-CONCEPTS#dfn-equivalence">equivalent</dfn>.
+      If there are no (simple) interpretations that satisfy a graph then that graph is 
+ <dfn id="dfn-inconsistent" data-cite="RDF12-CONCEPTS#dfn-inconsistent">inconsistent</dfn>.
+    </p>
 
     <p>In later sections these notions will be adapted to other classes of interpretations,
       but throughout this section 'entailment' should be interpreted as meaning simple entailment.</p>
@@ -900,7 +903,7 @@
       <p>when D also contains <code>xsd:integer</code>.</p>
 
       <p>(There is a W3C Note [[SWBP-XSCH-DATATYPES]] containing a long
-        <a data-cite="SWBP-XSCH-DATATYPES#sec-values">discussion</a> of literal values.)</p>
+        discussion of literal values.)</p>
 
       <p><a>Ill-typed</a> literals are the only way in which a graph can be simply <a>D-unsatisfiable</a>,
         but datatypes can give rise to a variety of other <a>unsatisfiable</a> graphs
@@ -919,7 +922,7 @@
   <table>
     <tbody>
       <tr>
-        <td ><dfn data-cite="RDF12-CONCEPTS#dfn-rdf-vocabulary">RDF vocabulary</dfn></td>
+        <td ><dfn>RDF vocabulary</dfn></td>
       </tr>
 
       <tr>
