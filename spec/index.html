@@ -995,7 +995,7 @@
       For example, all the RDF axioms are true in every <a>RDF interpretation</a>,
       and so are <a>RDF entail</a>ed by the empty graph, contradicting <a>interpolation</a> for RDF entailment. </p>
 
-    <section id="rdf_entailment_patterns" class="informative">
+    <section id="rdf_entailment_patterns" class="informative" data-dfn-for="RDF entailment patterns">
       <h4>Patterns of RDF entailment (Informative)</h4>
 
       <p>The last semantic condition in the above table gives the following entailment pattern for <a>recognized</a> datatype IRIs:</p>
@@ -1331,7 +1331,7 @@
 
     <p>where aaa is an IRI, are true in all RDFS interpretations.</p>
 
-    <section id="rdfs_patterns" class="informative">
+    <section id="rdfs_patterns" class="informative" data-dfn-for="RDFS entailment patterns">
       <h4>Patterns of RDFS entailment (Informative)</h4>
 
       <P>RDFS entailment holds for all the following patterns, 
@@ -1346,78 +1346,78 @@
             <th >then S RDFS <a>entails recognizing D</a>:</th>
           </tr>
           <tr >
-           <td class="othertable"><dfn class="no-export lint-ignore">rdfs1</dfn></td>
+           <td class="othertable"><dfn>rdfs1</dfn></td>
            <td class="othertable">any IRI aaa in D</td>
            <td class="othertable">aaa <code>rdf:type rdfs:Datatype . </code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs2</dfn></td>
+            <td class="othertable"><dfn>rdfs2</dfn></td>
             <td class="othertable"> aaa <code>rdfs:domain</code> xxx <code>.</code><br />
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">yyy <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs3</dfn></td>
+            <td class="othertable"><dfn>rdfs3</dfn></td>
             <td class="othertable">aaa <code>rdfs:range</code> xxx <code>.</code><br />
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs4a</dfn></td>
+            <td class="othertable"><dfn>rdfs4a</dfn></td>
             <td class="othertable">xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs4b</dfn></td>
+            <td class="othertable"><dfn>rdfs4b</dfn></td>
             <td class="othertable">xxx aaa yyy<code>.</code></td>
             <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs5</dfn></td>
+            <td class="othertable"><dfn>rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs6</dfn></td>
+            <td class="othertable"><dfn>rdfs6</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdf:Property .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs7</dfn></td>
+            <td class="othertable"><dfn>rdfs7</dfn></td>
             <td class="othertable"> aaa <code>rdfs:subPropertyOf</code> bbb <code>.</code><br />
                 xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx bbb yyy <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs8</dfn></td>
+            <td class="othertable"><dfn>rdfs8</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Resource .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs9</dfn></td>
+            <td class="othertable"><dfn>rdfs9</dfn></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br />
                 zzz <code>rdf:type</code> xxx <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> yyy <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs10</dfn></td>
+            <td class="othertable"><dfn>rdfs10</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs11</dfn></td>
+            <td class="othertable"><dfn>rdfs11</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subClassOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> zzz <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs12</dfn></td>
+            <td class="othertable"><dfn>rdfs12</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:ContainerMembershipProperty .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf rdfs:member .</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn class="no-export lint-ignore">rdfs13</dfn></td>
+            <td class="othertable"><dfn>rdfs13</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Datatype .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Literal .</code></td>
           </tr>
