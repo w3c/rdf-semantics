@@ -186,20 +186,22 @@
     <h2>Notation and Terminology</h2>
 
     <p>This document uses the following terminology for describing RDF graph syntax, all as defined in the companion RDF Concepts specification [[!RDF12-CONCEPTS]]:
-      <dfn data-cite="RDF12-CONCEPTS#dfn-iri">IRI</dfn><span id="dfn-iri"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-triple" data-lt="triple">RDF triple</dfn><span id="dfn-rdf-triple"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-graph" data-lt="graph">RDF graph</dfn><span id="dfn-rdf-graph"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-subject">subject</dfn><span id="dfn-subject"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-predicate">predicate</dfn><span id="dfn-predicate"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-object">object</dfn><span id="dfn-object"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-source">RDF source</dfn><span id="dfn-rdf-source"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-node">node</dfn><span id="dfn-node"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-blank-node">blank node</dfn><span id="dfn-blank-node"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-literal">literal</dfn><span id="dfn-literal"><!-- obsolete term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"><!-- obsolete term --></span>, and
-      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- obsolete term --></span>.
+      <dfn data-cite="RDF12-CONCEPTS#dfn-iri">IRI</dfn><span id="dfn-iri"></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-triple" data-lt="triple">RDF triple</dfn><span id="dfn-rdf-triple"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-graph" data-lt="graph">RDF graph</dfn><span id="dfn-rdf-graph"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-subject">subject</dfn><span id="dfn-subject"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-predicate">predicate</dfn><span id="dfn-predicate"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-object">object</dfn><span id="dfn-object"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-source">RDF source</dfn><span id="dfn-rdf-source"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-node">node</dfn><span id="dfn-node"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-blank-node">blank node</dfn><span id="dfn-blank-node"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-literal">literal</dfn><span id="dfn-literal"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"></span>, and
+      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- refer to RDF Concepts term --></span>.
       All the definitions in this document apply unchanged to
-      <a data-cite="RDF12-CONCEPTS#section-generalized-rdf">generalized RDF triples, graphs, and datasets</a>.</p>
+      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-triple">generalized RDF triples</a>, 
+      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-graph">generalized RDF graphs</a>, and
+      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-dataset">generalized RDF datasets</a>.</p>
 
     <p>An <dfn class="export">interpretation</dfn> is a mapping from IRIs and literals into a set,
       together with some constraints upon the set and the mapping.
@@ -236,7 +238,7 @@
       are written using the notational conventions of the Turtle syntax [[!TURTLE]].
       The namespace prefixes <code>rdf:</code> <code>rdfs:</code> and <code>xsd:</code>
       are used as in [[!RDF12-CONCEPTS]],
-      <a data-cite="RDF12-CONCEPTS#vocabularies">section 1.4</a>.
+      <a data-cite="RDF12-CONCEPTS#dfn-rdf-vocabulary">RDF vocabularies</a>.
       When the exact IRI does not matter, the prefix <code>ex:</code> is used.
       When stating general rules or conditions we use three-character variables such as
       aaa, xxx, sss  to indicate arbitrary IRIs, literals,
@@ -274,7 +276,7 @@
       is an <a>instance</a> in which a blank node has been replaced by a <a>name</a>, or two blank
       nodes in the graph have been mapped into the same node in the instance. </p>
 
-    <p>Two graphs are <a data-cite="RDF12-CONCEPTS#graph-isomorphism">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
+    <p>Two graphs are <a data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
       mapping. As blank nodes have no particular identity beyond their location in a graph, we will often treat isomorphic graphs as identical.</p>
 
     <p >An RDF graph is <dfn>lean</dfn> if it has no instance which is
@@ -586,7 +588,7 @@
     <p>Any process which constructs a graph E from
       some other graph S is (simply) <dfn>valid</dfn> if S
       <a>simply entails</a> E in every case,
-      otherwise <dfn class="no-export lint-ignore">invalid</dfn><span id="dfn-invalid.x"><!-- obsolete term --></span>.</p>
+      otherwise <dfn class="no-export lint-ignore">invalid</dfn><span id="dfn-invalid.x"><!-- refer to RDF Concepts term --></span>.</p>
 
     <p>The fact that an inference is valid should not be understood as meaning
       that any RDF application is obliged or required to make the inference.
@@ -691,7 +693,7 @@
     which eliminates blank nodes by replacing them with "new" IRIs,
     which means IRIs which are coined for this purpose and are therefore guaranteed
     to not occur in any other RDF graph (at the time of creation).
-    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
+    See <a href="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
     for a fuller discussion.</p>
 
   <p>Suppose G is a graph containing blank nodes and sk is a skolemization mapping
@@ -746,14 +748,14 @@
     and should treat any literals with that IRI as their datatype IRI as unknown names.</p>
 
   <p>RDF literals and datatypes are fully described in
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
+    <a href="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
     In summary: with one exception, RDF literals combine a string and an IRI <a data-lt="identify">identifing</a> a datatype.
     The exception is <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>,
     which have two syntactic components, a string and a language tag,
     and are assigned the type <code>rdf:langString</code>.
     A datatype is understood to define a partial mapping, 
     called the
-    <span id="dfn-lexical-to-value-mapping"><!-- obsolete term --></span>
+    <span id="dfn-lexical-to-value-mapping"><!-- refer to RDF Concepts term --></span>
     <dfn data-cite="RDF12-CONCEPTS#dfn-lexical-to-value-mapping">lexical-to-value mapping</dfn>,
     from a lexical space (a set of character strings) to values.
     The function <dfn>L2V</dfn> maps datatypes to their lexical-to-value mapping.
@@ -773,7 +775,7 @@
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     but when IRIs listed in 
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
+    <a href="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
     are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>denotes</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
@@ -903,7 +905,7 @@
       <p>when D also contains <code>xsd:integer</code>.</p>
 
       <p>(There is a W3C Note [[SWBP-XSCH-DATATYPES]] containing a long
-        <a data-cite="SWBP-XSCH-DATATYPES#sec-values">discussion</a> of literal values.)</p>
+        <a href="SWBP-XSCH-DATATYPES#sec-values">discussion</a> of literal values.)</p>
 
       <p><a>Ill-typed</a> literals are the only way in which a graph can be simply <a>D-unsatisfiable</a>,
         but datatypes can give rise to a variety of other <a>unsatisfiable</a> graphs
@@ -1447,7 +1449,7 @@
     to allow queries to be directed against particular graphs.</p>
   -->
 
-  <p><a data-cite="RDF12-CONCEPTS#section-dataset">RDF datasets</a>,
+  <p><a data-cite="RDF12-CONCEPTS#dfn-rdf-dataset">RDF datasets</a>,
     defined in RDF Concepts [[!RDF12-CONCEPTS]],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
