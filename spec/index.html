@@ -693,7 +693,7 @@
     which eliminates blank nodes by replacing them with "new" IRIs,
     which means IRIs which are coined for this purpose and are therefore guaranteed
     to not occur in any other RDF graph (at the time of creation).
-    See <a href="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
+    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
     for a fuller discussion.</p>
 
   <p>Suppose G is a graph containing blank nodes and sk is a skolemization mapping
@@ -748,7 +748,7 @@
     and should treat any literals with that IRI as their datatype IRI as unknown names.</p>
 
   <p>RDF literals and datatypes are fully described in
-    <a href="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
     In summary: with one exception, RDF literals combine a string and an IRI <a data-lt="identify">identifing</a> a datatype.
     The exception is <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>,
     which have two syntactic components, a string and a language tag,
@@ -775,7 +775,7 @@
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     but when IRIs listed in 
-    <a href="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
     are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>denotes</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
@@ -905,7 +905,7 @@
       <p>when D also contains <code>xsd:integer</code>.</p>
 
       <p>(There is a W3C Note [[SWBP-XSCH-DATATYPES]] containing a long
-        <a href="SWBP-XSCH-DATATYPES#sec-values">discussion</a> of literal values.)</p>
+        <a data-cite="SWBP-XSCH-DATATYPES#sec-values">discussion</a> of literal values.)</p>
 
       <p><a>Ill-typed</a> literals are the only way in which a graph can be simply <a>D-unsatisfiable</a>,
         but datatypes can give rise to a variety of other <a>unsatisfiable</a> graphs
