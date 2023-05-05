@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<meta name="generator" content="ReSpec 34.1.0">
+<meta name="generator" content="ReSpec 34.1.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -206,7 +206,7 @@ ul.index code{color:inherit}
   "name": "RDF 1.2 Semantics",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2023-05-04",
+  "datePublished": "2023-05-16",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1292,21 +1292,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "group": "rdf-star",
   "doJsonLd": true,
   "wgPublicList": "public-rdf-star-wg",
-  "publishDate": "2023-05-04",
-  "publishISODate": "2023-05-04T00:00:00.000Z",
-  "generatedSubtitle": "W3C First Public Working Draft 04 May 2023"
+  "publishDate": "2023-05-16",
+  "publishISODate": "2023-05-16T00:00:00.000Z",
+  "generatedSubtitle": "W3C First Public Working Draft 16 May 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-WD"></head>
 <body class="h-entry" data-cite="RDF11-CONCEPTS"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">RDF 1.2 Semantics</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#FPWD">W3C First Public Working Draft</a> <time class="dt-published" datetime="2023-05-04">04 May 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#FPWD">W3C First Public Working Draft</a> <time class="dt-published" datetime="2023-05-16">16 May 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2023/WD-rdf12-semantics-20230504/">https://www.w3.org/TR/2023/WD-rdf12-semantics-20230504/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2023/WD-rdf12-semantics-20230516/">https://www.w3.org/TR/2023/WD-rdf12-semantics-20230516/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/rdf12-semantics/">https://www.w3.org/TR/rdf12-semantics/</a>
@@ -1533,7 +1533,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <dfn id="dfn-isomorphic-0" class="externalDFN" data-no-export="" data-dfn-type="dfn"><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-graph-isomorphism" id="ref-for-index-term-isomorphic-1">isomorphic</a></dfn><span id="dfn-isomorphic"></span>, and
       <dfn data-lt="dataset" data-plurals="rdf datasets" id="dfn-dataset" class="externalDFN" data-no-export="" data-dfn-type="dfn"><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-dataset" id="ref-for-index-term-rdf-dataset-1">RDF dataset</a></dfn><span id="dfn-rdf-dataset"></span>.
       All the definitions in this document apply unchanged to
-      <a href="https://w3c.github.io/rdf-concepts/spec/#section-generalized-rdf" id="ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-1">generalized RDF triples, graphs, and datasets</a>.</p>
+      <dfn id="dfn-generalized-rdf-triples-generalized-rdf-graphs-and-generalized-rdf-datasets" class="externalDFN" data-no-export="" data-dfn-type="dfn"><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-triple" id="ref-for-index-term-generalized-rdf-triples-generalized-rdf-graphs-and-generalized-rdf-datasets-1">generalized RDF triples, 
+      <dfn id="dfn-generalized-rdf-graphs-and-generalized-rdf-datasets" class="externalDFN" data-no-export="" data-dfn-type="dfn"><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-graph" id="ref-for-index-term-generalized-rdf-graphs-and-generalized-rdf-datasets-1">generalized RDF graphs, and
+      <dfn id="dfn-generalized-rdf-datasets" class="externalDFN" data-no-export="" data-dfn-type="dfn"><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-dataset" id="ref-for-index-term-generalized-rdf-datasets-1">generalized RDF datasets.</a></dfn></a></dfn></a></dfn></p>
 
     <p>An <dfn class="export" data-export="" id="dfn-interpretation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">interpretation</dfn> is a mapping from IRIs and literals into a set,
       together with some constraints upon the set and the mapping.
@@ -1570,7 +1572,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       are written using the notational conventions of the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">TURTLE</a></cite>].
       The namespace prefixes <code>rdf:</code> <code>rdfs:</code> and <code>xsd:</code>
       are used as in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf12-concepts" title="RDF 1.2 Concepts and Abstract Syntax">RDF12-CONCEPTS</a></cite>],
-      <a href="https://w3c.github.io/rdf-concepts/spec/#vocabularies" id="ref-for-index-term-section-1-4-1">section 1.4</a>.
+      <a href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-vocabulary" id="ref-for-index-term-rdf-vocabularies-1">RDF vocabularies</a>.
       When the exact IRI does not matter, the prefix <code>ex:</code> is used.
       When stating general rules or conditions we use three-character variables such as
       aaa, xxx, sss  to indicate arbitrary IRIs, literals,
@@ -1608,7 +1610,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       is an <a href="#dfn-instance" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-instance-2">instance</a> in which a blank node has been replaced by a <a href="#dfn-name" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-name-5">name</a>, or two blank
       nodes in the graph have been mapped into the same node in the instance. </p>
 
-    <p>Two graphs are <a href="https://w3c.github.io/rdf-concepts/spec/#graph-isomorphism" id="ref-for-index-term-isomorphic-0-1">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
+    <p>Two graphs are <a href="https://w3c.github.io/rdf-concepts/spec/#dfn-graph-isomorphism" id="ref-for-index-term-isomorphic-2">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
       mapping. As blank nodes have no particular identity beyond their location in a graph, we will often treat isomorphic graphs as identical.</p>
 
     <p>An RDF graph is <dfn id="dfn-lean" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">lean</dfn> if it has no instance which is
@@ -2253,7 +2255,7 @@ _:x ex:p _:x .</code></pre>
   </p><table>
     <tbody>
       <tr>
-        <td><dfn id="dfn-rdf-vocabulary" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;RDF vocabulary&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">RDF vocabulary</dfn></td>
+        <td><dfn data-plurals="rdf vocabularies" id="dfn-rdf-vocabulary" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;RDF vocabulary&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">RDF vocabulary</dfn></td>
       </tr>
 
       <tr>
@@ -2662,7 +2664,7 @@ _:x ex:p _:x .</code></pre>
 
     <p>where aaa is an IRI, are true in all RDFS interpretations.</p>
 
-    <section id="rdfs_patterns" class="informative"><div class="header-wrapper"><h4 id="x9-2-1-patterns-of-rdfs-entailment-informative"><bdi class="secno">9.2.1 </bdi>Patterns of RDFS entailment (Informative)</h4><a class="self-link" href="#rdfs_patterns" aria-label="Permalink for Section 9.2.1"></a></div><p><em>This section is non-normative.</em></p>
+    <section id="rdfs_patterns" class="informative" data-dfn-for="RDFS entailment patterns"><div class="header-wrapper"><h4 id="x9-2-1-patterns-of-rdfs-entailment-informative"><bdi class="secno">9.2.1 </bdi>Patterns of RDFS entailment (Informative)</h4><a class="self-link" href="#rdfs_patterns" aria-label="Permalink for Section 9.2.1"></a></div><p><em>This section is non-normative.</em></p>
       
 
       <p>RDFS entailment holds for all the following patterns, 
@@ -2677,78 +2679,78 @@ _:x ex:p _:x .</code></pre>
             <th>then S RDFS <a href="#dfn-entails-recognizing-d" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-entails-recognizing-d-1">entails recognizing D</a>:</th>
           </tr>
           <tr>
-           <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs1" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs1</dfn></td>
+           <td class="othertable"><dfn id="dfn-rdfs1" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs1</dfn></td>
            <td class="othertable">any IRI aaa in D</td>
            <td class="othertable">aaa <code>rdf:type rdfs:Datatype . </code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs2" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs2</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs2" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs2</dfn></td>
             <td class="othertable"> aaa <code>rdfs:domain</code> xxx <code>.</code><br>
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">yyy <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs3" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs3</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs3</dfn></td>
             <td class="othertable">aaa <code>rdfs:range</code> xxx <code>.</code><br>
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs4a" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs4a</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs4a" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs4a&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs4a</dfn></td>
             <td class="othertable">xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs4b" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs4b</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs4b" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs4b&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs4b</dfn></td>
             <td class="othertable">xxx aaa yyy<code>.</code></td>
             <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs5" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs5</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br>
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs6" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs6</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs6" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs6&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs6</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdf:Property .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs7" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs7</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs7" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs7</dfn></td>
             <td class="othertable"> aaa <code>rdfs:subPropertyOf</code> bbb <code>.</code><br>
                 xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx bbb yyy <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs8" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs8</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs8" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs8&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs8</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs9" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs9</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs9" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs9&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs9</dfn></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br>
                 zzz <code>rdf:type</code> xxx <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> yyy <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs10" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs10</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs10" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs10&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs10</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs11" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs11</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs11" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs11&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs11</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br>
                 yyy <code>rdfs:subClassOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> zzz <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs12" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs12</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs12" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs12&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs12</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:ContainerMembershipProperty .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf rdfs:member .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn class="no-export lint-ignore" data-noexport="" id="dfn-rdfs13" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs13</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs13" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs13</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Datatype .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Literal .</code></td>
           </tr>
@@ -2771,7 +2773,7 @@ _:x ex:p _:x .</code></pre>
 
   
 
-  <p><a href="https://w3c.github.io/rdf-concepts/spec/#section-dataset" id="ref-for-index-term-rdf-datasets-1">RDF datasets</a>,
+  <p><a href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-dataset" id="ref-for-index-term-rdf-dataset-3">RDF datasets</a>,
     defined in RDF Concepts [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf12-concepts" title="RDF 1.2 Concepts and Abstract Syntax">RDF12-CONCEPTS</a></cite>],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
@@ -2859,7 +2861,7 @@ _:x ex:p _:x .</code></pre>
 
   
 
-  <p>Consider <a href="https://w3c.github.io/rdf-concepts/spec/#section-generalized-rdf" id="ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-2">generalized RDF triples, graphs, and datasets</a>
+  <p>Consider <a href="https://w3c.github.io/rdf-concepts/spec/#section-generalized-rdf" id="ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-1">generalized RDF triples, graphs, and datasets</a>
     instead of RDF triples, graphs and datasets (extending the generalization used in [<cite><a class="bibref" data-link-type="biblio" href="#bib-horst04" title="Extending the RDFS Entailment Lemma">HORST04</a></cite>]
     and following exactly the terms used in [<cite><a class="bibref" data-link-type="biblio" href="#bib-owl2-profiles" title="OWL 2 Web Ontology Language Profiles (Second Edition)">OWL2-PROFILES</a></cite>]).
     The semantics described in this document applies to the generalization without change,
@@ -3524,6 +3526,12 @@ _:x ex:p _:x .</code></pre>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-equivalence" id="index-term-equivalent" tabindex="0" aria-haspopup="dialog">equivalent</span>
   </li><li>
+    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-dataset" id="index-term-generalized-rdf-datasets" tabindex="0" aria-haspopup="dialog">generalized RDF datasets.</span>
+  </li><li>
+    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-graph" id="index-term-generalized-rdf-graphs-and-generalized-rdf-datasets" tabindex="0" aria-haspopup="dialog">generalized RDF graphs, and generalized RDF datasets.</span>
+  </li><li>
+    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-triple" id="index-term-generalized-rdf-triples-generalized-rdf-graphs-and-generalized-rdf-datasets" tabindex="0" aria-haspopup="dialog">generalized RDF triples, generalized RDF graphs, and generalized RDF datasets.</span>
+  </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#section-generalized-rdf" id="index-term-generalized-rdf-triples-graphs-and-datasets" tabindex="0" aria-haspopup="dialog">generalized RDF triples, graphs, and datasets</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-inconsistent" id="index-term-inconsistent" tabindex="0" aria-haspopup="dialog">inconsistent</span>
@@ -3531,8 +3539,6 @@ _:x ex:p _:x .</code></pre>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-iri" id="index-term-iri" tabindex="0" aria-haspopup="dialog">IRI</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-graph-isomorphism" id="index-term-isomorphic" tabindex="0" aria-haspopup="dialog">isomorphic</span>
-  </li><li>
-    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#graph-isomorphism" id="index-term-isomorphic-0" tabindex="0" aria-haspopup="dialog">isomorphic</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-lexical-to-value-mapping" id="index-term-lexical-to-value-mapping" tabindex="0" aria-haspopup="dialog">lexical-to-value mapping</span>
   </li><li>
@@ -3546,13 +3552,13 @@ _:x ex:p _:x .</code></pre>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-dataset" id="index-term-rdf-dataset" tabindex="0" aria-haspopup="dialog">RDF dataset</span>
   </li><li>
-    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#section-dataset" id="index-term-rdf-datasets" tabindex="0" aria-haspopup="dialog">RDF datasets</span>
-  </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-graph" id="index-term-rdf-graph" tabindex="0" aria-haspopup="dialog">RDF graph</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-source" id="index-term-rdf-source" tabindex="0" aria-haspopup="dialog">RDF source</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-triple" id="index-term-rdf-triple" tabindex="0" aria-haspopup="dialog">RDF triple</span>
+  </li><li>
+    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-vocabulary" id="index-term-rdf-vocabularies" tabindex="0" aria-haspopup="dialog">RDF vocabularies</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#section-html" id="index-term-rdf-html" tabindex="0" aria-haspopup="dialog">rdf:HTML</span>
   </li><li>
@@ -3561,8 +3567,6 @@ _:x ex:p _:x .</code></pre>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#section-XMLLiteral" id="index-term-rdf-xmlliteral" tabindex="0" aria-haspopup="dialog">rdf:XMLLiteral</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#dfn-referent" id="index-term-referent" tabindex="0" aria-haspopup="dialog">referent</span>
-  </li><li>
-    <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#vocabularies" id="index-term-section-1-4" tabindex="0" aria-haspopup="dialog">section 1.4</span>
   </li><li>
     <span class="index-term" data-href="https://w3c.github.io/rdf-concepts/spec/#section-skolemization" id="index-term-section-3-5" tabindex="0" aria-haspopup="dialog">Section 3.5</span>
   </li><li>
@@ -4655,6 +4659,42 @@ _:x ex:p _:x .</code></pre>
     <a href="#ref-for-index-term-equivalent-2" title="§ 6. Skolemization (Informative)">§ 6. Skolemization (Informative)</a> 
   </li>
   </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-generalized-rdf-datasets" aria-label="Links in this document to definition: generalized RDF datasets.">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-dataset" aria-label="Permalink for definition: generalized RDF datasets.. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-index-term-generalized-rdf-datasets-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-generalized-rdf-graphs-and-generalized-rdf-datasets" aria-label="Links in this document to definition: generalized RDF graphs, and generalized RDF datasets.">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-graph" aria-label="Permalink for definition: generalized RDF graphs, and generalized RDF datasets.. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-index-term-generalized-rdf-graphs-and-generalized-rdf-datasets-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-generalized-rdf-triples-generalized-rdf-graphs-and-generalized-rdf-datasets" aria-label="Links in this document to definition: generalized RDF triples, generalized RDF graphs, and generalized RDF datasets.">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#dfn-generalized-rdf-triple" aria-label="Permalink for definition: generalized RDF triples, generalized RDF graphs, and generalized RDF datasets.. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-index-term-generalized-rdf-triples-generalized-rdf-graphs-and-generalized-rdf-datasets-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
+  </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-generalized-rdf-triples-graphs-and-datasets" aria-label="Links in this document to definition: generalized RDF triples, graphs, and datasets">
       <span class="caret"></span>
       <div>
@@ -4664,9 +4704,7 @@ _:x ex:p _:x .</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
-  </li><li>
-    <a href="#ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-2" title="§ A. Entailment rules (Informative)">§ A. Entailment rules (Informative)</a> 
+    <a href="#ref-for-index-term-generalized-rdf-triples-graphs-and-datasets-1" title="§ A. Entailment rules (Informative)">§ A. Entailment rules (Informative)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-inconsistent" aria-label="Links in this document to definition: inconsistent">
@@ -4702,19 +4740,7 @@ _:x ex:p _:x .</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-index-term-isomorphic-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
-  </li>
-  </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-isomorphic-0" aria-label="Links in this document to definition: isomorphic">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#graph-isomorphism" aria-label="Permalink for definition: isomorphic. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-    <a href="#ref-for-index-term-isomorphic-0-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
+    <a href="#ref-for-index-term-isomorphic-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> <a href="#ref-for-index-term-isomorphic-2" title="Reference 2">(2)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-lexical-to-value-mapping" aria-label="Links in this document to definition: lexical-to-value mapping">
@@ -4787,18 +4813,8 @@ _:x ex:p _:x .</code></pre>
       <ul>
     <li>
     <a href="#ref-for-index-term-rdf-dataset-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> <a href="#ref-for-index-term-rdf-dataset-2" title="Reference 2">(2)</a> 
-  </li>
-  </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-rdf-datasets" aria-label="Links in this document to definition: RDF datasets">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#section-dataset" aria-label="Permalink for definition: RDF datasets. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-    <a href="#ref-for-index-term-rdf-datasets-1" title="§ 10. RDF Datasets">§ 10. RDF Datasets</a> 
+  </li><li>
+    <a href="#ref-for-index-term-rdf-dataset-3" title="§ 10. RDF Datasets">§ 10. RDF Datasets</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-rdf-graph" aria-label="Links in this document to definition: RDF graph">
@@ -4843,6 +4859,18 @@ _:x ex:p _:x .</code></pre>
     <a href="#ref-for-index-term-rdf-triple-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> <a href="#ref-for-index-term-rdf-triple-2" title="Reference 2">(2)</a> 
   </li><li>
     <a href="#ref-for-index-term-rdf-triple-3" title="§ 5. Simple Interpretations">§ 5. Simple Interpretations</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-rdf-vocabularies" aria-label="Links in this document to definition: RDF vocabularies">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#dfn-rdf-vocabulary" aria-label="Permalink for definition: RDF vocabularies. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-index-term-rdf-vocabularies-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-rdf-html" aria-label="Links in this document to definition: rdf:HTML">
@@ -4897,18 +4925,6 @@ _:x ex:p _:x .</code></pre>
       <ul>
     <li>
     <a href="#ref-for-index-term-referent-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
-  </li>
-  </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-section-1-4" aria-label="Links in this document to definition: section 1.4">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="https://w3c.github.io/rdf-concepts/spec/#vocabularies" aria-label="Permalink for definition: section 1.4. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-    <a href="#ref-for-index-term-section-1-4-1" title="§ 4. Notation and Terminology">§ 4. Notation and Terminology</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-index-term-section-3-5" aria-label="Links in this document to definition: Section 3.5">
