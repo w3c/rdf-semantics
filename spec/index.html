@@ -97,8 +97,10 @@
     caption { font-weight: bold; text-align: left ; }
     code { color: #ff4500; }  /* Old W3C Style */
     table { word-break: normal; overflow-wrap: anywhere !important; }
+    table tr td:first-child { overflow-wrap: break-word; }
     @media (max-width: 550px) {
-        table th, table td { font-size: 12px; padding: 3px 4px;}
+        table th, table td { font-size: 14px; padding: 3px 4px;}
+        table td.semantictable, table td.ruletable { font-size: 14px;}
         .othertable {padding: 4px;}
         img {max-width: 85vw;}
     }  
