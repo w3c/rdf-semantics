@@ -206,7 +206,7 @@ ul.index code{color:inherit}
   "name": "RDF 1.2 Semantics",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2023-05-16",
+  "datePublished": "2023-06-06",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1285,28 +1285,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "name": "Patrick J. Hayes"
     }
   ],
-  "xref": [
-    "RDF11-CONCEPTS"
-  ],
   "github": "https://github.com/w3c/rdf-semantics/",
   "group": "rdf-star",
   "doJsonLd": true,
   "wgPublicList": "public-rdf-star-wg",
-  "publishDate": "2023-05-16",
-  "publishISODate": "2023-05-16T00:00:00.000Z",
-  "generatedSubtitle": "W3C First Public Working Draft 16 May 2023"
+  "xref": [
+    "RDF12-CONCEPTS"
+  ],
+  "lint": {
+    "no-unused-dfns": false
+  },
+  "publishDate": "2023-06-06",
+  "publishISODate": "2023-06-06T00:00:00.000Z",
+  "generatedSubtitle": "W3C First Public Working Draft 06 June 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-WD"></head>
-<body class="h-entry" data-cite="RDF11-CONCEPTS"><div class="head">
+<body class="h-entry" data-cite="RDF12-CONCEPTS"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">RDF 1.2 Semantics</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#FPWD">W3C First Public Working Draft</a> <time class="dt-published" datetime="2023-05-16">16 May 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#FPWD">W3C First Public Working Draft</a> <time class="dt-published" datetime="2023-06-06">06 June 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2023/WD-rdf12-semantics-20230516/">https://www.w3.org/TR/2023/WD-rdf12-semantics-20230516/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2023/WD-rdf12-semantics-20230606/">https://www.w3.org/TR/2023/WD-rdf12-semantics-20230606/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/rdf12-semantics/">https://www.w3.org/TR/rdf12-semantics/</a>
@@ -2255,7 +2258,7 @@ _:x ex:p _:x .</code></pre>
   </p><table>
     <tbody>
       <tr>
-        <td><dfn data-plurals="rdf vocabularies" id="dfn-rdf-vocabulary" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;RDF vocabulary&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">RDF vocabulary</dfn></td>
+        <td><dfn data-plurals="rdf vocabularies" id="dfn-rdf-vocabulary" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">RDF vocabulary</dfn></td>
       </tr>
 
       <tr>
@@ -2448,7 +2451,7 @@ _:x ex:p _:x .</code></pre>
   <p> An <dfn id="dfn-rdfs-interpretation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">RDFS interpretation</dfn> (<strong>recognizing D</strong>) is an <a href="#dfn-rdf-interpretation" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-rdf-interpretation-4">RDF interpretation</a> (recognizing D) I
     which <a href="#dfn-satisfies" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-satisfies-6">satisfies</a> the semantic conditions in the following table, and all the triples in the subsequent table of RDFS axiomatic triples.</p>
 
-  <table>
+  <table id="rdfs_semantic_conditions">
     <caption>RDFS semantic conditions.</caption>
     <tbody><tr>
       <td class="semantictable" id="rdfssemcond1"> <p>ICEXT(y) is defined to be { x : &lt; x,y &gt; is in IEXT(I(<code>rdf:type</code>)) }</p>
@@ -2670,7 +2673,7 @@ _:x ex:p _:x .</code></pre>
       <p>RDFS entailment holds for all the following patterns, 
         which correspond closely to the RDFS semantic conditions:</p>
 
-      <table>
+      <table id="rdfs_entailment_patterns">
         <caption>RDFS entailment patterns.</caption>
         <tbody>
           <tr>
@@ -2690,29 +2693,29 @@ _:x ex:p _:x .</code></pre>
             <td class="othertable">yyy <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs3</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs3" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs3</dfn></td>
             <td class="othertable">aaa <code>rdfs:range</code> xxx <code>.</code><br>
                 yyy aaa zzz <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs4a" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs4a&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs4a</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs4a" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs4a</dfn></td>
             <td class="othertable">xxx aaa yyy <code>.</code></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs4b" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs4b&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs4b</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs4b" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs4b</dfn></td>
             <td class="othertable">xxx aaa yyy<code>.</code></td>
             <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs5</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs5" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br>
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs6" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs6&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs6</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs6" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs6</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdf:Property .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf</code> xxx <code>.</code></td>
           </tr>
@@ -2723,29 +2726,29 @@ _:x ex:p _:x .</code></pre>
             <td class="othertable">xxx bbb yyy <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs8" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs8&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs8</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs8" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs8</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Resource .</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs9" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs9&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs9</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs9" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs9</dfn></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br>
                 zzz <code>rdf:type</code> xxx <code>.</code></td>
             <td class="othertable">zzz <code>rdf:type</code> yyy <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs10" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs10&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs10</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs10" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs10</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:Class .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> xxx <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs11" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs11&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs11</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs11" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs11</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subClassOf</code> yyy <code>.</code><br>
                 yyy <code>rdfs:subClassOf</code> zzz <code>.</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf</code> zzz <code>.</code></td>
           </tr>
           <tr>
-            <td class="othertable"><dfn id="dfn-rdfs12" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;rdfs12&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">rdfs12</dfn></td>
+            <td class="othertable"><dfn id="dfn-rdfs12" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">rdfs12</dfn></td>
             <td class="othertable">xxx <code>rdf:type rdfs:ContainerMembershipProperty .</code></td>
             <td class="othertable">xxx <code>rdfs:subPropertyOf rdfs:member .</code></td>
           </tr>
