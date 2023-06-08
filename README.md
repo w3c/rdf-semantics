@@ -12,9 +12,9 @@ Editorial changes that improve the readability of the spec or correct spelling o
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md), about licensing contributions.
 
-## Set of Documents
+## RDF-star Working Group Repositories
 
-This repository is one of ten RDF 1.2 and twelve SPARQL 1.2 Recommendations produced by the  [RDF-star Working Group](https://www.w3.org/groups/wg/rdf-star).
+This repository contains one of ten RDF 1.2 and twelve SPARQL 1.2 Recommendations produced by the  [RDF-star Working Group](https://www.w3.org/groups/wg/rdf-star).
 
 ### RDF 1.2 Recommendations:
 * [RDF12-NEW][]
@@ -41,6 +41,8 @@ This repository is one of ten RDF 1.2 and twelve SPARQL 1.2 Recommendations prod
 * [SPARQL12-ENTAILMENT][]
 * [SPARQL12-PROTOCOL][]
 * [SPARQL12-GRAPH-STORE-PROTOCOL][]
+
+The working group also has a [use case repository][RDF12-UCR] collecting use cases for quoted triples and how they can be handled by RDF 1.2 and SPARQL 1.2.
 
 ## Code of Conduct
 
@@ -69,3 +71,5 @@ W3C functions under a [code of conduct](https://www.w3.org/Consortium/cepc/).
 [SPARQL12-ENTAILMENT]: https://github.com/w3c/sparql-entailment
 [SPARQL12-PROTOCOL]: https://github.com/w3c/sparql-protocol
 [SPARQL12-GRAPH-STORE-PROTOCOL]: https://github.com/w3c/sparql-graph-store-protocol
+
+[RDF12-UCR]: https://github.com/w3c/rdf-ucr
