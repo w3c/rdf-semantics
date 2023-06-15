@@ -14,9 +14,9 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md), about licensing contributions.
 
 ## RDF-star Working Group Repositories
 
-This repository contains one of ten RDF 1.2 and twelve SPARQL 1.2 Recommendations produced by the  [RDF-star Working Group](https://www.w3.org/groups/wg/rdf-star).
+This repository contains one of ten RDF 1.2 and twelve SPARQL 1.2 documents produced by the  [RDF-star Working Group](https://www.w3.org/groups/wg/rdf-star).
 
-### RDF 1.2 Recommendations:
+### RDF 1.2 Documents:
 * [RDF12-NEW][]
 * [RDF12-CONCEPTS][]
 * [RDF12-N-QUADS][]
@@ -28,7 +28,7 @@ This repository contains one of ten RDF 1.2 and twelve SPARQL 1.2 Recommendation
 * [RDF12-TURTLE][]
 * [RDF12-XML][]
 
-### SPARQL 1.2 Recommendations:
+### SPARQL 1.2 Documents:
 * [SPARQL12-NEW][]
 * [SPARQL12-CONCEPTS][]
 * [SPARQL12-QUERY][]
