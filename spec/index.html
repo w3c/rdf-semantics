@@ -98,6 +98,66 @@
     table, td, th { border:1px solid black; }
     caption { font-weight: bold; text-align: left ; }
     code {color: #ff4500;}  /* Old W3C Style */
+
+    @media (max-width: 590px) {
+      /* img, td.semantictable { max-width: 80vw } */
+
+      table.entailment_patterns,
+      table.entailment_patterns tr,
+      table.entailment_patterns th,
+      table.entailment_patterns td {
+        display: block ; border: none ;
+      }
+      table.entailment_patterns tr:last-child {
+        border-bottom: thin solid black;
+      }
+      table.entailment_patterns tr > *:first-child {
+        border-top: thin solid black;
+      }
+      table.entailment_patterns tr > *:first-child::after {
+        content: ":";
+      }
+      table.entailment_patterns tr:first-child th {
+        display: none
+      }
+      table.entailment_patterns td:nth-child(2)::before {
+        content: "if S contains ";
+      }
+      table.entailment_patterns td:nth-child(3)::before {
+        content: "then S entails ";
+      }
+      table.entailment_patterns td::before {
+        font-weight: bold ;
+      }
+
+      table#entailment_rules_table,
+      table#entailment_rules_table tr,
+      table#entailment_rules_table th,
+      table#entailment_rules_table td {
+        display: block ; border: none ;
+      }
+      table#entailment_rules_table tr:last-child {
+        border-bottom: thin solid black;
+      }
+      table#entailment_rules_table tr > *:first-child {
+        border-top: thin solid black;
+      }
+      table#entailment_rules_table tr:first-child,
+      table#entailment_rules_table tr:nth-child(3) {
+        display: none
+      }
+      table#entailment_rules_table tr:nth-child(2) > td:nth-child(2)::before {
+        content: "RDF entails ";
+      }
+      table#entailment_rules_table tr:nth-child(4) > td:nth-child(2)::before {
+        content: "RDFS entails ";
+      }
+      table#entailment_rules_table td::before {
+        font-weight: bold ;
+        display: block ;
+      }
+
+    }
   </style>
 </head>
 <body>
@@ -1004,7 +1064,7 @@
 
       <p>The last semantic condition in the above table gives the following entailment pattern for <a>recognized</a> datatype IRIs:</p>
 
-      <table>
+      <table class="entailment_patterns">
         <caption>RDF entailment pattern.</caption>
         <tbody>
           <tr>
@@ -1035,7 +1095,7 @@
 
       <p>In addition, the first RDF semantic condition justifies the following entailment pattern:</p>
 
-      <table>
+      <table class="entailment_patterns">
         <tbody>
           <tr>
             <th></th>
@@ -1341,7 +1401,7 @@
       <P>RDFS entailment holds for all the following patterns, 
         which correspond closely to the RDFS semantic conditions:</p>
 
-      <table id="rdfs_entailment_patterns">
+      <table id="rdfs_entailment_patterns" class="entailment_patterns">
         <caption>RDFS entailment patterns.</caption>
         <tbody>
           <tr >
@@ -1504,14 +1564,12 @@
   <p>This process is clearly correct, in that if it gives a positive result then indeed S does RDF (RDFS) entail E.
     It is not, however, complete: there are cases of S entailing E which are not detectable by this process. Examples include:</p>
 
-  <table>
-    <thead>
+  <table id="entailment_rules_table">
       <tr>
         <th> </th>
         <th>RDF entails</th>
       </tr>
-    </thead>
-    <tbody>
+
       <tr>
         <td class="othertable"><code>ex:a ex:p "string"^^xsd:string .<br/>
           ex:b ex:q "string"^^xsd:string .</code></td>
@@ -1531,7 +1589,6 @@
           ex:d ex:a ex:e .</code></td>
        <td class="othertable"><code>ex:d rdf:type ex:c .</code> </td>
       </tr>
-    </tbody>
   </table>
 
   <p>Both of these can be handled by allowing the rules to apply to a generalization of the RDF syntax
@@ -1546,7 +1603,7 @@
     so that the notions of interpretation, satisfiability and entailment can be used freely.
     Then we can replace the first RDF entailment pattern with the simpler and more direct</p>
 
-  <table>
+  <table class="entailment_patterns">
     <caption>G-RDF-D entailment pattern.</caption>
     <tbody>
       <tr>
