@@ -110,7 +110,7 @@
       </switch>
     </g>
     <g
-       transform="translate(-0.5 -0.5)"
+       transform="translate(-0.5,-0.5)"
        id="g28">
       <switch
          id="switch26">
@@ -133,7 +133,7 @@
         <text
            x="95"
            y="85"
-           fill="#CC0000"
+           fill="#cc0000"
            font-family="Helvetica"
            font-size="16px"
            text-anchor="middle"
@@ -150,7 +150,7 @@
        pointer-events="all"
        id="ellipse30" />
     <g
-       transform="translate(-0.5 -0.5)"
+       transform="translate(-6.5,1.5)"
        id="g36">
       <switch
          id="switch34">
@@ -173,7 +173,7 @@
         <text
            x="313"
            y="145"
-           fill="#CC0000"
+           fill="#cc0000"
            font-family="Helvetica"
            font-size="16px"
            text-anchor="middle"
@@ -181,26 +181,37 @@
       </switch>
     </g>
     <path
-       d="M 90 69 L 50 50"
+       d="M 88.876696,71.412319 53.323892,50.440582"
        fill="none"
-       stroke="rgb(0, 0, 0)"
+       stroke="#000000"
        stroke-miterlimit="10"
        pointer-events="stroke"
-       id="path38" />
+       id="path38"
+       style="stroke-width:0.922865" />
     <path
-       d="M 350 168 L 310 149"
+       d="m 111.66977,86.467998 42.30467,23.683842"
        fill="none"
-       stroke="rgb(0, 0, 0)"
+       stroke="#000000"
        stroke-miterlimit="10"
        pointer-events="stroke"
-       id="path40" />
+       id="path42"
+       style="stroke-width:0.839392" />
     <path
-       d="M 100 93 L 153.93 110.08"
+       d="m 240.46791,111.09422 42.30467,23.68384"
        fill="none"
-       stroke="rgb(0, 0, 0)"
+       stroke="#000000"
        stroke-miterlimit="10"
        pointer-events="stroke"
-       id="path42" />
+       id="path42-7"
+       style="stroke-width:0.839392" />
+    <path
+       d="m 310.4598,149.77836 35.71399,18.19488"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path42-6"
+       style="stroke-width:0.675987" />
     <path
        d="M 158.93 111.66 L 151.2 112.89 L 153.93 110.08 L 153.32 106.21 Z"
        fill="rgb(0, 0, 0)"
@@ -209,16 +220,9 @@
        pointer-events="all"
        id="path44" />
     <path
-       d="M 300 131 L 246.07 113.92"
-       fill="none"
-       stroke="rgb(0, 0, 0)"
-       stroke-miterlimit="10"
-       pointer-events="stroke"
-       id="path46" />
-    <path
-       d="M 241.07 112.34 L 248.8 111.11 L 246.07 113.92 L 246.68 117.79 Z"
-       fill="rgb(0, 0, 0)"
-       stroke="rgb(0, 0, 0)"
+       d="m 240.46791,111.09422 7.74942,1.10104 -3.43647,1.88139 -0.55677,3.87801 z"
+       fill="#000000"
+       stroke="#000000"
        stroke-miterlimit="10"
        pointer-events="all"
        id="path48" />
