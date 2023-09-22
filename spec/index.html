@@ -327,14 +327,14 @@
       For example, the two graphs represented  by the following texts:</p>
 
     <p><code>ex:a ex:p _:x . </code><br/><br/>
-      <img src="RDF12SemanticsDiagrams/example1.jpg" alt="Graph 1" /></p>
+      <img src="RDF12SemanticsDiagrams/example1.svg" alt="Graph 1" /></p>
 
     <p><code>ex:b ex:q _:x . </code><br/><br/>
-      <img src="RDF12SemanticsDiagrams/example2.jpg" alt="Graph 2" ></p>
+      <img src="RDF12SemanticsDiagrams/example2.svg" alt="Graph 2" ></p>
 
     <p>contain four nodes. Their union would therefore also contain four nodes:</p>
 
-    <p><img src="RDF12SemanticsDiagrams/example4.jpg" alt="Union Graph"></p>
+    <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Union Graph"></p>
 
     <p>However, the document formed by simply concatenating these textual surface representations:</p>
 
@@ -343,7 +343,7 @@
 
     <p>describes a graph containing three nodes:</p>
 
-    <p><img src="RDF12SemanticsDiagrams/example3.jpg" alt="Incorrect Union Graph"></p>
+    <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Incorrect Union Graph"></p>
 
     <p> since the two occurrences of the blank node identifier "<code>_:x</code>" occurring in a common identifier scope identify the same blank node. The four-node union of these two graphs is more properly described by a surface form such as:</p>
 
@@ -367,11 +367,11 @@
       The merge of <a>subgraphs</a> of a graph may be larger than the original graph.
       For example, the result of merging the two singleton subgraphs of the three-node graph</p>
 
-    <p><img src="RDF12SemanticsDiagrams/example3.jpg" alt="Three-node Graph"></p>
+    <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Three-node Graph"></p>
 
     <p>is the four-node graph</p>
 
-    <p><img src="RDF12SemanticsDiagrams/example4.jpg" alt="Four-node Graph"></p>
+    <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Four-node Graph"></p>
 
     <p>The union is always an instance of the merge. If graphs have no blank nodes in common, then their merge and union are identical. </p>
   </section>
@@ -531,7 +531,7 @@
 
       <p> The semantics for blank nodes are stated in terms of the truth of a graph. However, when two (or more) graphs share a blank node, their meaning is not fully captured by treating them in isolation. For example, consider the overlapping graphs</p>
 
-      <p><img src="RDF12SemanticsDiagrams/example5.jpg" alt="Overlapping Graphs"></p> 
+      <p><img src="RDF12SemanticsDiagrams/example5.svg" alt="Overlapping Graphs" style="max-width: 100%"></p> 
 
       <p> and a simple interpretation I over the universe {Alice, Bob, Monica, Ruth} with:<br/>
         I(<code>ex:Alice</code>)=Alice, I(<code>ex:Bob</code>)=Bob, IEXT(I(<code>ex:hasChild</code>))={&lt;Alice,Monica&gt;,&lt;Bob,Ruth&gt; }<br/></p>
