@@ -1033,6 +1033,25 @@
       <p><code>ex:a ex:p _:x . <br/>
        _:x rdf:type xsd:integer . </code></p>
 
+      <p>The last semantic condition above also justifies the following entailment pattern:</p>
+
+      <table>
+        <tbody>
+          <tr>
+            <th > </th>
+            <th ><strong>any S</strong></th>
+            <th ><strong>then S RDF entails, recognizing D</strong></th>
+          </tr>
+          <tr >
+            <td class="othertable"><dfn>rdfD1a</dfn></td>
+            <td class="othertable">for ddd in D with non-empty value space</td>
+            <td class="othertable">_:nnn <code>rdf:type</code> ddd <code>.</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
       <p>In addition, the first RDF semantic condition justifies the following entailment pattern:</p>
 
       <table>
@@ -1588,7 +1607,7 @@
     <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
     <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
     <li>If no triples were added in step 2., add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
-    <li>Apply the rules <a>GrdfD1</a> and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
+    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
       with D={<code>rdf:langString</code>, <code>xsd:string</code>}, to the set in all possible ways, to exhaustion.</li>
   </ol>
 
