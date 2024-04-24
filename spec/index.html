@@ -1516,6 +1516,7 @@
   <ol>
     <li>Add to S all the RDF (or RDF and RDFS) axiomatic triples except those containing the container membership property IRIs <code>rdf:_1, rdf:_2, ...</code></li>
     <li>For every container membership property IRI which occurs in E, add the RDF (or RDF and RDFS) axiomatic triples which contain that IRI.</li>
+    <li>For every IRI <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
     <li>Apply the RDF (or RDF and RDFS) inference patterns as rules, adding each conclusion to the graph, to exhaustion; that is, until they generate no new triples.</li>
     <li>Determine if E has an instance which is a subset of the set, i.e. whether the enlarged set <a>simply entails</a> E.</li>
   </ol>
@@ -1607,6 +1608,7 @@
     <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
     <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
     <li>If no triples were added in step 2., add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
+    <li>For every IRI or literal <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
     <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
       with D={<code>rdf:langString</code>, <code>xsd:string</code>}, to the set in all possible ways, to exhaustion.</li>
   </ol>
