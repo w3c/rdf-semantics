@@ -42,7 +42,7 @@
   <style>
   .semantictable {background-color: #FFFFAA; padding:0.5em;}
   .ruletable {background-color: #DDDDFF; padding:0.5em;}
-  .othertable {background-color: #FDFDFD; padding:0.5em;}
+  .othertable {background-color: #FDFDFD; padding:0.2em;}
   .tabletitle {font-size: small; font-weight: bolder;}
 
   .technote {
@@ -54,11 +54,11 @@
   }
 
   .technote::before {
-      content:    "Technical Note";
-      display:    block;
+      content: "Technical Note";
+      display: block;
       width:  150px;
       margin: -1.5em 0 0.5em 0;
-      font-weight:    bold;
+      font-weight: bold;
       border: 1px solid #cff6d9;
       background: #eff;
       padding:    3px 1em;
@@ -66,22 +66,22 @@
 
 
   .changenote {
-      font-size:small;
+      font-size: small;
       margin: 1em 0em 0em;
-      padding:    1em;
+      padding: 1em;
       border: 2px solid #cff6d9;
       background: #ffddfe;
   }
 
   .changenote::before {
-      content:    "Change Note";
-      display:    block;
+      content: "Change Note";
+      display: block;
       width:  150px;
       margin: -1.5em 0 0.5em 0;
-      font-weight:    bold;
+      font-weight: bold;
       border: 1px solid #cff6d9;
       background: #ffddef;
-      padding:    3px 1em;
+      padding: 3px 1em;
   }
 
 
@@ -94,10 +94,18 @@
       border: 1px solid black
   }
 
-    table { border-collapse:collapse; }
-    table, td, th { border:1px solid black; }
+    table { border-collapse: collapse; }
+    table, td, th { border: 1px solid black; }
     caption { font-weight: bold; text-align: left ; }
-    code {color: #ff4500;}  /* Old W3C Style */
+    code { color: #ff4500; }  /* Old W3C Style */
+    table { word-break: normal; overflow-wrap: anywhere !important; }
+    table tr td:first-child { overflow-wrap: break-word; }
+    @media (max-width: 550px) {
+        table th, table td { font-size: 14px; padding: 3px 4px;}
+        table td.semantictable, table td.ruletable { font-size: 14px;}
+        .othertable {padding: 4px;}
+        img {max-width: 85vw;}
+    }  
   </style>
 </head>
 <body>
