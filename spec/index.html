@@ -330,11 +330,11 @@
       <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
       <p>Suppose that M is a functional mapping from a set of blank
         nodes to some set of literals, blank nodes and IRIs. Any graph obtained
-        from a graph G by replacing some or all of the blank nodes N in G by M(N) is
-        an <dfn>instance</dfn> of G. Any graph is an instance of itself,
-        an instance of an instance of G is an instance of G,
-        and if H is an instance of G then every triple in H is an instance of at least one triple
-        in G.
+        from a graph <em>G</em> by replacing some or all of the blank nodes <em>N</em> in <em>G</em> by <em>M(N)</em> is
+        an <dfn>instance</dfn> of <em>G</em>. Any graph is an instance of itself,
+        an instance of an instance of <em>G</em> is an instance of <em>G</em>,
+        and if <em>H</em> is an instance of <em>G</em> then every triple in <em>H</em> is an instance of at least one triple
+        in <em>G</em>.
       </p>
       <p>An <dfn class="no-export lint-ignore">instance with respect to</dfn> a vocabulary
         V is an <a>instance</a> in which all the
@@ -494,7 +494,7 @@
         from its set-theoretic extension.
         A similar technique is used in the ISO/IEC Common Logic standard [[?ISO24707]].
       </p>
-      <p>The referent of a ground RDF graph in a simple interpretation I is then given by the following rules,
+      <p>The referent of a ground RDF graph in a simple interpretation <em>I</em> is then given by the following rules,
         where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:
       </p>
       <section class="notoc">
@@ -515,7 +515,7 @@
           </p>
         </div>
       </section>
-      <p>If IL(E) is undefined for some literal E then E has no semantic value,
+      <p>If IL(E) is undefined for some literal <em>E</em> then <em>E</em> has no semantic value,
         so any triple containing it will be false,
         so any graph containing that triple will also be false.
       </p>
@@ -537,7 +537,7 @@
           without using an IRI to <a>identify</a> any particular thing.
           This is not the same as assuming that the blank node indicates an 'unknown' IRI.
         </p>
-        <p>Suppose I is a simple interpretation and A is a mapping from a set of blank nodes
+        <p>Suppose <em>I</em> is a simple interpretation and A is a mapping from a set of blank nodes
           to the universe IR of I.
           Define the mapping <em>[I+A]</em> to be <em>I</em> on <a>names</a>,
           and A on blank nodes on the set: <em>[I+A](x)=I(x)</em> when <em>x</em> is a <a>name</a>
@@ -564,8 +564,8 @@
           <h3>Shared blank nodes (Informative)</h3>
           <p> The semantics for blank nodes are stated in terms of the truth of a graph. However, when two (or more) graphs share a blank node, their meaning is not fully captured by treating them in isolation. For example, consider the overlapping graphs</p>
           <p><img src="RDF12SemanticsDiagrams/example5.svg" alt="Overlapping Graphs" style="max-width: 100%"></p>
-          <p> and a simple interpretation I over the universe {Alice, Bob, Monica, Ruth} with:<br>
-            I(<code>ex:Alice</code>)=Alice, I(<code>ex:Bob</code>)=Bob, IEXT(I(<code>ex:hasChild</code>))={&lt;Alice,Monica&gt;,&lt;Bob,Ruth&gt; }<br>
+          <p> and a simple interpretation <em>I</em> over the universe {Alice, Bob, Monica, Ruth} with:<br>
+            <em>I(<code>ex:Alice</code>)=Alice</em>, <em>I(<code>ex:Bob</code>)=Bob</em>, <em>IEXT(I(<code>ex:hasChild</code>))={&lt;Alice,Monica&gt;,&lt;Bob,Ruth&gt; }</em><br>
           </p>
           <p>Each of the inner graphs is true under this interpretation,
             but the two of them together is not,
@@ -598,8 +598,8 @@
           when a simple interpretation exists which <a>satisfies</a> it,
           otherwise (simply) <dfn>unsatisfiable</dfn>,
           and that a graph <em>G</em> simply <dfn  id="dfn-entail" data-cite="RDF12-CONCEPTS#dfn-entailment" data-lt="entail" data-local-lt="simple entailment|entailment">entails</dfn>
-          a graph E when every interpretation which <a>satisfies</a> <em>G</em> also satisfies <em>E</em>.
-          If two graphs E and F each entail the other then they are logically <dfn  id="dfn-equivalent" data-cite="RDF12-CONCEPTS#dfn-equivalence">equivalent</dfn>.
+          a graph <em>E</em> when every interpretation which <a>satisfies</a> <em>G</em> also satisfies <em>E</em>.
+          If two graphs <em>E</em> and <em>F</em> each entail the other then they are logically <dfn id="dfn-equivalent" data-cite="RDF12-CONCEPTS#dfn-equivalence">equivalent</dfn>.
           If there are no (simple) interpretations that satisfy a graph then that graph is 
           <dfn id="dfn-inconsistent" data-cite="RDF12-CONCEPTS#dfn-inconsistent">inconsistent</dfn>.
         </p>
@@ -670,7 +670,7 @@
           For example, a graph containing an <a>ill-typed</a> literal is <a>D-unsatisfiable</a>.
         </p>
         <p>The following <dfn>interpolation</dfn> <strong>lemma</strong> </p>
-        <p class="fact">G <a>simply entails</a> a graph E if and only if a <a>subgraph</a> of G is an instance of E.</p>
+        <p class="fact"><em>G</em> <a>simply entails</a> a graph <em>E</em> if and only if a <a>subgraph</a> of <em>G</em> is an instance of <em>E</em>.</p>
         <p>completely characterizes simple entailment in syntactic
           terms. To detect whether one RDF graph <a>simply entails</a> another, check that
           there is some instance of the entailed graph which is a subset of the first graph.
@@ -679,8 +679,8 @@
           since one can encode the NP-hard <a>subgraph</a> problem (detecting whether
           one mathematical graph is a subgraph of another) as detecting simple entailment between RDF graphs.
           This construction (due to Jeremy Carroll) uses graphs all of whose nodes are blank nodes.
-          The complexity of checking simple entailment is reduced by having fewer blank nodes in the conclusion E.
-          When E is a <a>ground</a> graph, it is simply a matter of checking the subset relationship on sets of triples.
+          The complexity of checking simple entailment is reduced by having fewer blank nodes in the conclusion <em>E</em>.
+          When <em>E</em> is a <a>ground</a> graph, it is simply a matter of checking the subset relationship on sets of triples.
         </p>
         <p><a>Interpolation</a> has a number of direct consequences, for example:</p>
         <p class="fact">
@@ -698,22 +698,22 @@
           <!-- <a href="#instlemprf" class="termref"> [Proof]</a> -->
         </p>
         <p class="fact"> If
-          E is a <a>lean</a> graph and E' is a <a>proper instance</a> of E, then E does
+          <em>E</em> is a <a>lean</a> graph and <em>E'</em> is a <a>proper instance</a> of E, then <em>E</em> does
           not simply entail E'.
         </p>
         <p class="fact">
-          If S is a <a>subgraph</a> of S' and S <a>simply entails</a> E, then S' <a>simply entails</a> E.
+          If <em>S</em> is a <a>subgraph</a> of <em>S'</em> and <em>S</em> <a>simply entails</a> E, then <em>S'</em> <a>simply entails</a> E.
           <!-- <a href="#monotonicitylemmaprf" class="termref"> [Proof]</a> -->
         </p>
         <p class="fact">
-          If S entails a finite graph E, then some finite subset S' of S entails E.
+          If <em>S</em> entails a finite graph E, then some finite subset <em>S'</em> of <em>S</em> entails E.
           <!-- <a href="#compactlemmaprf" class="termref"> [Proof]</a> -->
         </p>
         <p>The property just above is called <em>compactness</em> - RDF is compact.
           As RDF graphs can be infinite, this is sometimes important.
         </p>
-        <p class="fact"> If E contains an IRI which does not occur anywhere in S,
-          then S does not simply entail E.
+        <p class="fact"> If <em>E</em> contains an IRI which does not occur anywhere in <em>S</em>,
+          then <em>S</em> does not simply entail E.
         </p>
       </section>
     </section>
@@ -726,19 +726,19 @@
         See <a data-cite="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
         for a fuller discussion.
       </p>
-      <p>Suppose G is a graph containing blank nodes and sk is a skolemization mapping
-        from the blank nodes in G to the skolem IRIs which are substituted for them,
-        so that sk(G) is a skolemization of G.
+      <p>Suppose <em>G</em> is a graph containing blank nodes and sk is a skolemization mapping
+        from the blank nodes in <em>G</em> to the skolem IRIs which are substituted for them,
+        so that <em>sk(G)</em> is a skolemization of <em>G</em>.
         Then the semantic relationship between them can be summarized as follows.
       </p>
-      <p class="fact">sk(G) <a>simply entails</a> G (since sk(G) is an instance of G.)</p>
-      <p class="fact">G does not simply entail sk(G) (since sk(G) contains IRIs not in G.) </p>
-      <p class="fact">For any graph H, if sk(G) <a>simply entails</a> H then there is a graph H' such that G entails H' and H=sk(H') . </p>
-      <p class="fact">For any graph H which does not contain any of the "new" IRIs introduced into sk(G),
-        sk(G) <a>simply entails</a> H if and only if G <a>simply entails</a> H.
+      <p class="fact"><em>sk(G)</em> <a>simply entails</a> <em>G</em> (since <em>sk(G)</em> is an instance of <em>G</em>.)</p>
+      <p class="fact">G does not simply entail <em>sk(G)</em> (since <em>sk(G)</em> contains IRIs not in <em>G</em>.) </p>
+      <p class="fact">For any graph <em>H</em>, if <em>sk(G)</em> <a>simply entails</a> <em>H</em> then there is a graph H' such that <em>G</em> entails <em>H'</em> and <em>H=sk(H')</em>.</p>
+      <p class="fact">For any graph <em>H</em> which does not contain any of the "new" IRIs introduced into <em>sk(G)</em>,
+        <em>sk(G)</em> <a>simply entails</a> <em>H</em> if and only if <em>G</em> <a>simply entails</a> <em>H</em>.
       </p>
       <p>The second property means that a graph is not logically <a>equivalent</a> to its skolemization.
-        Nevertheless, they are in a strong sense almost interchangeable, as shown the next two properties. The third property means that even when conclusions are drawn from the skolemized graph which do contain the new vocabulary, these will exactly mirror what could have been derived from the original graph with the original blank nodes in place. The replacement of blank nodes by IRIs does not effectively alter what can be validly derived from the graph, other than by giving new names to what were formerly anonymous entities. The fourth property, which is a consequence of the third, clearly shows that in some sense  a skolemization of G can "stand in for" G as far as entailments are concerned. Using sk(G) instead of G will not affect any entailments which do not involve the new skolem vocabulary.  
+        Nevertheless, they are in a strong sense almost interchangeable, as shown the next two properties. The third property means that even when conclusions are drawn from the skolemized graph which do contain the new vocabulary, these will exactly mirror what could have been derived from the original graph with the original blank nodes in place. The replacement of blank nodes by IRIs does not effectively alter what can be validly derived from the graph, other than by giving new names to what were formerly anonymous entities. The fourth property, which is a consequence of the third, clearly shows that in some sense  a skolemization of <em>G</em> can "stand in for" <em>G</em> as far as entailments are concerned. Using <em>sk(G)</em> instead of <em>G</em> will not affect any entailments which do not involve the new skolem vocabulary.  
       </p>
     </section>
     <section id="datatypes">
@@ -878,9 +878,9 @@
         <h3>Datatype entailment</h3>
         <p>A graph is (simply) <dfn class="no-export lint-ignore">D-satisfiable</dfn> or
           <dfn class="no-export lint-ignore">satisfiable recognizing D</dfn> when it has the value true
-          in some D-interpretation, and a graph S (simply) <dfn>D-entails</dfn> or
-          <dfn>entails recognizing D</dfn> a graph G when every D-interpretation which
-          <a>satisfies</a> S also D-satisfies G.
+          in some D-interpretation, and a graph <em>S</em> (simply) <dfn>D-entails</dfn> or
+          <dfn>entails recognizing D</dfn> a graph <em>G</em> when every D-interpretation which
+          <a>satisfies</a> <em>S</em> also D-satisfies <em>G</em>.
         </p>
         <p> Unlike the case with <a>simple interpretation</a>s,
           it is possible for a graph to have no satisfying D-interpretations
@@ -898,9 +898,9 @@
         <p>In all of this language, 'D' is being used as a parameter to represent some set of datatype IRIs,
           and different D sets will yield different notions of satisfiability and entailment.
           The more datatypes are <a>recognized</a>, the stronger is the entailment,
-          so that if D &subset; E and S E-entails G then S must <a>D-entail</a> G.
+          so that if D &subset; <em>E</em> and <em>S</em> E-entails <em>G</em> then <em>S</em> must <a>D-entail</a> <em>G</em>.
           Simple entailment is {&nbsp;}-entailment, i.e. D-entailment when D is the empty set,
-          so if S <a>D-entails</a> G  then S <a>simply entails</a> G. 
+          so if <em>S</em> <a>D-entails</a> <em>G</em> then <em>S</em> <a>simply entails</a> <em>G</em>. 
         </p>
         <section id="datatype_entailment_patterns" class="informative">
           <h4>Patterns of datatype entailment (Informative)</h4>
@@ -995,11 +995,11 @@
       </p>
       <section id="rdf_entail">
         <h3>RDF entailment</h3>
-        <p>S <dfn>RDF entail</dfn><strong>s</strong> E <strong>recognizing D</strong>
+        <p><em>S</em> <dfn>RDF entail</dfn><strong>s</strong> <em>E</em> <strong>recognizing D</strong>
           when every <a>RDF interpretation</a> recognizing D which <a>satisfies</a>
-          S also satisfies E. When D is {<code>rdf:langString</code>, <code>xsd:string</code>}
-          then we simply say S <strong>RDF entails</strong> E.
-          E is <dfn>RDF unsatisfiable</dfn><strong> (recognizing D)</strong>
+          <em>S</em> also satisfies E. When D is {<code>rdf:langString</code>, <code>xsd:string</code>}
+          then we simply say <em>S</em> <strong>RDF entails</strong> E.
+          <em>E</em> is <dfn>RDF unsatisfiable</dfn><strong> (recognizing D)</strong>
           when it has no satisfying <a>RDF interpretation</a> (recognizing D).
         </p>
         <p>The properties of <a>simple entailment</a> described earlier do not all apply to <a>RDF entail</a>ment.
@@ -1014,8 +1014,8 @@
             <tbody>
               <tr>
                 <th > </th>
-                <th ><strong>if S contains</strong></th>
-                <th ><strong>then S RDF entails, recognizing D</strong></th>
+                <th ><strong>if <em>S</em> contains</strong></th>
+                <th ><strong>then <em>S</em> RDF entails, recognizing D</strong></th>
               </tr>
               <tr >
                 <td class="othertable"><dfn>rdfD1</dfn></td>
@@ -1041,7 +1041,7 @@
               <tr>
                 <th> </th>
                 <th><strong>any S</strong></th>
-                <th><strong>then S RDF entails, recognizing D</strong></th>
+                <th><strong>then <em>S</em> RDF entails, recognizing D</strong></th>
               </tr>
               <tr>
                 <td class="othertable"><dfn>rdfD1a</dfn></td>
@@ -1055,8 +1055,8 @@
             <tbody>
               <tr>
                 <th></th>
-                <th><strong>if S contains</strong></th>
-                <th><strong>then S RDF entails, recognizing D</strong></th>
+                <th><strong>if <em>S</em> contains</strong></th>
+                <th><strong>then <em>S</em> RDF entails, recognizing D</strong></th>
               </tr>
               <tr>
                 <td class="othertable"><dfn>rdfD2</dfn></td>
@@ -1229,8 +1229,8 @@
       <p class="changenote">In the 2004 RDF 1.0 semantics, LV was defined as part of a simple interpretation structure,
         and the definition given here was a constraint. 
       </p>
-      <p>Since I is an <a>RDF interpretation</a>, the first condition implies that IP
-        = ICEXT(I(<code>rdf:Property</code>)).
+      <p>Since <em>I</em> is an <a>RDF interpretation</a>, the first condition implies that <em>IP
+        = ICEXT(I(<code>rdf:Property</code>))</em>.
       </p>
       <p>The semantic conditions on <a>RDF interpretation</a>s,
         together with the RDFS conditions on ICEXT, mean that every <a>recognized</a> datatype
@@ -1305,11 +1305,11 @@
       </section>
       <section id="rdfs_entailment">
         <h3>RDFS entailment</h3>
-        <p>S <dfn>RDFS entails</dfn> E <strong>recognizing D</strong> when every <a>RDFS interpretation</a> recognizing D
-          which <a>satisfies</a> S also satisfies E.
+        <p>S <dfn>RDFS entails</dfn> <em>E</em> <strong>recognizing D</strong> when every <a>RDFS interpretation</a> recognizing D
+          which <a>satisfies</a> <em>S</em> also satisfies E.
         </p>
         <p> Since every <a>RDFS interpretation</a> is an <a>RDF interpretation</a>,
-          if S <a>RDFS entails</a> E then S also <a>RDF entail</a>s E;
+          if <em>S</em> <a>RDFS entails</a> <em>E</em> then <em>S</em> also <a>RDF entail</a>s E;
           but RDFS entailment is stronger than RDF entailment.
           Even the empty graph has a large number of RDFS entailments which are not RDF entailments,
           for example all triples of the form 
@@ -1326,8 +1326,8 @@
             <tbody>
               <tr >
                 <th ></th>
-                <th >If S contains:</th>
-                <th >then S RDFS <a>entails recognizing D</a>:</th>
+                <th >If <em>S</em> contains:</th>
+                <th >then <em>S</em> RDFS <a>entails recognizing D</a>:</th>
               </tr>
               <tr >
                 <td class="othertable"><dfn>rdfs1</dfn></td>
@@ -1470,18 +1470,18 @@
       </p>
       <p>The RDF and RDFS entailment patterns listed in the above tables can be viewed
         as left-to-right rules which add the entailed conclusion to a graph.
-        These rule sets can be used to check RDF (or RDFS) entailment between graphs S and E,
+        These rule sets can be used to check RDF (or RDFS) entailment between graphs <em>S</em> and E,
         by the following sequence of operations:
       </p>
       <ol>
-        <li>Add to S all the RDF (or RDF and RDFS) axiomatic triples except those containing the container membership property IRIs <code>rdf:_1, rdf:_2, ...</code></li>
+        <li>Add to <em>S</em> all the RDF (or RDF and RDFS) axiomatic triples except those containing the container membership property IRIs <code>rdf:_1, rdf:_2, ...</code></li>
         <li>For every container membership property IRI which occurs in E, add the RDF (or RDF and RDFS) axiomatic triples which contain that IRI.</li>
         <li>For every IRI <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
         <li>Apply the RDF (or RDF and RDFS) inference patterns as rules, adding each conclusion to the graph, to exhaustion; that is, until they generate no new triples.</li>
-        <li>Determine if E has an instance which is a subset of the set, i.e., whether the enlarged set <a>simply entails</a> E.</li>
+        <li>Determine if <em>E</em> has an instance which is a subset of the set, i.e., whether the enlarged set <a>simply entails</a> <em>E</em>.</li>
       </ol>
-      <p>This process is clearly correct, in that if it gives a positive result then indeed S does RDF (RDFS) entail E.
-        It is not, however, complete: there are cases of S entailing E which are not detectable by this process. Examples include:
+      <p>This process is clearly correct, in that if it gives a positive result then indeed <em>S</em> does RDF (RDFS) entail <em>E</em>.
+        It is not, however, complete: there are cases of <em>S</em> entailing <em>E</em> which are not detectable by this process. Examples include:
       </p>
       <table>
         <thead>
@@ -1529,8 +1529,8 @@
         <tbody>
           <tr>
             <th > </th>
-            <th ><strong>if S contains</strong></th>
-            <th ><strong>then S RDF entails, recognizing D</strong></th>
+            <th ><strong>if <em>S</em> contains</strong></th>
+            <th ><strong>then <em>S</em> RDF entails, recognizing D</strong></th>
           </tr>
           <tr >
             <td class="othertable"><dfn>GrdfD1</dfn></td>
@@ -1556,11 +1556,11 @@
       </p>
       <p>Where the entailment patterns have been applied to generalized RDF syntax but yield a final conclusion which is legal RDF.</p>
       <p>With the generalized syntax, these rules are complete for both RDF and RDFS entailment. Stated exactly:</p>
-      <p>Let S and E be RDF graphs. Define the <dfn>generalized RDF (RDFS) closure</dfn> <strong>of S towards E</strong>
+      <p>Let <em>S</em> and <em>E</em> be RDF graphs. Define the <dfn>generalized RDF (RDFS) closure</dfn> <strong>of <em>S</em> towards E</strong>
         to be the set obtained by the following procedure.
       </p>
       <ol>
-        <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
+        <li>Add to <em>S</em> all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
         <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
         <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
         <li>For every IRI or literal <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
@@ -1569,11 +1569,11 @@
         </li>
       </ol>
       <p>Then we have the completeness result:</p>
-      <p class="fact">If S is RDF (RDFS) consistent, then S RDF entails (RDFS entails) E just
-        when the <a>generalized RDF (RDFS) closure</a> of S towards E <a>simply entails</a> E. 
+      <p class="fact">If <em>S</em> is RDF (RDFS) consistent, then <em>S</em> RDF entails (RDFS entails) <em>E</em> just
+        when the <a>generalized RDF (RDFS) closure</a> of <em>S</em> towards <em>E</em> <a>simply entails</a> <em>E</em>. 
       </p>
       <p>The closures are finite. The generation process is decidable and of polynomial complexity.
-        Detecting simple entailment is NP-complete in general, but of low polynomial order when E contains no blank nodes.
+        Detecting simple entailment is NP-complete in general, but of low polynomial order when <em>E</em> contains no blank nodes.
       </p>
       <p>Every RDF(S) closure, even starting with the empty graph,
         will contain all RDF(S) tautologies which can be expressed using the vocabulary of the original graph
@@ -1604,12 +1604,12 @@
         whose universes are at most as big as the number of names and blank nodes in the graphs.
         More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> V to be a structure I
         similar to a <a>simple interpretation</a> but with a mapping only from V to its universe IR.
-        Then when determining whether G entails E, consider only pre-interpretations over the finite vocabulary
-        of <a>names</a> actually used in G union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in G or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.
+        Then when determining whether <em>G</em> entails E, consider only pre-interpretations over the finite vocabulary
+        of <a>names</a> actually used in <em>G</em> union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in <em>G</em> or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.
       </p>
       <p>When considering D-entailment, <a>pre-interpretation</a>s may be kept finite
-        by weakening the semantic conditions for literals so that IR needs to contain literal values
-        only for literals which actually occur in G or E, and the size of the universe restricted to (N+B)×(D+1),
+        by weakening the semantic conditions for literals so that <em>IR</em> needs to contain literal values
+        only for literals which actually occur in <em>G</em> or <em>E</em>, and the size of the universe restricted to (N+B)×(D+1),
         where D is the number of recognized datatypes.
         (A tighter bound is possible.) For RDF entailment,
         only the finite part of the RDF vocabulary which includes those container membership properties
@@ -1634,65 +1634,65 @@
         <!-- <a href="#emptygraphlemmaprf" class="termref">[Proof]</a> -->
       </p>
       <p>The empty graph is true in all simple interpretations, so is entailed by any graph.
-        If G contains a triple &lt;a b c&gt;, then any simple interpretation I with IEXT(I(b))={ } makes G false;
-        so the empty graph does not entail G. QED.
+        If <em>G</em> contains a triple &lt;a b c&gt;, then any simple interpretation <em>I</em> with <em>IEXT(I(b))={ }</em> makes <em>G</em> false;
+        so the empty graph does not entail <em>G</em>. QED.
       </p>
       <p class="fact">
         A graph <a>simply entails</a> all its <a>subgraphs</a>.
         <!-- <a href="#subglemprf" class="termref">[Proof]</a> -->
       </p>
-      <p>If I <a>satisfies</a> G then it satisfies every triple in G, hence every triple in any subset of G. QED.</p>
+      <p>If <em>I</em> <a>satisfies</a> <em>G</em> then it satisfies every triple in G, hence every triple in any subset of <em>G</em>. QED.</p>
       <p class="fact">
         A graph
         is simply entailed by any of its <a>instance</a>s.
         <!-- <a href="#instlemprf" class="termref"> [Proof]</a> -->
       </p>
-      <p>Suppose H is an instance of G with the instantiation mapping M, and that I <a>satisfies</a> H.
-        For blank nodes n in G which are not in H define A(n)=I(M(n)); then I+A satisfies G, so I satisfies G. QED.
+      <p>Suppose <em>H</em> is an instance of <em>G</em> with the instantiation mapping <em>M</em>, and that <em>I</em> <a>satisfies</a> <em>H</em>.
+        For blank nodes <em>n</em> in <em>G</em> which are not in <em>H</em> define <em>A(n)=I(M(n))</em>; then <em>I+A</em> satisfies <em>G</em>, so <em>I</em> satisfies <em>G</em>. QED.
       </p>
       <p class="fact">Every graph is simply <a>satisfiable</a>.</p>
-      <p>Consider the simple interpretation with universe {x}, IEXT(x)= &lt;x,x &gt; and I(aaa)=x for any IRI aaa. This interpretation satisfies every RDF graph. QED.</p>
+      <p>Consider the simple interpretation with universe {x}, <em>IEXT(x)= &lt;x,x &gt;</em> and <em>I(aaa)=x</em> for any IRI <em>aaa</em>. This interpretation satisfies every RDF graph. QED.</p>
       <p class="fact">
-        G <a>simply entails</a> a graph E if and only if a <a>subgraph</a> of G is an instance of E.
+        <em>G</em> <a>simply entails</a> a graph <em>E</em> if and only if a <a>subgraph</a> of <em>G</em> is an instance of <em>E</em>.
       </p>
-      <p>If a <a>subgraph</a> E' of G is an instance of E then G entails E' which entails E,
-        so G entails E. Now suppose G entails E, and consider the
-        <a href="http://en.wikipedia.org/wiki/Herbrand_interpretation">Herbrand interpretation</a> I of G defined as follows.
-        IR contains the <a>names</a> and blank nodes which occur in the graph, with I(n)=n
-        for each <a>name</a> n; n is in IP and &lt;a, b&gt; in IEXT(n) just when the triple &lt;a n b&gt; is in the graph.
-        (For IRIs which do not occur in the graph, assign them values in IR at random.)
-        I <a>satisfies</a> every triple &lt;s p o&gt; in E; that is,
-        for some mapping A from the blank nodes of E to the vocabulary of G,
-        the triple &lt;[I+A](s) I(p) [I+A](o)&gt; occurs in G. But this is an instance of &lt;s p o&gt;
-        under the instance mapping A; so an instance of E is a <a>subgraph</a> of G. QED.
+      <p>If a <a>subgraph</a> <em>E'</em> of <em>G</em> is an instance of <em>E</em> then <em>G</em> entails <em>E'</em> which entails <em>E</em>,
+        so <em>G</em> entails <em>E</em>. Now suppose <em>G</em> entails <em>E</em>, and consider the
+        <a href="http://en.wikipedia.org/wiki/Herbrand_interpretation">Herbrand interpretation</a> <em>I</em> of <em>G</em> defined as follows.
+        IR contains the <a>names</a> and blank nodes which occur in the graph, with <em>I(n)=n</em>
+        for each <a>name</a> <em>n</em>; <em>n</em> is in <em>IP</em> and <em>&lt;a, b&gt;</em> in <em>IEXT(n)</em> just when the triple <em>&lt;a n b&gt;</em> is in the graph.
+        (For IRIs which do not occur in the graph, assign them values in <em>IR</em> at random.)
+        <em>I</em> <a>satisfies</a> every triple <em>&lt;s p o&gt;</em> in <em>E</em>; that is,
+        for some mapping <em>A</em> from the blank nodes of <em>E</em> to the vocabulary of <em>G</em>,
+        the triple <em>&lt;[I+A](s) I(p) [I+A](o)&gt;</em> occurs in <em>G</em>. But this is an instance of <em>&lt;s p o&gt;</em>
+        under the instance mapping A; so an instance of <em>E</em> is a <a>subgraph</a> of <em>G</em>. QED.
       </p>
-      <p class="fact">if E is lean and E' is a proper instance of E, then E does not simply entail E'.</p>
-      <p>Suppose E entails E', then a <a>subgraph</a> of E is an instance of E', which is a proper instance of E;
-        so a <a>subgraph</a> of E is a proper instance of E, so E is not lean. QED.
+      <p class="fact">if <em>E</em> is lean and <em>E'</em> is a proper instance of <em>E</em>, then <em>E</em> does not simply entail <em>E'</em>.</p>
+      <p>Suppose <em>E</em> entails <em>E'</em>, then a <a>subgraph</a> of <em>E</em> is an instance of <em>E'</em>, which is a proper instance of <em>E</em>;
+        so a <a>subgraph</a> of <em>E</em> is a proper instance of E, so <em>E</em> is not lean. QED.
       </p>
-      <p class="fact">If E contains an IRI which does not occur in S, then S does not simply entail E.</p>
-      <p>IF S entails E then a <a>subgraph</a> of S is an instance of E,
-        so every IRI in E must occur in that <a>subgraph</a>,
-        so must occur in S. QED.
+      <p class="fact">If <em>E</em> contains an IRI which does not occur in <em>S</em>, then <em>S</em> does not simply entail <em>E</em>.</p>
+      <p>IF <em>S</em> entails <em>E</em> then a <a>subgraph</a> of <em>S</em> is an instance of <em>E</em>,
+        so every IRI in <em>E</em> must occur in that <a>subgraph</a>,
+        so must occur in <em>S</em>. QED.
       </p>
-      <p class="fact">For any graph H, if sk(G) <a>simply entails</a> H then there is a graph H'
-        such that G entails H' and H=sk(H').
+      <p class="fact">For any graph H, if <em>sk(G)</em> <a>simply entails</a> <em>H</em> then there is a graph <em>H'</em>
+        such that <em>G</em> entails H' and H=sk(H').
       </p>
       <p>The skolemization mapping sk substitutes a unique new IRI for each blank node,
         so it is 1:1, so has an inverse. Define ks to be the inverse mapping
         which replaces each skolem IRI by the blank node it replaced.
-        Since sk(G) entails H, a <a>subgraph</a> of sk(G) is an instance of H,
+        Since <em>sk(G)</em> entails H, a <a>subgraph</a> of <em>sk(G)</em> is an instance of <em>H</em>,
         say A(H) for some instance mapping A on the blank nodes in H.
-        Then ks(A(H)) is a <a>subgraph</a> of G; and ks(A(H))=A(ks(H)) since
+        Then ks(A(H)) is a <a>subgraph</a> of <em>G</em>; and <em>ks(A(H))=A(ks(H))</em> since
         the domains of A and ks are disjoint.
-        So ks(H) has an instance which is a <a>subgraph</a> of G,
-        so is entailed by G; and H=sk(ks(H)). QED.
+        So ks(H) has an instance which is a <a>subgraph</a> of <em>G</em>,
+        so is entailed by <em>G</em>; and <em>H=sk(ks(H))</em>. QED.
       </p>
-      <p class="fact">For any graph H which does not contain any of the "new" IRIs introduced into sk(G),
-        sk(G) <a>simply entails</a> H if and only if G <a>simply entails</a> H.
+      <p class="fact">For any graph <em>H</em> which does not contain any of the "new" IRIs introduced into <em>sk(G)</em>,
+        <em>sk(G)</em> <a>simply entails</a> <em>H</em> if and only if <em>G</em> <a>simply entails</a> <em>H</em>.
       </p>
-      <p>Using the terminology in the previous proof: if H does not contain any skolem IRIs, then H=ks(H).
-        So if sk(G) entails H then G entails ks(H)=H; and if G entails H then sk(G) entails G entails H, so sk(G) entails H. QED.
+      <p>Using the terminology in the previous proof: if <em>H</em> does not contain any skolem IRIs, then H=ks(H).
+        So if <em>sk(G)</em> entails <em>H</em> then <em>G</em> entails ks(H)=H; and if <em>G</em> entails <em>H</em> then <em>sk(G)</em> entails <em>G</em> entails H, so <em>sk(G)</em> entails H. QED.
       </p>
     </section>
     <section id="whatnot" class="informative appendix">
