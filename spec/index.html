@@ -703,22 +703,22 @@
           <!-- <a href="#instlemprf" class="termref"> [Proof]</a> -->
         </p>
         <p class="fact"> If
-          <em>E</em> is a <a>lean</a> graph and <em>E'</em> is a <a>proper instance</a> of E, then <em>E</em> does
+          <em>E</em> is a <a>lean</a> graph and <em>E'</em> is a <a>proper instance</a> of <em>E</em>, then <em>E</em> does
           not simply entail E'.
         </p>
         <p class="fact">
-          If <em>S</em> is a <a>subgraph</a> of <em>S'</em> and <em>S</em> <a>simply entails</a> E, then <em>S'</em> <a>simply entails</a> E.
+          If <em>S</em> is a <a>subgraph</a> of <em>S'</em> and <em>S</em> <a>simply entails</a> <em>E</em>, then <em>S'</em> <a>simply entails</a> <em>E</em>.
           <!-- <a href="#monotonicitylemmaprf" class="termref"> [Proof]</a> -->
         </p>
         <p class="fact">
-          If <em>S</em> entails a finite graph E, then some finite subset <em>S'</em> of <em>S</em> entails E.
+          If <em>S</em> entails a finite graph <em>E</em>, then some finite subset <em>S'</em> of <em>S</em> entails <em>E</em>.
           <!-- <a href="#compactlemmaprf" class="termref"> [Proof]</a> -->
         </p>
         <p>The property just above is called <em>compactness</em> - RDF is compact.
           As RDF graphs can be infinite, this is sometimes important.
         </p>
         <p class="fact"> If <em>E</em> contains an IRI which does not occur anywhere in <em>S</em>,
-          then <em>S</em> does not simply entail E.
+          then <em>S</em> does not simply entail <em>E</em>.
         </p>
       </section>
     </section>
@@ -1001,8 +1001,8 @@
         <h3>RDF entailment</h3>
         <p><em>S</em> <dfn>RDF entail</dfn><strong>s</strong> <em>E</em> <strong>recognizing D</strong>
           when every <a>RDF interpretation</a> recognizing D which <a>satisfies</a>
-          <em>S</em> also satisfies E. When D is {<code>rdf:langString</code>, <code>xsd:string</code>}
-          then we simply say <em>S</em> <strong>RDF entails</strong> E.
+          <em>S</em> also satisfies <em>E</em>. When D is {<code>rdf:langString</code>, <code>xsd:string</code>}
+          then we simply say <em>S</em> <strong>RDF entails</strong> <em>E</em>.
           <em>E</em> is <dfn>RDF unsatisfiable</dfn><strong> (recognizing D)</strong>
           when it has no satisfying <a>RDF interpretation</a> (recognizing D).
         </p>
@@ -1308,7 +1308,7 @@
       <section id="rdfs_entailment">
         <h3>RDFS entailment</h3>
         <p>S <dfn>RDFS entails</dfn> <em>E</em> <strong>recognizing D</strong> when every <a>RDFS interpretation</a> recognizing D
-          which <a>satisfies</a> <em>S</em> also satisfies E.
+          which <a>satisfies</a> <em>S</em> also satisfies <em>E</em>.
         </p>
         <p> Since every <a>RDFS interpretation</a> is an <a>RDF interpretation</a>,
           if <em>S</em> <a>RDFS entails</a> <em>E</em> then <em>S</em> also <a>RDF entail</a>s E;
@@ -1472,13 +1472,13 @@
       </p>
       <p>The RDF and RDFS entailment patterns listed in the above tables can be viewed
         as left-to-right rules which add the entailed conclusion to a graph.
-        These rule sets can be used to check RDF (or RDFS) entailment between graphs <em>S</em> and E,
+        These rule sets can be used to check RDF (or RDFS) entailment between graphs <em>S</em> and <em>E</em>,
         by the following sequence of operations:
       </p>
       <ol>
         <li>Add to <em>S</em> all the RDF (or RDF and RDFS) axiomatic triples except those containing the container membership property IRIs <code>rdf:_1, rdf:_2, ...</code></li>
-        <li>For every container membership property IRI which occurs in E, add the RDF (or RDF and RDFS) axiomatic triples which contain that IRI.</li>
-        <li>For every IRI <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
+        <li>For every container membership property IRI which occurs in <em>E</em>, add the RDF (or RDF and RDFS) axiomatic triples which contain that IRI.</li>
+        <li>For every IRI <code>aaa</code> used in <em>E</em>, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
         <li>Apply the RDF (or RDF and RDFS) inference patterns as rules, adding each conclusion to the graph, to exhaustion; that is, until they generate no new triples.</li>
         <li>Determine if <em>E</em> has an instance which is a subset of the set, i.e., whether the enlarged set <a>simply entails</a> <em>E</em>.</li>
       </ol>
@@ -1566,9 +1566,9 @@
       </p>
       <ol>
         <li>Add to <em>S</em> all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
-        <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
+        <li>For each container membership property IRI which occurs in <em>E</em>, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
         <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
-        <li>For every IRI or literal <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
+        <li>For every IRI or literal <code>aaa</code> used in <em>E</em>, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
         <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
           with D={<code>rdf:langString</code>, <code>xsd:string</code>}, to the set in all possible ways, to exhaustion.
         </li>
@@ -1607,10 +1607,10 @@
       <p>Basically, it is only necessary for an interpretation structure to interpret the <a>names</a>
         actually used in the graphs whose entailment is being considered, and to consider interpretations
         whose universes are at most as big as the number of names and blank nodes in the graphs.
-        More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> V to be a structure I
+        More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> <em>V</em> to be a structure <em>I</em>
         similar to a <a>simple interpretation</a> but with a mapping only from V to its universe IR.
-        Then when determining whether <em>G</em> entails E, consider only pre-interpretations over the finite vocabulary
-        of <a>names</a> actually used in <em>G</em> union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in <em>G</em> or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.
+        Then when determining whether <em>G</em> entails <em>E</em>, consider only pre-interpretations over the finite vocabulary
+        of <a>names</a> actually used in <em>G</em> union <em>E</em>. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in <em>G</em> or <em>E</em>. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.
       </p>
       <p>When considering D-entailment, <a>pre-interpretation</a>s may be kept finite
         by weakening the semantic conditions for literals so that <em>IR</em> needs to contain literal values
@@ -1646,7 +1646,7 @@
         A graph <a>simply entails</a> all its <a>subgraphs</a>.
         <!-- <a href="#subglemprf" class="termref">[Proof]</a> -->
       </p>
-      <p>If <em>I</em> <a>satisfies</a> <em>G</em> then it satisfies every triple in G, hence every triple in any subset of <em>G</em>. QED.</p>
+      <p>If <em>I</em> <a>satisfies</a> <em>G</em> then it satisfies every triple in <em>G</em>, hence every triple in any subset of <em>G</em>. QED.</p>
       <p class="fact">
         A graph
         is simply entailed by any of its <a>instance</a>s.
@@ -1673,7 +1673,7 @@
       </p>
       <p class="fact">if <em>E</em> is lean and <em>E'</em> is a proper instance of <em>E</em>, then <em>E</em> does not simply entail <em>E'</em>.</p>
       <p>Suppose <em>E</em> entails <em>E'</em>, then a <a>subgraph</a> of <em>E</em> is an instance of <em>E'</em>, which is a proper instance of <em>E</em>;
-        so a <a>subgraph</a> of <em>E</em> is a proper instance of E, so <em>E</em> is not lean. QED.
+        so a <a>subgraph</a> of <em>E</em> is a proper instance of <em>E</em>, so <em>E</em> is not lean. QED.
       </p>
       <p class="fact">If <em>E</em> contains an IRI which does not occur in <em>S</em>, then <em>S</em> does not simply entail <em>E</em>.</p>
       <p>IF <em>S</em> entails <em>E</em> then a <a>subgraph</a> of <em>S</em> is an instance of <em>E</em>,
