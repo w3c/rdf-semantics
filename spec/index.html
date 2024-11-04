@@ -1845,9 +1845,10 @@
         <p>The RDF semantics does not support any entailments which could arise from enumerating
           the elements of an unordered <code>rdf:Bag</code> in a different order. For example,
         </p>
-        <pre class="nohighlight">_:xxx rdf:type rdf:Bag .
-          _:xxx rdf:_1 ex:a .
-          _:xxx rdf:_2 ex:b .
+        <pre class="nohighlight">
+          _:xxx rdf:type rdf:Bag .
+          _:xxx rdf:_1   ex:a .
+          _:xxx rdf:_2   ex:b .
         </pre>
         <p>does not entail</p>
         <pre class="nohighlight">_:xxx rdf:_1 ex:b .
