@@ -1076,8 +1076,9 @@
           <p><code>ex:p rdf:type rdf:Property .</code></p>
           <p> recognizing {<code>xsd:integer</code>}.</p>
           <p>Some datatypes support idiosyncratic entailment patterns which do not hold for other datatypes. For example,</p>
-          <pre class="nohighlight">ex:a ex:p "true"^^xsd:boolean .
-            ex:a ex:p "false"^^xsd:boolean .
+          <pre class="nohighlight">
+            ex:a ex:p     "true"^^xsd:boolean .
+            ex:a ex:p     "false"^^xsd:boolean .
             ex:v rdf:type xsd:boolean .
           </pre>
           <p>together RDF entail</p>
