@@ -1740,10 +1740,11 @@
           Assuming that the IRI can be used to denote the triple,
           then the reification vocabulary allows us to describe the first graph in another graph:
         </p>
-        <pre class="nohighlight">ex:graph1 rdf:type rdf:Statement .
-          ex:graph1 rdf:subject ex:a .
+        <pre class="nohighlight">
+          ex:graph1 rdf:type      rdf:Statement .
+          ex:graph1 rdf:subject   ex:a .
           ex:graph1 rdf:predicate ex:b .
-          ex:graph1 rdf:object ex:c .
+          ex:graph1 rdf:object    ex:c .
         </pre>
         <p>The second graph is called a <dfn>reification</dfn> of the triple in the first graph.</p>
         <p>Reification is not a form of quotation. Rather, the reification describes the
