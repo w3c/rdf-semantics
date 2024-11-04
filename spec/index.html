@@ -1423,9 +1423,10 @@
           <p>RDFS provides for several new ways to be <a>unsatisfiable</a> recognizing D.
             For example, the following graph is RDFS unsatisfiable recognizing {<code>xsd:integer</code>, <code>xsd:boolean</code>}:
           </p>
-          <pre class="nohighlight">ex:p rdfs:domain xsd:boolean .
-            ex:a rdf:type xsd:integer .
-            ex:a ex:p ex:c .
+          <pre class="nohighlight">
+            ex:p rdfs:domain xsd:boolean .
+            ex:a rdf:type    xsd:integer .
+            ex:a ex:p        ex:c .
           </pre>
         </section>
       </section>
