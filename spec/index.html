@@ -1927,10 +1927,11 @@
           </pre>
         </p>
         <p>does not entail</p>
-        <pre class="nohighlight">_:c3 rdf:first ex:bbb .
-          _:c3 rdf:rest _:c4 .
+        <pre class="nohighlight">
+          _:c3 rdf:first ex:bbb .
+          _:c3 rdf:rest  _:c4 .
           _:c4 rdf:first ex:aaa .
-          _:c4 rdf:rest rdf:nil .
+          _:c4 rdf:rest  rdf:nil .
         </pre>
         <p>Also, RDF imposes no 'well-formedness' conditions on the use of this
           vocabulary, so that it is possible to write RDF graphs which assert
