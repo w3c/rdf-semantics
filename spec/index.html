@@ -1038,8 +1038,9 @@
           <p>For example,</p>
           <p><code>ex:a ex:p "123"^^xsd:integer .</code></p>
           <p>RDF entails recognizing {<code>xsd:integer</code>}</p>
-          <pre class="nohighlight">ex:a ex:p _:x .
-            _:x rdf:type xsd:integer .
+          <pre class="nohighlight">
+            ex:a ex:p     _:x .
+            _:x  rdf:type xsd:integer .
           </pre>
           <p>The last semantic condition above also justifies the following entailment pattern:</p>
           <table>
