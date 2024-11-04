@@ -1938,10 +1938,11 @@
           the existence of highly peculiar objects such as lists with forked
           or non-list tails, or multiple heads:
         </p>
-        <pre class="nohighlight">_:666 rdf:first ex:aaa .
+        <pre class="nohighlight">
+          _:666 rdf:first ex:aaa .
           _:666 rdf:first ex:bbb .
-          _:666 rdf:rest ex:ccc .
-          _:666 rdf:rest rdf:nil .
+          _:666 rdf:rest  ex:ccc .
+          _:666 rdf:rest  rdf:nil .
         </pre>
         <p>It is also possible to write a set of triples which under-specify a collection
           by failing to specify its <code>rdf:rest</code> property value.
