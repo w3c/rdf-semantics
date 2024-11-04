@@ -1779,15 +1779,16 @@
           entail that the same property holds of another such entity, even if
           it has the same components. For example,
         </p>
-        <pre class="nohighlight">_:xxx rdf:type rdf:Statement .
-          _:xxx rdf:subject ex:subject .
+        <pre class="nohighlight">
+          _:xxx rdf:type      rdf:Statement .
+          _:xxx rdf:subject   ex:subject .
           _:xxx rdf:predicate ex:predicate .
-          _:xxx rdf:object ex:object .
-          _:yyy rdf:type rdf:Statement .
-          _:yyy rdf:subject ex:subject .
+          _:xxx rdf:object    ex:object .
+          _:yyy rdf:type      rdf:Statement .
+          _:yyy rdf:subject   ex:subject .
           _:yyy rdf:predicate ex:predicate .
-          _:yyy rdf:object ex:object .
-          _:xxx ex:property ex:foo .
+          _:yyy rdf:object    ex:object .
+          _:xxx ex:property   ex:foo .
         </pre>
         <p>does not entail</p>
         <p><code>_:yyy ex:property ex:foo .</code></p>
