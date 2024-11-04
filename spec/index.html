@@ -511,10 +511,10 @@
           <span class="space"></span>
           <p>If <em>E</em> is an IRI, then <em>I(E) = IS(E)</em></p>
           <span class="space"></span>
-          <p>If <em>E</em> is a ground triple `s p o.`, then <em>I(E) = true</em> if<br>
-            <em>I(p)</em> is in <em>IP</em> and the pair &lt;<em>I(s)</em>, <em>I(o)</em>&gt;
-            is in <em>IEXT(I(p))</em><br>
-            otherwise <em>I(E) = false</em>.
+          <p>If <em>E</em> is a ground triple `s p o.`, <em>I(p)</em>
+            is in <em>IP</em> and the pair &lt;<em>I(s)</em>, <em>I(o)</em>&gt;
+            is in <em>IEXT(I(p))</em>, then <em>I(E) = true</em>;
+            otherwise, <em>I(E) = false</em>.
           </p>
           <span class="space"></span>
           <p>If <em>E</em> is a ground RDF graph, then <em>I(E) = false</em> if <em>I(E') = false</em> for some triple <em>E'</em> in <em>E</em>, otherwise <em>I(E) = true</em>.
