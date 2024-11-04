@@ -1557,10 +1557,11 @@
       <p>by <a>GrdfD1</a></p>
       <p>which is an instance (in generalized RDF) of the desired conclusion, above.</p>
       <p> The second example can be derived using the RDFS rules:</p>
-      <pre class="nohighlight">ex:a rdfs:subPropertyOf _:b .
-        _:b rdfs:domain ex:c .
-        ex:d ex:a ex:e .
-        ex:d _:b ex:c .
+      <pre class="nohighlight">
+        ex:a rdfs:subPropertyOf _:b .
+        _:b  rdfs:domain        ex:c .
+        ex:d ex:a               ex:e .
+        ex:d _:b                ex:c .
       </pre>
       <p>by <a>rdfs7</a></p>
       <p>
