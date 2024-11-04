@@ -134,6 +134,9 @@
       color: black;
       font-weight: bold;
       }
+      ul.cols {
+      columns: 2;
+      }
     </style>
   </head>
   <body>
@@ -456,11 +459,13 @@
       <section class="notoc">
         <h6 class="defcap">Definition of a Simple Interpretation</h6>
         <div class="semantictable">
-          <p>1. A non-empty set <em>IR</em> of resources, called the domain or universe of <em>I</em>.</p>
-          <p>2. <span>A set <em>IP</em>, called the set of properties of <em>I</em>.</span></p>
-          <p>3. A mapping <em>IEXT</em> from <em>IP</em> into the powerset of <em>IR</em> x <em>IR</em>, i.e., the set of sets of pairs <em>&lt;x, y&gt;</em> with <em>x</em> and <em>y</em> in <em>IR</em>.</p>
-          <p>4. A mapping <em>IS</em> from <em>IRIs</em> into (<em>IR</em> union <em>IP</em>).</p>
-          <p>5. A partial mapping <em>IL</em> from literals into <em>IR</em>.</p>
+          <ol>
+            <li>A non-empty set <em>IR</em> of resources, called the domain or universe of <em>I</em>.</li>
+            <li>A set <em>IP</em>, called the set of properties of <em>I</em>.</li>
+            <li>A mapping <em>IEXT</em> from <em>IP</em> into the powerset of <em>IR</em> x <em>IR</em>, i.e., the set of sets of pairs <em>&lt;x, y&gt;</em> with <em>x</em> and <em>y</em> in <em>IR</em>.</li>
+            <li>A mapping <em>IS</em> from <em>IRIs</em> into (<em>IR</em> union <em>IP</em>).</li>
+            <li>A partial mapping <em>IL</em> from literals into <em>IR</em>.</li>
+          </ol>
         </div>
       </section>
       <div class="changenote">
@@ -947,9 +952,22 @@
         and part of the infinite set of IRIs with the namespace prefix <code>rdf:</code> .
       <section class="notoc">
         <h6 class="defcap"><dfn>RDF vocabulary</dfn></h6>
-        <div>
-          <p><code>rdf:type rdf:subject rdf:predicate rdf:object rdf:first rdf:rest rdf:value rdf:nil rdf:List rdf:langString rdf:Property rdf:_1 rdf:_2 ...</code></p>
-        </div>
+        <ul class="cols">
+          <li><code>rdf:type</code></li>
+          <li><code>rdf:subject</code></li>
+          <li><code>rdf:predicate</code></li>
+          <li><code>rdf:object</code></li>
+          <li><code>rdf:first</code></li>
+          <li><code>rdf:rest</code></li>
+          <li><code>rdf:value</code></li>
+          <li><code>rdf:nil</code></li>
+          <li><code>rdf:List</code></li>
+          <li><code>rdf:langString</code></li>
+          <li><code>rdf:Property</code></li>
+          <li><code>rdf:_1</code></li>
+          <li><code>rdf:_2</code></li>
+          <li><code>...</code></li>
+        </ul>
       </section>
       <p>An <dfn>RDF interpretation</dfn> <strong>recognizing D</strong> is a <a>D-interpretation</a> I
         where D includes <code>rdf:langString</code> and <code>xsd:string</code>, and which satisfies:
@@ -1725,9 +1743,12 @@
         <div class="c1">
           <section class="notoc">
             <h6 class="defcap">RDF Reification Vocabulary</h6>
-            <div class="othertable">
-              <p><code>rdf:Statement rdf:subject rdf:predicate rdf:object</code></p>
-            </div>
+            <ul class="othertable cols">
+              <li><code>rdf:Statement</code></li>
+              <li><code>rdf:subject</code></li>
+              <li><code>rdf:predicate</code></li>
+              <li><code>rdf:object</code></li>
+            </ul>
           </section>
         </div>
         <p>The intended meaning of this vocabulary is to allow an RDF graph to act as metadata describing other RDF triples. </p>
@@ -1797,9 +1818,17 @@
         <h4>RDF containers</h4>
         <section class="notoc">
           <h6 class="defcap">RDF(S) Container Vocabulary</h6>
-          <div class="othertable">
-            <p><code>rdf:Seq rdf:Bag rdf:Alt rdf:_1 rdf:_2 ... rdfs:member rdfs:Container rdfs:ContainerMembershipProperty</code></p>
-          </div>
+          <ul class="othertable cols">
+            <li><code>rdf:Seq</code></li>
+            <li><code>rdf:Bag</code></li>
+            <li><code>rdf:Alt</code></li>
+            <li><code>rdf:_1</code></li>
+            <li><code>rdf:_2</code></li>
+            <li><code>...</code></li>
+            <li><code>rdfs:member</code></li>
+            <li><code>rdfs:Container</code></li>
+            <li><code>rdfs:ContainerMembershipProperty</code></li>
+          </ul>
         </section>
         <p>RDF provides vocabularies for describing three classes of
           containers. Containers have a type, and their members can
@@ -1889,9 +1918,12 @@
         <h4>RDF collections</h4>
         <section class="notoc">
           <h6 class="defcap">RDF Collection Vocabulary</h6>
-          <div class="othertable">
-            <p><code>rdf:List rdf:first rdf:rest rdf:nil</code></p>
-          </div>
+          <ul class="othertable cols">
+            <li><code>rdf:List</code></li>
+            <li><code>rdf:first</code></li>
+            <li><code>rdf:rest</code></li>
+            <li><code>rdf:nil</code></li>
+          </ul>
         </section>
         <p>RDF provides a vocabulary for describing collections, i.e.'list
           structures', in terms of head-tail links. Collections differ from
@@ -1904,11 +1936,11 @@
           is intended for use typically in a context where a container is described using
           blank nodes to connect a 'well-formed' sequence of items, each described by
           two triples of the form
-          <code><br>
-          <br>
-          _:c1 rdf:first aaa .<br>
-          _:c1 rdf:rest  _:c2 .</code>
         </p>
+        <pre class="nohighlight">
+          _:c1 rdf:first aaa .
+          _:c1 rdf:rest  _:c2 .
+        </pre>
         <p>where the final item is indicated by the use of <code>rdf:nil</code> as the
           value of the property <code>rdf:rest</code>. In a familiar convention, <code>rdf:nil</code>
           can be thought of as the empty collection. Any such graph amounts to an assertion
@@ -1924,7 +1956,7 @@
           _:c1 rdf:rest  _:c2 .
           _:c2 rdf:first ex:bbb .
           _:c2 rdf:rest  rdf:nil .
-          </pre>
+        </pre>
         <p>does not entail</p>
         <pre class="nohighlight">
           _:c3 rdf:first ex:bbb .
@@ -1994,4 +2026,3 @@
     <section id="index"></section>
   </body>
 </html>
-
