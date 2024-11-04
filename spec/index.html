@@ -1867,9 +1867,10 @@
           it is consistent to assert that something is both an <code>rdf:Bag</code> and an <code>rdf:Seq</code>.
           There is no assumption that containers are gap-free, so that for example
         </p>
-        <pre class="nohighlight">_:xxx rdf:type rdf:Seq.
-          _:xxx rdf:_1 ex:a .
-          _:xxx rdf:_3 ex:c .
+        <pre class="nohighlight">
+          _:xxx rdf:type rdf:Seq.
+          _:xxx rdf:_1   ex:a .
+          _:xxx rdf:_3   ex:c .
         </pre>
         <p>does not entail</p>
         <p><code>_:xxx rdf:_2 _:yyy .</code></p>
