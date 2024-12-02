@@ -465,6 +465,7 @@
             <li>A mapping <em>IEXT</em> from <em>IP</em> into the powerset of <em>IR</em> x <em>IR</em>, i.e., the set of sets of pairs <em>&lt;x, y&gt;</em> with <em>x</em> and <em>y</em> in <em>IR</em>.</li>
             <li>A mapping <em>IS</em> from <em>IRIs</em> into (<em>IR</em> union <em>IP</em>).</li>
             <li>A partial mapping <em>IL</em> from literals into <em>IR</em>.</li>
+            <li><span style="background-color: Cyan;color: Black">6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms</span> </li>
           </ol>
         </div>
       </section>
@@ -506,15 +507,18 @@
         from its set-theoretic extension.
         A similar technique is used in the ISO/IEC Common Logic standard [[?ISO24707]].
       </p>
-      <p>The referent of a ground RDF graph in a simple interpretation <em>I</em> is then given by the following rules,
+      <p><span style="background-color: Cyan;color: Black"><s>The referent of a ground RDF graph in a simple interpretation <em>I</em> is then given by the following rules,
         where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:
-      </p>
+      </s></span></p>
+      <p><span style="background-color: Cyan;color: Black">The referent of a ground RDF graph in a simple interpretation I is given by an <i>interpretation</i> function I from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values, defined as follows:</span></p>
       <section class="notoc">
         <h6 class="defcap">Semantic Conditions for Ground Graphs</h6>
         <div class="semantictable">
           <p>If <em>E</em> is a literal, then <em>I(E) = IL(E)</em></p>
           <span class="space"></span>
           <p>If <em>E</em> is an IRI, then <em>I(E) = IS(E)</em></p>
+          <span class="space"></span>
+          <p><span style="background-color: Cyan;color: Black">if <em>E</em> is a Triple Term then <em>I(E) = RE(I(E.s), I(E.p), I(E.o))</em><br> where we write the subject, predicate, object of <em>E</em> as <em>E.s, E.p, E.o</em>, respectively.</span></p>
           <span class="space"></span>
           <p>If <em>E</em> is a ground triple `s p o.`, <em>I(p)</em>
             is in <em>IP</em> and the pair &lt;<em>I(s)</em>, <em>I(o)</em>&gt;
@@ -957,6 +961,9 @@
           <li><code>rdf:subject</code></li>
           <li><code>rdf:predicate</code></li>
           <li><code>rdf:object</code></li>
+          <li><code><span style="background-color: Cyan;color: Black">rdf:TripleTerm</span></code></li>
+          <li><code><span style="background-color: Cyan;color: Black">rdf:ReificationProperty</span></code></li>
+          <li><code><span style="background-color: Cyan;color: Black">rdf:InverseReificationProperty</span></code></li>
           <li><code>rdf:first</code></li>
           <li><code>rdf:rest</code></li>
           <li><code>rdf:value</code></li>
@@ -985,6 +992,36 @@
             <em>IEXT(I(<code>rdf:type</code>))</em> if and only if <em>x</em> is in the 
             <a>value space</a> of <em>I(aaa)</em>.
           </p>
+          <span class="space"></span>
+          
+          <p id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+            if <em>[I+A](E) = TRUE</em> and <em>E.s</em> is a triple term, then
+            <em><[I+A](E.s), I(<code>rdf:TripleTerm</code>)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em>.
+          </span></p>
+          <span class="space"></span>
+      
+          <p id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+            if <em>[I+A](E) = TRUE</em> and <em>E.o</em> is a triple term, then
+            <em><[I+A](E.o), I(<code>rdf:TripleTerm</code>)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em>.
+          </span></p>
+          <span class="space"></span>
+       
+          <p id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+            if <em>[I+A](E) = TRUE</em> and 
+            <em><[I+A](E.o), [I+A](rdf:TripleTerm)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em> and
+            <em>E.p ≠ <code>rdf:type</code></em>, then
+            <em><[I+A](E.p), I(<code>rdf:ReificationProperty</code>)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em>.
+          </span></p>
+          <span class="space"></span>
+       
+          <p id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+            if <em>[I+A](E) = TRUE</em> and
+            <em><[I+A](E.s), [I+A](rdf:TripleTerm)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em>
+            and <em>E.p ≠ <code>rdf:type</code></em>, then
+            <em><[I+A](E.p), I(<code>rdf:InverseReificationProperty</code>)></em> is in <em>IEXT(I(<code>rdf:type</code>))</em>.
+          </span></p>
+
+          
         </div>
       </section>
       <p>and <a>satisfies</a> every triple in the following infinite set:</p>
@@ -1002,6 +1039,7 @@
             rdf:nil       rdf:type rdf:List .
             rdf:_1        rdf:type rdf:Property .
             rdf:_2        rdf:type rdf:Property .
+            <span style="background-color: Cyan;color: Black">rdf:reifies   rdf:type rdf:ReificationProperty .</span>
             ...
           </pre>
         </div>
@@ -1110,6 +1148,29 @@
             _:x rdf:type xsd:boolean .
             _:x rdf:type xsd:integer .
           </pre>
+          
+         <p><span style="background-color: Cyan;color: Black">
+         The semantics conditions for triple terms give the following RDF entailment pattern: 
+         </span></p>
+      
+         <table style="background-color: Cyan;color: Black">
+         <caption style="background-color: Cyan;color: Black">RDF entailment patterns with triple terms.</caption>
+           <tbody style="background-color: Cyan;color: Black">
+             <tr style="background-color: Cyan;color: Black">
+               <th > </th>
+               <th ><strong>if <em>S</em> contains</strong></th>
+               <th ><strong>then <em>S</em> RDF entails</strong></th>
+             </tr>
+             <tr>
+               <td class="othertable" style="background-color: Cyan;color: Black"><dfn>rdfREIF1</dfn></td>
+               <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> for ttt a triple term</td>
+               <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:ReificationProperty .</code><br/>sss aaa _:nnn <code>.</code><br/>_:nnn <code>rdf:type</code><code> rdf:TripleTerm </code><code>.</code></td>
+             </tr>
+           </tbody>
+         </table>
+          
+          
+          
         </section>
       </section>
     </section>
@@ -1619,6 +1680,38 @@
       <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
         requires attention to idiosyncratic properties of the particular datatypes.
       </p>
+      
+      <table style="background-color: Cyan;color: Black">
+      <caption style="background-color: Cyan;color: Black">G-RDF entailment patterns with triple terms.</caption>
+        <tbody style="background-color: Cyan;color: Black">
+          <tr style="background-color: Cyan;color: Black">
+            <th > </th>
+            <th ><strong>if <em>S</em> contains</strong></th>
+            <th ><strong>then <em>S</em> RDF entails</strong></th>
+          </tr>
+          <tr >
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfREIF1</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code><br/>for aaa ≠ <code>rdf:type</code></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:ReificationProperty .</code></td>
+          </tr>
+          <tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfREIF2</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt aaa ooo <code>.</code><br/> ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code><br/>for aaa ≠ <code>rdf:type</code></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:InverseReificationProperty .</code></td>
+          </tr>
+          <tr>
+          <tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfTT1</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> for ttt a triple term</td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code></td>
+          </tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfTT2</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt aaa ooo <code>.</code><br/> for ttt a triple term</td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code></td>
+          </tr>
+        </tbody>
+      </table>   
+
     </section>
     <section id="finite_interpretations" class="informative appendix">
       <h2>Finite interpretations</h2>
