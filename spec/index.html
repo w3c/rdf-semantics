@@ -406,6 +406,7 @@
               set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
         <p>4. A mapping IS from IRIs into (IR union IP)</p>
         <p>5. A partial mapping IL from literals into IR </p>
+        <p><span style="background-color: Cyan;color: Black">6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms</span> </p>
        </td>
     </tr>
   </table>
@@ -448,8 +449,10 @@
     from its set-theoretic extension.
     A similar technique is used in the ISO/IEC Common Logic standard [[?ISO24707]].</p>
 
-  <p>The referent of a ground RDF graph in a simple interpretation I is then given by the following rules,
-    where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:</p>
+  <p><span style="background-color: Cyan;color: Black"><s>The referent of a ground RDF graph in a simple interpretation I is then given by the following rules,
+    where the interpretation is also treated as a function from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values:</s></span></p>
+
+  <p><span style="background-color: Cyan;color: Black">The referent of a ground RDF graph in a simple interpretation I is given by an <i>interpretation</i> function I from expressions (<a>names</a>, <a>triples</a> and <a>graphs</a>) to elements of the universe and truth values, defined as follows:</span></p>
 
   <table>
     <caption>Semantic conditions for ground graphs.</caption>
@@ -462,7 +465,11 @@
         <td class="semantictable">if E is an IRI then I(E) = IS(E)</td>
       </tr>
 
-      <tr>
+    <tr>
+        <td class="semantictable"><span style="background-color: Cyan;color: Black">if E is a Triple Term then I(E) = RE(I(E.s), I(E.p), I(E.o))<br> where we write the subject, predicate, object of E as E.s, E.p, E.o, respectively.</span></td>
+      </tr>
+
+<tr>
         <td class="semantictable">if E is a ground triple `s p o.`
           then I(E) = true if<br/>
           I(p) is in IP and the pair &lt;I(s),I(o)&gt;
@@ -931,6 +938,7 @@
 
       <tr>
         <td ><code>rdf:type rdf:subject rdf:predicate rdf:object
+        <span style="background-color: Cyan;color: Black">rdf:TripleTerm rdf:ReificationProperty rdf:InverseReificationProperty</span>
           rdf:first rdf:rest rdf:value rdf:nil
           rdf:List rdf:langString rdf:Property rdf:_1 rdf:_2
            ...</code></td>
@@ -951,6 +959,33 @@
       <tr>
         <td class="semantictable" id="rdfsemcond3">For every IRI aaa in D, &lt; x,
           I(aaa) &gt; is in IEXT(I(<code>rdf:type</code>)) if and only if x is in the <a>value space</a> of I(aaa)</td></tr>
+          
+          
+       <tr><td class="semantictable" id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+if [I+A](E) = TRUE and E.s is a triple term,   then
+          <[I+A](E.s), I(<code>rdf:TripleTerm</code>)> is in IEXT(I(<code>rdf:type</code>))
+      </span></td></tr>
+      
+      <tr><td class="semantictable" id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+if [I+A](E) = TRUE and E.o is a triple term,  then
+          <[I+A](E.o), I(<code>rdf:TripleTerm</code>)> is in IEXT(I(<code>rdf:type</code>))
+       </span></td></tr>
+       
+      <tr><td class="semantictable" id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+if [I+A](E) = TRUE and 
+<[I+A](E.o), [I+A](rdf:TripleTerm)> ∈ IEXT(I(<code>rdf:type</code>))
+and E.p ≠ <code>rdf:type</code>, then
+          <[I+A](E.p), I(<code>rdf:ReificationProperty</code>)> is in IEXT(I(<code>rdf:type</code>))
+       </span></td></tr>
+       
+      <tr><td class="semantictable" id="rdfsemcond1"><span style="background-color: Cyan;color: Black">
+if [I+A](E) = TRUE  and
+<[I+A](E.s), [I+A](rdf:TripleTerm)> ∈ IEXT(I(<code>rdf:type</code>))
+and E.p<code>rdf:type</code>, then
+          <[I+A](E.p), I(<code>rdf:InverseReificationProperty</code>)> is in IEXT(I(<code>rdf:type</code>))
+      </span></td></tr>
+
+          
     </tbody>
   </table>
 
@@ -969,6 +1004,7 @@
         rdf:nil rdf:type rdf:List .<br/>
         rdf:_1 rdf:type rdf:Property .<br/>
         rdf:_2 rdf:type rdf:Property .<br/>
+        <span style="background-color: Cyan;color: Black">rdf:reifies rdf:type rdf:ReificationProperty .</span><br/>
         ...<br/></code>
         </td>
     </tr>
@@ -1091,6 +1127,27 @@
 
       <p><code>_:x rdf:type xsd:boolean .<br/>
       _:x rdf:type xsd:integer . </code></p>
+      
+      <p><span style="background-color: Cyan;color: Black">
+The semantics conditions for triple terms gives the following RDF entailment pattern: 
+      </span></p>
+      
+         <table style="background-color: Cyan;color: Black">
+        <caption style="background-color: Cyan;color: Black">RDF entailment patterns with triple terms.</caption>
+        <tbody style="background-color: Cyan;color: Black">
+          <tr style="background-color: Cyan;color: Black">
+            <th > </th>
+            <th ><strong>if S contains</strong></th>
+            <th ><strong>then S RDF entails</strong></th>
+          </tr>
+          <tr >
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>rdfREIF1</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> for ttt a triple term</td>
+            <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:ReificationProperty .</code><br/>sss aaa _:nnn <code>.</code><br/>_:nnn <code>rdf:type</code><code> rdf:TripleTerm </code><code>.</code></td>
+          </tr>
+        </tbody>
+      </table>   
+      
 
     </section>
   </section>
@@ -1633,6 +1690,38 @@
 
   <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
     requires attention to idiosyncratic properties of the particular datatypes.</p>
+
+         <table style="background-color: Cyan;color: Black">
+        <caption style="background-color: Cyan;color: Black">G-RDF entailment patterns with triple terms.</caption>
+        <tbody style="background-color: Cyan;color: Black">
+          <tr style="background-color: Cyan;color: Black">
+            <th > </th>
+            <th ><strong>if S contains</strong></th>
+            <th ><strong>then S RDF entails</strong></th>
+          </tr>
+          <tr >
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfREIF1</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code><br/>for aaa ≠ <code>rdf:type</code></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:ReificationProperty .</code></td>
+          </tr>
+          <tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfREIF2</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt aaa ooo <code>.</code><br/> ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code><br/>for aaa ≠ <code>rdf:type</code></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">aaa <code>rdf:type</code> <code>rdf:InverseReificationProperty .</code></td>
+          </tr>
+          <tr>
+          <tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfTT1</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">sss aaa ttt <code>.</code><br/> for ttt a triple term</td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code></td>
+          </tr>
+            <td class="othertable" style="background-color: Cyan;color: Black"><dfn>G-rdfTT2</dfn></td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt aaa ooo <code>.</code><br/> for ttt a triple term</td>
+            <td class="othertable" style="background-color: Cyan;color: Black">ttt <code>rdf:type</code> <code>rdf:TripleTerm .</code></td>
+          </tr>
+        </tbody>
+      </table>   
+
 
 </section>
 
