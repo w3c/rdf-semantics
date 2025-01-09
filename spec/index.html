@@ -765,10 +765,12 @@
     called the
     <span id="dfn-lexical-to-value-mapping"><!-- refer to RDF Concepts term --></span>
     <dfn data-cite="RDF12-CONCEPTS#dfn-lexical-to-value-mapping">lexical-to-value mapping</dfn>,
-    from a lexical space (a set of character strings) to values.
+    from a lexical space (a set of <a data-cite="RDF12-CONCEPTS#dfn-rdf-string">strings</a>)
+    to values.
     The function <dfn>L2V</dfn> maps datatypes to their lexical-to-value mapping.
     A literal with datatype d <a>denotes</a> the value obtained by applying this mapping
-    to the character string sss: L2V(d)(sss).
+    to the <a data-cite="RDF12-CONCEPTS#dfn-lexical-form">lexical form</a>
+    sss: L2V(d)(sss).
     If the literal string is not in the lexical space,
     so that the lexical-to-value mapping gives no value for the literal string,
     then the literal has no referent.
@@ -776,7 +778,9 @@
     Every literal with that type either <a>denotes</a> a value in the value space of the type,
     or fails to denote at all.
     An  <dfn>ill-typed</dfn> literal is one whose datatype IRI is <a>recognized</a>,
-    but whose character string is assigned no value by the <a>lexical-to-value mapping</a>
+    but whose
+    <a data-cite="RDF12-CONCEPTS#dfn-lexical-form">lexical form</a>
+    is assigned no value by the <a>lexical-to-value mapping</a>
     for that datatype.</p>
 
   <p>RDF processors are not required to <a>recognize</a> any datatype IRIs other than
