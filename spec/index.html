@@ -759,10 +759,10 @@
 
   <p>RDF literals and datatypes are fully described in
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
-    In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifing</a> a datatype.
+    In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
     The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
     which have two syntactic components, a string and a language tag; and
-    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged string</a>,
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged strings</a>,
     assigned the type <code>rdf:dirLangString</code>,
     which have three syntactic components, a string, a language tag, and a base direction.
     A datatype is understood to define a partial mapping, called the
@@ -788,7 +788,19 @@
     <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
     but when IRIs listed in 
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
-    are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>denotes</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
+    <em>are</em> <a>recognized</a>, they MUST be interpreted as described there, and
+    when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>,
+    it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]].
+    RDF processors MAY recognize other datatype IRIs,
+    but when other datatype IRIs are <a>recognized</a>,
+    the mapping between the datatype IRI and the datatype it <a>denotes</a>
+    MUST be specified unambiguously,
+    and MUST be fixed during all RDF transformations or manipulations.
+    In practice, this can be achieved by the IRI linking
+    to an external specification of the datatype
+    which describes both the components of the datatype itself
+    and the fact that the IRI identifies the datatype,
+    thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
     or <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
@@ -801,7 +813,7 @@
     The <a>value space</a> of <code>rdf:dirLangString</code>
     is the set of all
     3-tuples of a string, a language tag, and a base direction.
-    The semantics of literals with these as their datatype are given below.
+    The semantics of literals with either of these as their datatype are given below.
     </p>
 
   <p>RDF allows any IRI to be used in a literal,
@@ -960,7 +972,7 @@
   </table>
 
   <p>An <dfn>RDF interpretation</dfn> <strong>recognizing D</strong> is a <a>D-interpretation</a> I
-    where D includes <code>rdf:langString</code>, <code>rdf:dirLangString</code> and <code>xsd:string</code>, and which satisfies:</p>
+    where D includes <code>rdf:langString</code>, <code>rdf:dirLangString</code>, and <code>xsd:string</code>, and which satisfies:</p>
 
   <table>
     <caption>RDF semantic conditions.</caption>
@@ -1004,9 +1016,9 @@
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
-  <p>Three other datatypes, <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>,
-    <a data-cite="RDF12-CONCEPTS#section-html"><code>rdf:HTML</code></a> and
-    <a data-cite="RDF12-CONCEPTS#section-json"><code>rdf:JSON</code></a>,
+  <p>Three other datatypes &mdash; <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>,
+    <a data-cite="RDF12-CONCEPTS#section-html"><code>rdf:HTML</code></a>, and
+    <a data-cite="RDF12-CONCEPTS#section-json"><code>rdf:JSON</code></a> &mdash;
     are defined in [[!RDF12-CONCEPTS]].
     RDF-D interpretations MAY fail to <a>recognize</a> these datatypes.</p>
 
