@@ -406,6 +406,7 @@
               set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
         <p>4. A mapping IS from IRIs into (IR union IP)</p>
         <p>5. A partial mapping IL from literals into IR </p>
+        <p>6. An injective mapping RE from IR x IP x IR into IR, called the interpretation of triple terms. </p>
        </td>
     </tr>
   </table>
@@ -459,11 +460,16 @@
       </tr>
 
       <tr>
-        <td class="semantictable">if E is an IRI then I(E) = IS(E)</td>
+        <td class="semantictable">if E is an IRI, then I(E) = IS(E)</td>
       </tr>
 
       <tr>
-        <td class="semantictable">if E is a ground triple `s p o.`
+        <td class="semantictable">if E is a ground triple term, then I(E) = RE(I(E.s), I(E.p), I(E.o)),<br/>
+        where E.s, E.p, and E.o are the first, second, and third components of E, respectively</td>
+      </tr>
+
+      <tr>
+        <td class="semantictable">if E is a ground triple `s p o.`,
           then I(E) = true if<br/>
           I(p) is in IP and the pair &lt;I(s),I(o)&gt;
           is in IEXT(I(p))<br/>
