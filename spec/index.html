@@ -261,7 +261,7 @@
     <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
 
     <p>Suppose that M is a functional mapping from a set of blank
-      nodes to some set of literals, blank nodes and IRIs. Any graph obtained
+      nodes to some set of RTD terms. Any graph obtained
       from a graph G by replacing some or all of the blank nodes N in G by M(N) is
       an <dfn>instance</dfn> of G. Any graph is an instance of itself,
       an instance of an instance of G is an instance of G,
@@ -298,6 +298,11 @@
     </pre>
 
     <p>is lean. <a>Ground</a> graphs are lean. </p>
+    
+    <p>
+    A RDF term <dfn>appears in</dfn> a graph G if it is in the set TM(G) defined inductively as follows: (1) for each triple in the graph G, its subject, predicate, and object are in TM(G); (2) for each triple term in TH(G), its subject, predicate, and object are in TM(G).<br/>
+    A triple <b><i>appears in</i></b> a graph G if it is in G or if the triple term composed by its subject, predicate, object appears in G.
+    <p/>
 
   <section id="unions_merges">
     <h3>Shared blank nodes, unions and merges</h3>
@@ -936,7 +941,7 @@
       </tr>
 
       <tr>
-        <td ><code>rdf:type rdf:subject rdf:predicate rdf:object
+        <td ><code>rdf:type rdf:reifies rdf:subject rdf:predicate rdf:object
           rdf:first rdf:rest rdf:value rdf:nil
           rdf:List rdf:langString rdf:Property rdf:_1 rdf:_2
            ...</code></td>
@@ -1060,6 +1065,7 @@
 
       <p>In addition, the first RDF semantic condition justifies the following entailment pattern:</p>
 
+<!-- 
       <table>
         <tbody>
           <tr>
@@ -1071,6 +1077,23 @@
           <tr>
              <td class="othertable"><dfn>rdfD2</dfn></td>
              <td class="othertable">xxx aaa yyy <code>.</code></td>
+             <td class="othertable">aaa <code>rdf:type rdf:Property .</code> </td>
+          </tr>
+        </tbody>
+      </table>
+ -->
+ 
+       <table>
+        <tbody>
+          <tr>
+            <th></th>
+            <th><strong>if the triple or triple term <a>appears in</a> S</strong></th>
+            <th><strong>then S RDF entails, recognizing D</strong></th>
+          </tr>
+
+          <tr>
+             <td class="othertable"><dfn>rdfD2</dfn></td>
+             <td class="othertable">xxx aaa yyy <code></code></td>
              <td class="othertable">aaa <code>rdf:type rdf:Property .</code> </td>
           </tr>
         </tbody>
@@ -1118,6 +1141,7 @@
       <tr>
         <td ><code>rdfs:domain rdfs:range rdfs:Resource rdfs:Literal
         rdfs:Datatype rdfs:Class rdfs:subClassOf rdfs:subPropertyOf
+        rdfs:Proposition 
         rdfs:member rdfs:Container rdfs:ContainerMembershipProperty
         rdfs:comment rdfs:seeAlso rdfs:isDefinedBy
         rdfs:label</code></td>
@@ -1206,6 +1230,10 @@
       x is in ICEXT(I(<code>rdfs:Datatype</code>)) then <span >&lt; x,
       I(<code>rdfs:Literal</code>) &gt; is in IEXT(I(<code>rdfs:subClassOf</code>))</span></p></td>
     </tr>
+    
+    <td class="semantictable" id="rdfssemcond11"><p>If
+      exist x,y,z such that RE(x,z,y)=r, or exists x such that &lt; x,r &gt; is in IEXT([I+A](<code>rdf:reifies</code>)), <br/> then &lt; r,[I+A](<code>rdfs:Proposition</code>)&gt; is in IEXT([I+A](<code>rdf:type</code>))</p></td>
+    </tr>
   </table>
 
   <table id="RDFS_axiomatic_triples">
@@ -1253,6 +1281,9 @@
         rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .<br/>
         <br/>
 
+        rdf:reifies rdf:range rdfs:Proposition .<br/>
+        <br/>
+        
         rdfs:Datatype rdfs:subClassOf rdfs:Class .<br/>
         <br/>
         rdf:_1 rdf:type rdfs:ContainerMembershipProperty .<br/>
@@ -1261,7 +1292,8 @@
         rdf:_2 rdf:type rdfs:ContainerMembershipProperty .<br/>
         rdf:_2 rdfs:domain rdfs:Resource .<br/>
         rdf:_2 rdfs:range rdfs:Resource . <br/>
-        </code>... <br/> </td>
+        </code>... <br/> 
+        </td>
     </tr>
   </table>
 
@@ -1392,16 +1424,6 @@
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn>rdfs4a</dfn></td>
-            <td class="othertable">xxx aaa yyy <code>.</code></td>
-            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
-          </tr>
-          <tr >
-            <td class="othertable"><dfn>rdfs4b</dfn></td>
-            <td class="othertable">xxx aaa yyy<code>.</code></td>
-            <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
-          </tr>
-          <tr >
             <td class="othertable"><dfn>rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
@@ -1452,6 +1474,25 @@
           </tr>
         </tbody>
       </table>
+      
+      <p/>
+      
+      <table id="rdfs_entailment_patterns_recursive">
+        <tbody>
+          <tr>
+            <th ></th>
+            <th >If the triple or triple term <a>appears in</a> S:</th>
+            <th >then S RDFS <a>entails recognizing D</a>:</th>
+          </tr>
+          <tr >
+            <td class="othertable"><dfn>rdfs4</dfn></td>
+            <td class="othertable">xxx aaa yyy <code></code></td>
+            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
+            yyy <code>rdf:type rdfs:Resource .</code></td>
+          </tr>
+        </tbody>
+      </table>
+
 
       <p>RDFS provides for several new ways to be <a>unsatisfiable</a> recognizing D.
         For example, the following graph is RDFS unsatisfiable recognizing {<code>xsd:integer</code>, <code>xsd:boolean</code>}:</p>
