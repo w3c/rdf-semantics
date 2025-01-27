@@ -1490,6 +1490,12 @@
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
             yyy <code>rdf:type rdfs:Resource .</code></td>
           </tr>
+          <tr >
+            <td class="othertable"><dfn>rdfs14</dfn></td>
+            <td class="othertable">xxx yyy <<(aaa bbb ccc)>> <code></code></td>
+            <td class="othertable">xxx yyy _:nnn <code>.</code><br/>
+            _:nnn <code>rdf:type rdfs:Proposition .</code></td>
+          </tr>
         </tbody>
       </table>
 
@@ -1598,11 +1604,21 @@
           ex:d ex:a ex:e .</code></td>
        <td class="othertable"><code>ex:d rdf:type ex:c .</code> </td>
       </tr>
+
+      <tr>
+        <th> </th>
+        <th>RDFS entails</th>
+      </tr>
+
+      <tr>
+        <td class="othertable"><code>ex:a ex:b ex:c .</code></td>
+       <td class="othertable"><code><<(ex:a ex:b ex:c)>> rdf:type rdfs:Proposition .</code> </td>
+      </tr>
     </tbody>
   </table>
 
-  <p>Both of these can be handled by allowing the rules to apply to a generalization of the RDF syntax
-    in which literals may occur in subject position and blank nodes may occur in predicate position.</p>
+  <p>These examples can be handled by allowing the rules to apply to a generalization of the RDF syntax
+    in which literals and triple terms may occur in subject position and blank nodes may occur in predicate position.</p>
 
   <!--<p>Define a <dfn>generalized RDF triple</dfn> to be a triple &lt;x, y, z&gt; where x and z can be an IRI, a blank node or a literal, and y can be an IRI or a blank node; and extend this to the rest of RDF, so that a generalized RDF graph is a set of generalized RDF triples. -->
 
@@ -1680,6 +1696,28 @@
 
   <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
     requires attention to idiosyncratic properties of the particular datatypes.</p>
+    
+  <p>
+  The complete entailment pattern for generalized RDF considering that, according to the semantics, the denotation of triple terms should be of type <code>rdfs:Proposition</code>, is the following, which supersedes the entailment pattern <a>rdfs14<a/>:
+    <table>
+    <caption>RDFS-T entailment pattern.</caption>
+    <tbody>
+      <tr>
+        <th > </th>
+        <th ><strong>if S contains</strong></th>
+        <th ><strong>then S RDFS entails</strong></th>
+      </tr>
+      <tr >
+        <td class="othertable"><dfn>Grdfs14</dfn></td>
+        <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
+        yyy <code>rdf:type rdf:Property .</code><br/>
+        zzz <code>rdf:type rdfs:Resource .</code><br/>
+        </td>
+        <td class="othertable"><code><<(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
+      </tr>
+    </tbody>
+    </table>
+  </p>
 
 </section>
 
