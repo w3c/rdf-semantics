@@ -113,7 +113,7 @@
   <p>This document is part of RDF 1.2 document suite.
     This is a revision of the 2014 Semantics specification for RDF
     [[RDF11-MT]] and supersedes that document.
-    The technical content of the document is unchanged, only minor editorial changes have been made.</a>
+    The technical content of the document is unchanged, only minor editorial changes have been made.
   </p>
 
   <section id="related" data-include="./common/related.html"></section>
@@ -261,7 +261,7 @@
     <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
 
     <p>Suppose that M is a functional mapping from a set of blank
-      nodes to some set of RTD terms. Any graph obtained
+      nodes to some set of RDF terms. Any graph obtained
       from a graph G by replacing some or all of the blank nodes N in G by M(N) is
       an <dfn>instance</dfn> of G. Any graph is an instance of itself,
       an instance of an instance of G is an instance of G,
@@ -1230,7 +1230,7 @@
       x is in ICEXT(I(<code>rdfs:Datatype</code>)) then <span >&lt; x,
       I(<code>rdfs:Literal</code>) &gt; is in IEXT(I(<code>rdfs:subClassOf</code>))</span></p></td>
     </tr>
-    
+    <tr>
     <td class="semantictable" id="rdfssemcond11"><p>If
       exist x,y,z such that RE(x,z,y)=r, or exists x such that &lt; x,r &gt; is in IEXT([I+A](<code>rdf:reifies</code>)), <br/> then &lt; r,[I+A](<code>rdfs:Proposition</code>)&gt; is in IEXT([I+A](<code>rdf:type</code>))</p></td>
     </tr>
@@ -1492,7 +1492,7 @@
           </tr>
           <tr >
             <td class="othertable"><dfn>rdfs14</dfn></td>
-            <td class="othertable">xxx yyy <<(aaa bbb ccc)>> <code></code></td>
+            <td class="othertable">xxx yyy &lt;&lt;(aaa bbb ccc)>> <code></code></td>
             <td class="othertable">the graph S with the appearance replaced with <br/>
             xxx yyy _:nnn <code></code><br/>
             _:nnn <code>rdf:type rdfs:Proposition .</code></td>
@@ -1613,7 +1613,7 @@
 
       <tr>
         <td class="othertable"><code>ex:a ex:b ex:c .</code></td>
-       <td class="othertable"><code><<(ex:a ex:b ex:c)>> rdf:type rdfs:Proposition .</code> </td>
+       <td class="othertable"><code>&lt;&lt;(ex:a ex:b ex:c)>> rdf:type rdfs:Proposition .</code> </td>
       </tr>
     </tbody>
   </table>
@@ -1714,7 +1714,7 @@
         yyy <code>rdf:type rdf:Property .</code><br/>
         zzz <code>rdf:type rdfs:Resource .</code><br/>
         </td>
-        <td class="othertable"><code><<(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
+        <td class="othertable"><code>&lt;&lt;(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
       </tr>
     </tbody>
     </table>
