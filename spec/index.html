@@ -1521,6 +1521,16 @@
         </tbody>
       </table>
 
+      <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph:</p>
+
+      <p><code>ex:a ex:b <<( ex:c ex:d <<(ex:e ex:f ex:g)>> )>> .</code></p>
+
+      <p>RDFS entails:</p>
+
+      <p><code>ex:a ex:b <<( ex:c ex:d _:b1 )>> .<br/>
+               ex:a ex:b _:b2 .<br/>
+               _:b1 rdf:type rdfs:Proposition .<br/>
+               _:b2 rdf:type rdfs:Proposition .</code></p>
 
       <p>RDFS provides for several new ways to be <a>unsatisfiable</a> recognizing D.
         For example, the following graph is RDFS unsatisfiable recognizing {<code>xsd:integer</code>, <code>xsd:boolean</code>}:</p>
