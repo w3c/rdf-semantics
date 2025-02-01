@@ -797,8 +797,9 @@
     An <dfn data-cite="RDF12-CONCEPTS#dfn-ill-typed">ill-typed</dfn> literal
     is one whose datatype IRI is <a>recognized</a>, but whose
     <a data-cite="RDF12-CONCEPTS#dfn-lexical-form">lexical form</a>
-    is assigned no value by the <a>lexical-to-value mapping</a>
-    for that datatype.</p>
+    is not in the lexical space of the datatype identified by that IRI and
+    thus is not in the domain of the <a>lexical-to-value mapping</a>
+    of that datatype.</p>
 
   <p>RDF processors are not required to <a>recognize</a> any datatype IRIs other than
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
