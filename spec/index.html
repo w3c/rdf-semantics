@@ -113,7 +113,7 @@
   <p>This document is part of RDF 1.2 document suite.
     This is a revision of the 2014 Semantics specification for RDF
     [[RDF11-MT]] and supersedes that document.
-    The technical content of the document is unchanged, only minor editorial changes have been made.</a>
+    The technical content of the document is unchanged, only minor editorial changes have been made.
   </p>
 
   <section id="related" data-include="./common/related.html"></section>
@@ -260,13 +260,29 @@
 
     <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
 
+    <p>
+    An RDF term <dfn>appears in</dfn> a graph G if it is in the set TM(G),
+    defined inductively as follows:
+    (1) for each triple in the graph G,
+        its subject, predicate, and object are in TM(G);
+    (2) for each triple term in TM(G),
+        its subject, predicate, and object are in TM(G).
+    <br/><br/>
+    A triple <b><i>appears in</i></b> a graph G
+    if it is in G or
+    if the triple term composed by its subject, predicate, and object appears in G.
+    <p/>
+
     <p>Suppose that M is a functional mapping from a set of blank
-      nodes to some set of literals, blank nodes and IRIs. Any graph obtained
-      from a graph G by replacing some or all of the blank nodes N in G by M(N) is
+      nodes to some set of RDF terms. Any graph obtained
+      from a graph G by replacing some or all of the blank nodes N appearing in G by M(N) is
       an <dfn>instance</dfn> of G. Any graph is an instance of itself,
       an instance of an instance of G is an instance of G,
       and if H is an instance of G then every triple in H is an instance of at least one triple
       in G.</p>
+      
+      <p class="issue">the defined term "RDF term" is not accessible from outside this document, which is a problem (RDF semantics, and probably other specs, need to reference it). There are other definitions in this spec that need to be exported - see <a href="https://github.com/w3c/rdf-concepts/issues/152">issue #152</a> in RDF-concepts.</p>
+
 
     <p>An <dfn class="no-export lint-ignore">instance with respect to</dfn> a vocabulary
       V is an <a>instance</a> in which all the
@@ -298,7 +314,7 @@
     </pre>
 
     <p>is lean. <a>Ground</a> graphs are lean. </p>
-
+    
   <section id="unions_merges">
     <h3>Shared blank nodes, unions and merges</h3>
 
@@ -940,7 +956,7 @@
       </tr>
 
       <tr>
-        <td ><code>rdf:type rdf:subject rdf:predicate rdf:object
+        <td ><code>rdf:type rdf:reifies rdf:subject rdf:predicate rdf:object
           rdf:first rdf:rest rdf:value rdf:nil
           rdf:List rdf:langString rdf:Property rdf:_1 rdf:_2
            ...</code></td>
@@ -973,6 +989,7 @@
         rdf:subject rdf:type rdf:Property .<br/>
         rdf:predicate rdf:type rdf:Property .<br/>
         rdf:object rdf:type rdf:Property .<br/>
+        rdf:reifies rdf:type rdf:Property .<br/>
         rdf:first rdf:type rdf:Property .<br/>
         rdf:rest rdf:type rdf:Property .<br/>
         rdf:value rdf:type rdf:Property .<br/>
@@ -1064,11 +1081,29 @@
 
       <p>In addition, the first RDF semantic condition justifies the following entailment pattern:</p>
 
+<!-- 
       <table>
         <tbody>
           <tr>
             <th></th>
             <th><strong>if S contains</strong></th>
+            <th><strong>then S RDF entails, recognizing D</strong></th>
+          </tr>
+
+          <tr>
+             <td class="othertable"><dfn>rdfD2</dfn></td>
+             <td class="othertable">xxx aaa yyy <code>.</code></td>
+             <td class="othertable">aaa <code>rdf:type rdf:Property .</code> </td>
+          </tr>
+        </tbody>
+      </table>
+ -->
+ 
+       <table>
+        <tbody>
+          <tr>
+            <th></th>
+            <th><strong>if the triple <a>appears in</a> S</strong></th>
             <th><strong>then S RDF entails, recognizing D</strong></th>
           </tr>
 
@@ -1122,6 +1157,7 @@
       <tr>
         <td ><code>rdfs:domain rdfs:range rdfs:Resource rdfs:Literal
         rdfs:Datatype rdfs:Class rdfs:subClassOf rdfs:subPropertyOf
+        rdfs:Proposition 
         rdfs:member rdfs:Container rdfs:ContainerMembershipProperty
         rdfs:comment rdfs:seeAlso rdfs:isDefinedBy
         rdfs:label</code></td>
@@ -1210,6 +1246,15 @@
       x is in ICEXT(I(<code>rdfs:Datatype</code>)) then <span >&lt; x,
       I(<code>rdfs:Literal</code>) &gt; is in IEXT(I(<code>rdfs:subClassOf</code>))</span></p></td>
     </tr>
+    <tr>
+    <td class="semantictable" id="rdfssemcond11"><p>If
+      exist x,y,z such that RE(x,z,y)=r, or 
+      exists x such that &lt; x,r &gt; 
+        is in IEXT(I(<code>rdf:reifies</code>)), 
+      <br/> 
+      then &lt; r,I(<code>rdfs:Proposition</code>)&gt; 
+        is in IEXT(I(<code>rdf:type</code>))</p></td>
+    </tr>
   </table>
 
   <table id="RDFS_axiomatic_triples">
@@ -1257,6 +1302,9 @@
         rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .<br/>
         <br/>
 
+        rdf:reifies rdfs:range rdfs:Proposition .<br/>
+        <br/>
+        
         rdfs:Datatype rdfs:subClassOf rdfs:Class .<br/>
         <br/>
         rdf:_1 rdf:type rdfs:ContainerMembershipProperty .<br/>
@@ -1265,7 +1313,8 @@
         rdf:_2 rdf:type rdfs:ContainerMembershipProperty .<br/>
         rdf:_2 rdfs:domain rdfs:Resource .<br/>
         rdf:_2 rdfs:range rdfs:Resource . <br/>
-        </code>... <br/> </td>
+        </code>... <br/> 
+        </td>
     </tr>
   </table>
 
@@ -1396,16 +1445,6 @@
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
-            <td class="othertable"><dfn>rdfs4a</dfn></td>
-            <td class="othertable">xxx aaa yyy <code>.</code></td>
-            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code></td>
-          </tr>
-          <tr >
-            <td class="othertable"><dfn>rdfs4b</dfn></td>
-            <td class="othertable">xxx aaa yyy<code>.</code></td>
-            <td class="othertable">yyy <code>rdf:type rdfs:Resource .</code></td>
-          </tr>
-          <tr >
             <td class="othertable"><dfn>rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
@@ -1456,6 +1495,42 @@
           </tr>
         </tbody>
       </table>
+      
+      <p/>
+      
+      <table id="rdfs_entailment_patterns_recursive">
+        <tbody>
+          <tr>
+            <th ></th>
+            <th >If the triple <a>appears in</a> S:</th>
+            <th >then S RDFS <a>entails recognizing D</a>:</th>
+          </tr>
+          <tr >
+            <td class="othertable"><dfn>rdfs4</dfn></td>
+            <td class="othertable">xxx aaa yyy <code>.</code></td>
+            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
+            yyy <code>rdf:type rdfs:Resource .</code></td>
+          </tr>
+          <tr >
+            <td class="othertable"><dfn>rdfs14</dfn></td>
+            <td class="othertable">xxx yyy &lt;&lt;(aaa bbb ccc)>> <code>.</code></td>
+            <td class="othertable">the graph S with the appearance replaced with<br/>
+            xxx yyy _:nnn <code></code><br/><br/>
+            _:nnn <code>rdf:type rdfs:Proposition .</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph &mdash;</p>
+
+      <p><code>ex:a ex:b <<( ex:c ex:d <<(ex:e ex:f ex:g)>> )>> .</code></p>
+
+      <p>&mdash; RDFS entails &mdash;</p>
+
+      <p><code>ex:a ex:b <<( ex:c ex:d _:b1 )>> .<br/>
+               ex:a ex:b _:b2 .<br/>
+               _:b1 rdf:type rdfs:Proposition .<br/>
+               _:b2 rdf:type rdfs:Proposition .</code></p>
 
       <p>RDFS provides for several new ways to be <a>unsatisfiable</a> recognizing D.
         For example, the following graph is RDFS unsatisfiable recognizing {<code>xsd:integer</code>, <code>xsd:boolean</code>}:</p>
@@ -1561,11 +1636,21 @@
           ex:d ex:a ex:e .</code></td>
        <td class="othertable"><code>ex:d rdf:type ex:c .</code> </td>
       </tr>
+
+      <tr>
+        <th> </th>
+        <th>RDFS entails</th>
+      </tr>
+
+      <tr>
+        <td class="othertable"><code>ex:a ex:b ex:c .</code></td>
+       <td class="othertable"><code>&lt;&lt;(ex:a ex:b ex:c)>> rdf:type rdfs:Proposition .</code> </td>
+      </tr>
     </tbody>
   </table>
 
-  <p>Both of these can be handled by allowing the rules to apply to a generalization of the RDF syntax
-    in which literals may occur in subject position and blank nodes may occur in predicate position.</p>
+  <p>These examples can be handled by allowing the rules to apply to a generalization of the RDF syntax
+    in which literals and triple terms may occur in subject position and blank nodes may occur in predicate position.</p>
 
   <!--<p>Define a <dfn>generalized RDF triple</dfn> to be a triple &lt;x, y, z&gt; where x and z can be an IRI, a blank node or a literal, and y can be an IRI or a blank node; and extend this to the rest of RDF, so that a generalized RDF graph is a set of generalized RDF triples. -->
 
@@ -1643,6 +1728,33 @@
 
   <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
     requires attention to idiosyncratic properties of the particular datatypes.</p>
+    
+  <p>
+  The complete entailment pattern for generalized RDF with [=symmetric RDF triples=],
+  considering that, according to the semantics, the denotation of triple terms should
+  be of type <code>rdfs:Proposition</code>, is the following:
+    <table>
+    <caption>RDFS-T entailment pattern.</caption>
+    <tbody>
+      <tr>
+        <th > </th>
+        <th ><strong>if S contains</strong></th>
+        <th ><strong>then S RDFS entails</strong></th>
+      </tr>
+      <tr >
+        <td class="othertable"><dfn>Grdfs14</dfn></td>
+        <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
+        yyy <code>rdf:type rdf:Property .</code><br/>
+        zzz <code>rdf:type rdfs:Resource .</code><br/>
+        </td>
+        <td class="othertable"><code>&lt;&lt;(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
+      </tr>
+    </tbody>
+    </table>
+  </p>
+  
+  <p class="issue" data-number="76">We don't have a completeness proof for the RDFS entailment rules (yet).</p>
+
 
 </section>
 
