@@ -435,9 +435,11 @@
       Usage has shown that it is important that every literal have a type.
       RDF 1.1 replaces plain literals without language tags by literals typed with
       the XML Schema <code>string</code> datatype,
-      and introduces the special type <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
+      and introduces the special type
+      <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
       for language-tagged strings.
-      The full semantics for typed literals is given in the next section.</p>
+      The full semantics for typed literals is given in section [[[#datatypes]]].
+    </p>
   </div>
 
   <p class="technote">Simple interpretations are required to interpret all <a>names</a>,
@@ -773,13 +775,14 @@
 
   <p>RDF literals and datatypes are fully described in
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
-    In summary: with one exception, RDF literals combine a string and an IRI <a data-lt="identify">identifing</a> a datatype.
-    The exception is <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>,
-    which have two syntactic components, a string and a language tag,
-    and are assigned the type <code>rdf:langString</code>.
-    A datatype is understood to define a mapping, 
-    called the
-    <span id="dfn-lexical-to-value-mapping"><!-- refer to RDF Concepts term --></span>
+    In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
+    The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
+    which have two syntactic components, a string and a language tag; and
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged strings</a>,
+    assigned the type <code>rdf:dirLangString</code>,
+    which have three syntactic components, a string, a language tag, and a base direction.
+    A datatype is understood to define a mapping, called the
+    <span id="dfn-lexical-to-value-mapping"></span>
     <dfn data-cite="RDF12-CONCEPTS#dfn-lexical-to-value-mapping">lexical-to-value mapping</dfn>,
     from a lexical space (a set of <a data-cite="RDF12-CONCEPTS#dfn-rdf-string">strings</a>)
     to values.
@@ -802,18 +805,38 @@
     of that datatype.</p>
 
   <p>RDF processors are not required to <a>recognize</a> any datatype IRIs other than
-    <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
-    and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
+    <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
+    <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>, and
+    <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
     but when IRIs listed in 
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
-    are <a>recognized</a>, they MUST be interpreted as described there, and when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>, it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]]. RDF processors MAY recognize other datatype IRIs, but when other datatype IRIs are <a>recognized</a>, the mapping between the datatype IRI and the datatype it <a>denotes</a> MUST be specified unambiguously, and MUST be fixed during all RDF transformations or manipulations. In practice, this can be achieved by the IRI linking to an external specification of the datatype which describes both the components of the datatype itself and the fact that the IRI identifies the datatype, thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
+    <em>are</em> <a>recognized</a>, they MUST be interpreted as described there, and
+    when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>,
+    it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]].
+    RDF processors MAY recognize other datatype IRIs,
+    but when other datatype IRIs are <a>recognized</a>,
+    the mapping between the datatype IRI and the datatype it <a>denotes</a>
+    MUST be specified unambiguously,
+    and MUST be fixed during all RDF transformations or manipulations.
+    In practice, this can be achieved by the IRI linking
+    to an external specification of the datatype
+    which describes both the components of the datatype itself
+    and the fact that the IRI identifies the datatype,
+    thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
-    as their datatype are an exceptional case which are given a special treatment.
-    The IRI <code>rdf:langString</code> is classified as a datatype IRI,
-    and interpreted to denote a datatype, even though no <a>L2V</a> mapping is defined for it.
-    The <a>value space</a> of <code>rdf:langString</code> is the set of all pairs of a string with a language tag.
-    The semantics of literals with this as their type are given below.</p>
+    or <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
+    as their datatype IRI are given special treatment.
+    The IRIs <code>rdf:langString</code> and <code>rdf:dirLangString</code>
+    are classified as datatype IRIs and interpreted to denote a datatype,
+    even though no <a>L2V</a> mapping is defined for them.
+    The <a>value space</a> of <code>rdf:langString</code>
+    is the set of all pairs of a string with a language tag.
+    The <a>value space</a> of <code>rdf:dirLangString</code>
+    is the set of all
+    3-tuples of a string, a language tag, and a base direction.
+    The semantics of literals with either of these as their datatype are given below.
+    </p>
 
   <p>RDF allows any IRI to be used in a literal,
     even when it is not <a>recognized</a> as referring to a datatype.
@@ -844,7 +867,10 @@
         <tr><td class="semantictable">If <code>rdf:langString</code> is in D,
           then for every language-tagged string E with lexical form sss and language tag ttt,
           IL(E)= &lt; sss, ttt' &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
-
+        <tr><td class="semantictable">If <code>rdf:dirLangString</code> is in D,
+          then for every directional language-tagged string E with lexical form sss,
+            language tag ttt, and base direction bbb,
+          IL(E)= &lt; sss, ttt', bbb &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
         <tr><td class="semantictable">For every other IRI aaa in D,
           I(aaa) is the datatype identified by aaa, and for every literal
           "sss"^^aaa, IL("sss"^^aaa) = L2V(I(aaa))(sss)</td></tr>
@@ -860,10 +886,12 @@
      literals with an unrecognized type IRI are not <a>ill-typed</a> and cannot give rise to
      a <a>D-unsatisfiable</a> graph.</p>
 
-    <p>The special datatype <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
-      has no <a>ill-typed</a> literals.
-      Any syntactically legal literal with this type will denote a value in every
-      D-interpretation where D includes <code>rdf:langString</code>.
+    <p>The special datatypes
+      <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a> and
+      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code>
+      have no <a>ill-typed</a> literals.
+      Any syntactically legal literal with one of these types will denote a value in every
+      D-interpretation where D includes <code>rdf:langString</code> or <code>rdf:dirLangString</code>.
       The only ill-typed literals of type <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
       are those containing a Unicode code point which does not match
       the <a data-cite="XML11#NT-Char"><em>Char</em> production</a> in [[XML11]].
@@ -872,7 +900,6 @@
     <p class="changenote">In the 2004 RDF 1.0 specification,
       ill-typed literals were required to denote a value in IR,
       and <a>D-unsatisfiability</a> could be recognized only by using the RDFS semantics.</p>
-
 
   </section>
 
@@ -960,14 +987,14 @@
       <tr>
         <td ><code>rdf:type rdf:reifies rdf:subject rdf:predicate rdf:object
           rdf:first rdf:rest rdf:value rdf:nil
-          rdf:List rdf:langString rdf:Property rdf:_1 rdf:_2
+          rdf:List rdf:langString rdf:dirLangString rdf:Property rdf:_1 rdf:_2
            ...</code></td>
       </tr>
     </tbody>
   </table>
 
   <p>An <dfn>RDF interpretation</dfn> <strong>recognizing D</strong> is a <a>D-interpretation</a> I
-    where D includes <code>rdf:langString</code> and <code>xsd:string</code>, and which satisfies:</p>
+    where D includes <code>rdf:langString</code>, <code>rdf:dirLangString</code>, and <code>xsd:string</code>, and which satisfies:</p>
 
   <table>
     <caption>RDF semantic conditions.</caption>
@@ -1006,12 +1033,16 @@
   <p>RDF imposes no particular normative meanings on the rest of the RDF vocabulary.
     <a href="#whatnot">Appendix D</a> describes the intended uses of some of this vocabulary.</p>
 
-  <p>The datatype IRIs <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
+  <p>The datatype IRIs 
+    <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>,
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code>,
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
-  <p>Two other datatypes <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>
-    and <a data-cite="RDF12-CONCEPTS#section-html"><code>rdf:HTML</code></a> are defined in [[!RDF12-CONCEPTS]].
+  <p>Three other datatypes &mdash; <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>,
+    <a data-cite="RDF12-CONCEPTS#section-html"><code>rdf:HTML</code></a>, and
+    <a data-cite="RDF12-CONCEPTS#section-json"><code>rdf:JSON</code></a> &mdash;
+    are defined in [[!RDF12-CONCEPTS]].
     RDF-D interpretations MAY fail to <a>recognize</a> these datatypes.</p>
 
   <section id="rdf_entail">
@@ -1019,7 +1050,8 @@
 
     <p>S <dfn>RDF entail</dfn><strong>s</strong> E <strong>recognizing D</strong>
       when every <a>RDF interpretation</a> recognizing D which <a>satisfies</a>
-      S also satisfies E. When D is {<code>rdf:langString</code>, <code>xsd:string</code>}
+      S also satisfies E. When D is {<code>rdf:langString</code>,
+      <code>rdf:dirLangString</code>, <code>xsd:string</code>}
       then we simply say S <strong>RDF entails</strong> E.
       E is <dfn>RDF unsatisfiable</dfn><strong> (recognizing D)</strong>
       when it has no satisfying <a>RDF interpretation</a> (recognizing D).</p>
@@ -1194,6 +1226,7 @@
         <p>LV is defined to be ICEXT(I(<code>rdfs:Literal</code>))</p>
         <p>ICEXT(I(<code>rdfs:Resource</code>)) = IR</p>
         <p>ICEXT(I(<code>rdf:langString</code>)) is the set {I(E) : E a language-tagged string }</p>
+        <p>ICEXT(I(<code>rdf:dirLangString</code>)) is the set {I(E) : E a directional language-tagged string }</p>
         <p>for every other IRI aaa in D, ICEXT(I(aaa)) is the <a>value space</a> of I(aaa)</p>
         <p>for every IRI aaa in D, I(aaa) is in ICEXT(I(<code>rdfs:Datatype</code>))</p></td>
     </tr>
@@ -1753,7 +1786,8 @@
     <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
     <li>For every IRI or literal <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
     <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
-      with D={<code>rdf:langString</code>, <code>xsd:string</code>}, to the set in all possible ways, to exhaustion.</li>
+      with D={<code>rdf:langString</code>, <code>rdf:dirLangString</code>, <code>xsd:string</code>},
+      to the set in all possible ways, to exhaustion.</li>
   </ol>
 
   <p>Then we have the completeness result:</p>
@@ -2233,7 +2267,12 @@
   <h2>Substantive changes since RDF 1.1</h2>
 
   <ul>
-    <li> RDF entailment rule <a>rdfD1a</a> was added in RDF 1.2.  This rule should have been included in RDF 1.1 when the two built-in datatypes (<code>xsd:string</code> and <code>rdf:langString</code>) were added to RDF entailment. </li>
+    <li> RDF entailment rule <a>rdfD1a</a> was added in RDF 1.2.  
+      This rule should have been included in RDF 1.1 when the two built-in
+      datatypes (<code>xsd:string</code> and <code>rdf:langString</code>)
+      were added to RDF entailment.
+    </li>
+    <li><code>rdf:dirLangString</code> added to the built-in datatypes.</li>
   </ul>
 </section>
 
