@@ -65,25 +65,6 @@
   }
 
 
-  .changenote {
-      font-size:small;
-      margin: 1em 0em 0em;
-      padding:    1em;
-      border: 2px solid #cff6d9;
-      background: #ffddfe;
-  }
-
-  .changenote::before {
-      content:    "Change Note";
-      display:    block;
-      width:  150px;
-      margin: -1.5em 0 0.5em 0;
-      font-weight:    bold;
-      border: 1px solid #cff6d9;
-      background: #ffddef;
-      padding:    3px 1em;
-  }
-
 
   .fact  {
       padding: 0.5em;
@@ -120,7 +101,6 @@
 </section>
 
    <section class='introductory'><h2 id="notes">Notes</h2>
-     <p class='changenote'>Notes in this style indicate changes from the 2004 RDF 1.0 semantics.</p>
      <p class='technote'>Notes in this style are technical asides on obscure or recondite matters.</p></section>
     <section>
       <h2 id="introduction">Introduction</h2>
@@ -427,21 +407,6 @@
     </tr>
   </table>
 
-  <div class="changenote">
-    <p>The 2004 RDF 1.0 semantics defined simple interpretations relative to a vocabulary.</p>
-    <p>In the 2004 RDF 1.0 semantics, IL was a total, rather than partial, mapping.</p>
-    <p>The 2004 RDF 1.0 specification divided literals into 'plain' literals
-      with no type and optional language tags, and typed literals.
-      Usage has shown that it is important that every literal have a type.
-      RDF 1.1 replaces plain literals without language tags by literals typed with
-      the XML Schema <code>string</code> datatype,
-      and introduces the special type
-      <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
-      for language-tagged strings.
-      The full semantics for typed literals is given in section [[[#datatypes]]].
-    </p>
-  </div>
-
   <p class="technote">Simple interpretations are required to interpret all <a>names</a>,
     and are therefore infinite.
     This simplifies the exposition.
@@ -741,30 +706,10 @@
 <section id="datatypes">
   <h2>Literals and datatypes</h2>
 
-  <p class="changenote">In the 2004 RDF 1.0 specification,
-    datatype D-entailment was defined as a <a>semantic extension</a> of RDFS-entailment.
-    Here it is defined as a direct extension to basic RDF.
-    This is more in conformity with actual usage,
-    where RDF with datatypes is widely used without the RDFS vocabulary.
-    If there is a need to distinguish this from the 2004 RDF 1.0 terminology,
-    the longer phrasing "simple D-entailment" or "simple datatype entailment"
-    should be used rather than "D-entailment".</p>
-
   <p>Datatypes are <a>identified</a> by IRIs.
     Interpretations will vary according to which IRIs are recognized as denoting datatypes.
     We describe this using a parameter D on simple interpretations,
     where D is the set of <dfn data-local-lt="recognized">recognize</dfn><em><strong>d</strong></em> datatype IRIs.</p>
-
-  <p class="changenote">The previous version of this specification defined the parameter D
-    as a <a>datatype map</a> from IRIs to datatypes,
-    i.e. as a restricted kind of interpretation mapping.
-    As the current semantics presumes that a recognized IRI identifies a unique datatype,
-    this IRI-to-datatype mapping is globally unique and externally specified,
-    so we can think of D as either a set of IRIs or as a fixed <a>datatype map</a>.
-    Formally, the <dfn>datatype map</dfn> corresponding to the set D is the
-    restriction of a <a>D-interpretation</a> to the set D.
-    Semantic extensions which are stated in terms of conditions on <a>datatype maps</a>
-    can be interpreted as applying to this mapping.</p>
 
   <p>The exact mechanism by which an IRI <a>identifies</a> a datatype is considered to be
     external to the semantics, but the semantics presumes that a recognized IRI <a>identifies</a>
@@ -896,10 +841,6 @@
       are those containing a Unicode code point which does not match
       the <a data-cite="XML11#NT-Char"><em>Char</em> production</a> in [[XML11]].
       Such strings cannot be written in an XML-compatible surface syntax.</p>
-
-    <p class="changenote">In the 2004 RDF 1.0 specification,
-      ill-typed literals were required to denote a value in IR,
-      and <a>D-unsatisfiability</a> could be recognized only by using the RDFS semantics.</p>
 
   </section>
 
@@ -1352,9 +1293,6 @@
         </td>
     </tr>
   </table>
-
-  <p class="changenote">In the 2004 RDF 1.0 semantics, LV was defined as part of a simple interpretation structure,
-    and the definition given here was a constraint. </p>
 
   <p>Since I is an <a>RDF interpretation</a>, the first condition implies that IP
     = ICEXT(I(<code>rdf:Property</code>)).</p>
@@ -2263,6 +2201,69 @@
 
 </section>
 
+<section id="section-Changes" class="informative appendix">
+  <h2>Substantive Changes</h2>
+
+<section id="ChangeLog-11" class="informative appendix" >
+  <h2>Substantive changes between RDF 1.0 and RDF 1.1 </h2>
+
+<ul>
+
+ <li>
+    The RDF 1.0 semantics defined simple interpretations relative to a vocabulary.
+  </li>
+
+  <li>
+    In the RDF 1.0 semantics, IL was a total, rather than partial, mapping.
+  </li>
+  
+  <li> The RDF 1.0 specification divided literals into 'plain' literals
+      with no type and optional language tags, and typed literals.
+      Usage has shown that it is important that every literal have a type.
+      RDF 1.1 replaced plain literals without language tags by literals typed with
+      the XML Schema <code>string</code> datatype,
+      and introduced the special type
+      <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
+      for language-tagged strings.
+      The full semantics for typed literals is given in section [[[#datatypes]]].
+  </li>
+
+  <li>In the RDF 1.0 specification,
+    datatype D-entailment was defined as a <a>semantic extension</a> of RDFS-entailment.
+    In RDF 1.1 it was defined as a direct extension to basic RDF.
+    This is more in conformity with actual usage,
+    where RDF with datatypes is widely used without the RDFS vocabulary.
+    If there is a need to distinguish RDF 1.1 from the RDF 1.0 terminology,
+    the longer phrasing "simple D-entailment" or "simple datatype entailment"
+    should be used rather than "D-entailment".
+  </li>
+
+  <li>RDF 1.0 specification defined the parameter D
+    as a <a>datatype map</a> from IRIs to datatypes,
+    i.e. as a restricted kind of interpretation mapping.
+    As RDF 1.1 presumed that a recognized IRI identifies a unique datatype,
+    this IRI-to-datatype mapping is globally unique and externally specified,
+    so we can think of D as either a set of IRIs or as a fixed <a>datatype map</a>.
+    Formally, the <dfn>datatype map</dfn> corresponding to the set D is the
+    restriction of a <a>D-interpretation</a> to the set D.
+    Semantic extensions which are stated in terms of conditions on <a>datatype maps</a>
+    can be interpreted as applying to this mapping.
+  </li>
+
+
+  <li>In the RDF 1.0 specification,
+      ill-typed literals were required to denote a value in IR,
+    and <a>D-unsatisfiability</a> could be recognized only by using the RDFS semantics.
+  </li>
+
+  <li>In the 2004 RDF 1.0 semantics, LV was defined as part of a simple interpretation structure,
+    and its definition in RDFS interpretations was a constraint. 
+  </li>
+
+</ul>
+
+</section>
+
 <section id="ChangeLog-12" class="informative appendix" >
   <h2>Substantive changes since RDF 1.1</h2>
 
@@ -2275,6 +2276,9 @@
     <li><code>rdf:dirLangString</code> added to the built-in datatypes.</li>
   </ul>
 </section>
+
+</section>
+
 
 <section id="index"></section>
 
