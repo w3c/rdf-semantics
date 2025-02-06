@@ -379,7 +379,7 @@
     <p>A related operation, called <dfn class="no-export lint-ignore">merging</dfn>,
       takes the union after forcing any shared blank nodes,
       which occur in more than one graph, to be distinct in each graph.
-      The resulting graph is called the <dfn class="no-export lint-ignore">merge</dfn>.
+      The resulting graph is called the <dfn data-lt="RDF graph merge">merge</dfn>.
       The merge of <a>subgraphs</a> of a graph may be larger than the original graph.
       For example, the result of merging the two singleton subgraphs of the three-node graph</p>
 
@@ -1555,7 +1555,7 @@
     to allow queries to be directed against particular graphs.</p>
   -->
 
-  <p><a data-cite="RDF12-CONCEPTS#dfn-rdf-dataset">RDF datasets</a>,
+  <p><a>RDF datasets</a>,
     defined in RDF Concepts [[!RDF12-CONCEPTS]],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
@@ -1582,6 +1582,52 @@
     One such extension, for example, could set up a modal-like interpretation structure so that entailment
     between datasets would require RDF graph entailments between the graphs with the same name
     (adding in empty graphs as required).</p>
+
+  <table>
+    <caption>Definition of an RDF dataset</caption>
+    <tr>
+       <td class="semantictable">
+       <p>An <a>RDF dataset</a>
+	      is a set:</p>
+              { G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), . .
+              . (&lt;u<sub>n</sub>&gt;, G<sub>n</sub>) }<br>
+              where n&ge;0 and G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI. Each
+              &lt;u<sub>i</sub>&gt; is distinct.</p>
+            <p>G is called the default graph. (&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) are called named
+              graphs.</p>
+        </td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>Definition of RDF dataset merge</caption>
+    <tr>
+       <td class="semantictable">
+            <p>Let DS1 = { G1, (&lt;u1<sub>1</sub>&gt;, G1<sub>1</sub>), (&lt;u1<sub>2</sub>&gt;,
+              G1<sub>2</sub>), . . . (&lt;u1<sub>n</sub>&gt;, G1<sub>n</sub>) },<br>
+              and DS2 = { G2, (&lt;u2<sub>1</sub>&gt;, G2<sub>1</sub>), (&lt;u2<sub>2</sub>&gt;,
+              G2<sub>2</sub>), . . . (&lt;u2<sub>m</sub>&gt;, G2<sub>m</sub>) }</p>
+            <p>The <dfn>RDF dataset merge</dfn> of DS1 and DS2 is:<br>
+              DS={ G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), .
+              . . (&lt;u<sub>k</sub>&gt;, G<sub>k</sub>) }<br>
+              where:</p>
+            <p>Write N1 for { &lt;u1<sub>j</sub>&gt; j = 1 to n }<br>
+              Write N2 for { &lt;u2<sub>j</sub>&gt; j = 1 to m }<br></p>
+            <ul>
+              <li>G is the <a>merge</a> of G1 and G2
+              </li>
+              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is in N1 but not
+                in N2</li>
+              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is in N2 but not
+                in N1</li>
+              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is equal to
+                &lt;u<sub>j</sub>&gt; in N1 and equal to &lt;u<sub>k</sub>&gt; in N2 and G<sub>i</sub>
+                is the <a>merge</a> of G1<sub>j</sub> and G2<sub>k</sub>
+              </li>
+            </ul>
+        </td>
+    </tr>
+  </table>
 
 </section>
 
