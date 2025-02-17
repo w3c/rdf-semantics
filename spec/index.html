@@ -273,6 +273,16 @@
     if the triple term composed by its subject, predicate, and object appears in G.
     <p/>
 
+    <p>
+      For RDF terms t, x and y, we define the  <dfn>substitution mapping</dfn>, t[x/y] inductively as follows: 
+      (1) if  t=x, then t[x/y]=y;
+      (2) if t = (s,p,o) and t &ne; x, then t[x/y]= (s[x/y], p[x/y], o[x/y]=y);
+      (3) t[x/y]=t, else. 
+      <br/><br/>
+      For each triple (s,p,o), we set (s,p,o)[x/y]= (s[x/y],p[x/y],o[x/y]). For each graph G, we obtain G[x/y] by applying [x/y] to each triple t in G.
+      <p/>
+
+
     <p>Suppose that M is a functional mapping from a set of blank
       nodes to some set of RDF terms. Any graph obtained
       from a graph G by replacing some or all of the blank nodes N appearing in G by M(N) is
