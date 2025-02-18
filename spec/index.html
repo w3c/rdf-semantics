@@ -271,16 +271,20 @@
     A triple <b><i>appears in</i></b> a graph G
     if it is in G or
     if the triple term composed by its subject, predicate, and object appears in G.
-    <p/>
+    </p>
 
-    <p>
-      For RDF terms t, x and y, we define the  <dfn>substitution mapping</dfn>, t[x/y] inductively as follows: 
-      (1) if  t=x, then t[x/y]=y;
-      (2) if t = (s,p,o) and t &ne; x, then t[x/y]= (s[x/y], p[x/y], o[x/y]=y);
-      (3) t[x/y]=t, else. 
-      <br/><br/>
-      For each triple (s,p,o), we set (s,p,o)[x/y]= (s[x/y],p[x/y],o[x/y]). For each graph G, we obtain G[x/y] by applying [x/y] to each triple t in G.
-      <p/>
+
+
+
+  <p>
+    For RDF terms t, x and y, we define the  <dfn>substitution mapping</dfn>, t[x/y] inductively as follows: 
+    <ol>
+    <li> if  t=x, then t[x/y]=y; </li>
+    <li> if t = (s,p,o) and t &ne; x, then t[x/y]= (s[x/y], p[x/y], o[x/y]=y);</li>
+    <li> else, t[x/y]=t. </li>
+  </ol>
+    For each triple (s,p,o), we set (s,p,o)[x/y]= (s[x/y],p[x/y],o[x/y]). For each graph G, we obtain G[x/y] by applying [x/y] to each triple t in G.
+  </p>
 
 
     <p>Suppose that M is a functional mapping from a set of blank
@@ -1085,9 +1089,9 @@
           </tr>
           <tr >
             <td class="othertable"><dfn>rdfD1</dfn></td>
-            <td class="othertable">   xxx aaa <code>"</code>sss<code>"^^</code>ddd <code>.</code> <br/>
+            <td class="othertable">   ttt and <code>"</code>sss<code>"^^</code>ddd appears in ttt <br/>
                 for ddd in D</td>
-            <td class="othertable">xxx aaa _:nnn <code>.</code><br/>
+            <td class="othertable">ttt [<code>"</code>sss<code>"^^</code>/_:nnn] <br/>
       _:nnn <code>rdf:type</code> ddd <code>.</code></td>
           </tr>
         </tbody>
@@ -1490,6 +1494,11 @@
             <td class="othertable">zzz <code>rdf:type</code> xxx <code>.</code></td>
           </tr>
           <tr >
+            <td class="othertable"><dfn>rdfs4</dfn></td>
+            <td class="othertable">ttt and xxx appears in ttt</td> 
+            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code>
+          </tr>
+          <tr >
             <td class="othertable"><dfn>rdfs5</dfn></td>
             <td class="othertable"> xxx <code>rdfs:subPropertyOf</code> yyy <code>.</code><br />
                 yyy <code>rdfs:subPropertyOf</code> zzz <code>.</code></td>
@@ -1538,33 +1547,15 @@
             <td class="othertable">xxx <code>rdf:type rdfs:Datatype .</code></td>
             <td class="othertable">xxx <code>rdfs:subClassOf rdfs:Literal .</code></td>
           </tr>
-        </tbody>
-      </table>
-      
-      <p/>
-      
-      <table id="rdfs_entailment_patterns_recursive">
-        <tbody>
-          <tr>
-            <th ></th>
-            <th >If the triple <a>appears in</a> S:</th>
-            <th >then S RDFS <a>entails recognizing D</a>:</th>
-          </tr>
-          <tr >
-            <td class="othertable"><dfn>rdfs4</dfn></td>
-            <td class="othertable">xxx aaa yyy <code>.</code></td>
-            <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
-            yyy <code>rdf:type rdfs:Resource .</code></td>
-          </tr>
           <tr >
             <td class="othertable"><dfn>rdfs14</dfn></td>
-            <td class="othertable">xxx yyy &lt;&lt;(aaa bbb ccc)>> <code>.</code></td>
-            <td class="othertable">the graph S with the appearance replaced with<br/>
-            xxx yyy _:nnn <code></code><br/><br/>
+            <td class="othertable">ttt and  &lt;&lt;(aaa bbb ccc)&gt;&gt; appears in ttt</td>
+            <td class="othertable">ttt [&lt;&lt;(aaa bbb ccc)>>/_:nnn]<br/>
             _:nnn <code>rdf:type rdfs:Proposition .</code></td>
           </tr>
         </tbody>
       </table>
+
 
       <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph &mdash;</p>
 
