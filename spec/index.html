@@ -887,7 +887,7 @@
 
     <p>The special datatypes
       <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a> and
-      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code>
+      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
       have no <a>ill-typed</a> literals.
       Any syntactically legal literal with one of these types will denote a value in every
       D-interpretation where D includes <code>rdf:langString</code> or <code>rdf:dirLangString</code>.
@@ -1034,7 +1034,7 @@
 
   <p>The datatype IRIs 
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>,
-    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code>,
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code></a>,
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
@@ -1557,11 +1557,11 @@
 
       <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph &mdash;</p>
 
-      <p><code>ex:a ex:b <<( ex:c ex:d <<(ex:e ex:f ex:g)>> )>> .</code></p>
+      <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d &lt;&lt;(ex:e ex:f ex:g)>> )>> .</code></p>
 
       <p>&mdash; RDFS entails &mdash;</p>
 
-      <p><code>ex:a ex:b <<( ex:c ex:d _:b1 )>> .<br/>
+      <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d _:b1 )>> .<br/>
                ex:a ex:b _:b2 .<br/>
                _:b1 rdf:type rdfs:Proposition .<br/>
                _:b2 rdf:type rdfs:Proposition .</code></p>
@@ -1622,7 +1622,7 @@
     <tr>
        <td class="semantictable">
        <p>An <a>RDF dataset</a>
-	      is a set:</p>
+	      is a set:<br/>
               { G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), . .
               . (&lt;u<sub>n</sub>&gt;, G<sub>n</sub>) }<br>
               where n&ge;0 and G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI. Each
@@ -1814,6 +1814,7 @@
   The complete entailment pattern for generalized RDF with [=symmetric RDF triples=],
   considering that, according to the semantics, the denotation of triple terms should
   be of type <code>rdfs:Proposition</code>, is the following:
+  </p>
     <table>
     <caption>RDFS-T entailment pattern.</caption>
     <tbody>
@@ -1832,7 +1833,6 @@
       </tr>
     </tbody>
     </table>
-  </p>
   
   <p class="issue" data-number="76">We don't have a completeness proof for the RDFS entailment rules (yet).</p>
 
