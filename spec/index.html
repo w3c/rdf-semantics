@@ -718,7 +718,7 @@
     which eliminates blank nodes by replacing them with "new" IRIs,
     which means IRIs which are coined for this purpose and are therefore guaranteed
     to not occur in any other RDF graph (at the time of creation).
-    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
+    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Replacing Blank Nodes with IRIs</a> in [[!RDF12-CONCEPTS]]
     for a fuller discussion.</p>
 
   <p>Suppose G is a graph containing blank nodes and sk is a skolemization mapping
@@ -772,8 +772,8 @@
     cannot <a>recognize</a> that IRI,
     and should treat any literals with that IRI as their datatype IRI as unknown <a>name</a>s.</p>
 
-  <p>RDF literals and datatypes are fully described in
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
+  <p>RDF literals and datatypes are fully described in the
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of [[!RDF12-CONCEPTS]].
     In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
     The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
     which have two syntactic components, a string and a language tag; and
@@ -807,8 +807,8 @@
     <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>, and
     <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
-    but when IRIs listed in 
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
+    but when IRIs listed in the
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of [[!RDF12-CONCEPTS]]
     <em>are</em> <a>recognized</a>, they MUST be interpreted as described there, and
     when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>,
     it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]].
