@@ -281,8 +281,8 @@
   </p>
   <ol>
     <li>If t = x, then t[x/y] = y.</li>
-    <li>If t = (s, p, o) and t &ne; x, then t[x/y] = (s[x/y], p[x/y], o[x/y]).</li>
-    <li>Else, t[x/y] = t.</li>
+    <li>Otherwise, if t = (s, p, o), then t[x/y] = (s[x/y], p[x/y], o[x/y]).</li>
+    <li>Otherwise, t[x/y] = t.</li>
   </ol>
   <p>
     For each triple (s, p, o), we set (s, p, o)[x/y] = (s[x/y], p[x/y], o[x/y]). For each graph G, we obtain G[x/y] by applying [x/y] to each triple t in G.
