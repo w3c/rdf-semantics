@@ -113,7 +113,6 @@
   <p>This document is part of RDF 1.2 document suite.
     This is a revision of the 2014 Semantics specification for RDF
     [[RDF11-MT]] and supersedes that document.
-    The technical content of the document is unchanged, only minor editorial changes have been made.
   </p>
 
   <section id="related" data-include="./common/related.html"></section>
@@ -225,7 +224,7 @@
       when we wish to refer to such an externally defined naming relationship,
       we will use the word <dfn class="no-export lint-ignore" data-local-lt="identified">identify</dfn> and its cognates.
       For example, the fact that the IRI <code>http://www.w3.org/2001/XMLSchema#decimal</code>
-      is widely used as the name of a datatype described in the XML Schema document [[XMLSCHEMA11-2]]
+      is widely used as the <a>name</a> of a datatype described in the XML Schema document [[XMLSCHEMA11-2]]
       might be described by saying that the IRI <em>identifies</em> that datatype.
       If an IRI identifies something it may or may not denote it in a given interpretation,
       depending on how the semantics is specified.
@@ -272,6 +271,7 @@
     if it is in G or
     if the triple term composed by its subject, predicate, and object appears in G.
     </p>
+
 
 
 
@@ -472,10 +472,10 @@
   <p>The distinction between IS and IL will become significant below when the semantics of datatypes are defined.
     IL is allowed to be partial because some literals may fail to have a referent. </p>
 
-  <p class="technote">It is conventional to map a relation name to a relational extension directly.
-    This however presumes that the vocabulary is segregated into relation names and individual names,
+  <p class="technote">It is conventional to map a relation <a>name</a> to a relational extension directly.
+    This however presumes that the vocabulary is segregated into relation <a>name</a>s and individual <a>name</a>s,
     and RDF makes no such assumption.
-    Moreover, RDF allows an IRI to be used as a relation name applied to itself as an argument.
+    Moreover, RDF allows an IRI to be used as a relation <a>name</a> applied to itself as an argument.
     Such self-application structures are used in RDFS, for example.
     The use of the IEXT mapping to distinguish the relation as an object from its relational extension
     accommodates both of these requirements.
@@ -735,7 +735,7 @@
     which eliminates blank nodes by replacing them with "new" IRIs,
     which means IRIs which are coined for this purpose and are therefore guaranteed
     to not occur in any other RDF graph (at the time of creation).
-    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Section 3.5</a> of [[!RDF12-CONCEPTS]]
+    See <a data-cite="RDF12-CONCEPTS#section-skolemization">Replacing Blank Nodes with IRIs</a> in [[!RDF12-CONCEPTS]]
     for a fuller discussion.</p>
 
   <p>Suppose G is a graph containing blank nodes and sk is a skolemization mapping
@@ -750,7 +750,7 @@
     sk(G) <a>simply entails</a> H if and only if G <a>simply entails</a> H.</p>
 
   <p>The second property means that a graph is not logically <a>equivalent</a> to its skolemization.
-    Nevertheless, they are in a strong sense almost interchangeable, as shown the next two properties. The third property means that even when conclusions are drawn from the skolemized graph which do contain the new vocabulary, these will exactly mirror what could have been derived from the original graph with the original blank nodes in place. The replacement of blank nodes by IRIs does not effectively alter what can be validly derived from the graph, other than by giving new names to what were formerly anonymous entities. The fourth property, which is a consequence of the third, clearly shows that in some sense  a skolemization of G can "stand in for" G as far as entailments are concerned. Using sk(G) instead of G will not affect any entailments which do not involve the new skolem vocabulary.  </p>
+    Nevertheless, they are in a strong sense almost interchangeable, as shown the next two properties. The third property means that even when conclusions are drawn from the skolemized graph which do contain the new vocabulary, these will exactly mirror what could have been derived from the original graph with the original blank nodes in place. The replacement of blank nodes by IRIs does not effectively alter what can be validly derived from the graph, other than by giving new <a>name</a>s to what were formerly anonymous entities. The fourth property, which is a consequence of the third, clearly shows that in some sense  a skolemization of G can "stand in for" G as far as entailments are concerned. Using sk(G) instead of G will not affect any entailments which do not involve the new skolem vocabulary.  </p>
 
 </section>
 
@@ -787,10 +787,10 @@
     a unique datatype wherever it occurs.
     RDF processors which are not able to determine which datatype is identified by an IRI
     cannot <a>recognize</a> that IRI,
-    and should treat any literals with that IRI as their datatype IRI as unknown names.</p>
+    and should treat any literals with that IRI as their datatype IRI as unknown <a>name</a>s.</p>
 
-  <p>RDF literals and datatypes are fully described in
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]].
+  <p>RDF literals and datatypes are fully described in the
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of [[!RDF12-CONCEPTS]].
     In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
     The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
     which have two syntactic components, a string and a language tag; and
@@ -824,8 +824,8 @@
     <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>,
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>, and
     <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
-    but when IRIs listed in 
-    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Section 5</a> of [[!RDF12-CONCEPTS]]
+    but when IRIs listed in the
+    <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of [[!RDF12-CONCEPTS]]
     <em>are</em> <a>recognized</a>, they MUST be interpreted as described there, and
     when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>,
     it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]].
@@ -904,7 +904,7 @@
 
     <p>The special datatypes
       <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a> and
-      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code>
+      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
       have no <a>ill-typed</a> literals.
       Any syntactically legal literal with one of these types will denote a value in every
       D-interpretation where D includes <code>rdf:langString</code> or <code>rdf:dirLangString</code>.
@@ -1051,7 +1051,7 @@
 
   <p>The datatype IRIs 
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>,
-    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code>,
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code></a>,
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
@@ -1559,11 +1559,11 @@
       </table>
       <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph &mdash;</p>
 
-      <p><code>ex:a ex:b <<( ex:c ex:d <<(ex:e ex:f ex:g)>> )>> .</code></p>
+      <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d &lt;&lt;(ex:e ex:f ex:g)>> )>> .</code></p>
 
       <p>&mdash; RDFS entails &mdash;</p>
 
-      <p><code>ex:a ex:b <<( ex:c ex:d _:b1 )>> .<br/>
+      <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d _:b1 )>> .<br/>
                ex:a ex:b _:b2 .<br/>
                _:b1 rdf:type rdfs:Proposition .<br/>
                _:b2 rdf:type rdfs:Proposition .</code></p>
@@ -1585,7 +1585,7 @@
   <!--
   <p>An RDF <a data-cite="RDF12-CONCEPTS#section-dataset">dataset</a> (see [[!RDF12-CONCEPTS]])
     is a finite set of RDF graphs each paired with an IRI or blank node called the <strong>graph name</strong>,
-    plus a <strong>default graph</strong>, without a name.
+    plus a <strong>default graph</strong>, without a <a>name</a>.
     Graphs in a single dataset may share blank nodes.
     The association of graph name IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
     to allow queries to be directed against particular graphs.</p>
@@ -1595,7 +1595,7 @@
     defined in RDF Concepts [[!RDF12-CONCEPTS]],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
-    The association of graph name IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
+    The association of graph <a>name</a> IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
     to allow queries to be directed against particular graphs.</p>
 
   <p>Graph names in a dataset may denote something other than the graph they are paired with.
@@ -1616,7 +1616,7 @@
   <p>Other <a>semantic extension</a>s and <a>entailment regime</a>s MAY place further semantic conditions and restrictions on RDF datasets,
     just as with RDF graphs.
     One such extension, for example, could set up a modal-like interpretation structure so that entailment
-    between datasets would require RDF graph entailments between the graphs with the same name
+    between datasets would require RDF graph entailments between the graphs with the same <a>name</a>
     (adding in empty graphs as required).</p>
 
   <table>
@@ -1624,7 +1624,7 @@
     <tr>
        <td class="semantictable">
        <p>An <a>RDF dataset</a>
-	      is a set:</p>
+	      is a set:<br/>
               { G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), . .
               . (&lt;u<sub>n</sub>&gt;, G<sub>n</sub>) }<br>
               where n&ge;0 and G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI. Each
@@ -1816,6 +1816,7 @@
   The complete entailment pattern for generalized RDF with [=symmetric RDF triples=],
   considering that, according to the semantics, the denotation of triple terms should
   be of type <code>rdfs:Proposition</code>, is the following:
+  </p>
     <table>
     <caption>RDFS-T entailment pattern.</caption>
     <tbody>
@@ -1834,7 +1835,6 @@
       </tr>
     </tbody>
     </table>
-  </p>
   
   <p class="issue" data-number="76">We don't have a completeness proof for the RDFS entailment rules (yet).</p>
 
@@ -1854,7 +1854,7 @@
 
   <p>Basically, it is only necessary for an interpretation structure to interpret the <a>names</a>
     actually used in the graphs whose entailment is being considered, and to consider interpretations
-    whose universes are at most as big as the number of names and blank nodes in the graphs.
+    whose universes are at most as big as the number of <a>name</a>s and blank nodes in the graphs.
     More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> V to be a structure I
     similar to a <a>simple interpretation</a> but with a mapping only from V to its universe IR.
     Then when determining whether G entails E, consider only pre-interpretations over the finite vocabulary
@@ -1996,7 +1996,7 @@
     <p>and suppose that IRI <code>ex:graph1</code> is used to <a>identify</a> this graph.
       Exactly how this identification is achieved is external to the RDF model,
       but it might be by the IRI resolving to a concrete syntax document describing the graph,
-      or by the IRI being the associated name of a named graph in a dataset.
+      or by the IRI being the associated <a>name</a> of a named graph in a dataset.
       Assuming that the IRI can be used to denote the triple,
       then the reification vocabulary allows us to describe the first graph in another graph:</p>
 
