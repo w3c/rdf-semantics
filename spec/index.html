@@ -882,11 +882,11 @@
       <tbody>
         <tr><td class="semantictable">If <code>rdf:langString</code> is in D,
           then for every language-tagged string E with lexical form sss and language tag ttt,
-          IL(E)= &lt; sss, ttt' &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
+          IL(E)= &lt; sss, ttt &gt;</td></tr>
         <tr><td class="semantictable">If <code>rdf:dirLangString</code> is in D,
           then for every directional language-tagged string E with lexical form sss,
             language tag ttt, and base direction bbb,
-          IL(E)= &lt; sss, ttt', bbb &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
+          IL(E)= &lt; sss, ttt, bbb &gt;</td></tr>
         <tr><td class="semantictable">For every other IRI aaa in D,
           I(aaa) is the datatype identified by aaa, and for every literal
           "sss"^^aaa, IL("sss"^^aaa) = L2V(I(aaa))(sss)</td></tr>
@@ -2281,7 +2281,12 @@
   <h2>Substantive changes since RDF 1.1</h2>
 
   <ul>
-    <li> RDF entailment rule <a>rdfD1a</a> was added in RDF 1.2.  
+    <li>In D-interpretations, language tags are no longer converted to lowercase.
+      This is because the RDF 1.2 abstract syntax ignores the case of [[BCP47]] strings (unlike RDF 1.1).
+      In other words, `"chat"@fr` and `"chat"@FR` now have the <em>same</em> language tag in the abstract syntax,
+      and therefore it is not necessary to normalize them in the interpretation.
+    </li>
+    <li>RDF entailment rule <a>rdfD1a</a> was added in RDF 1.2.
       This rule should have been included in RDF 1.1 when the two built-in
       datatypes (<code>xsd:string</code> and <code>rdf:langString</code>)
       were added to RDF entailment.
