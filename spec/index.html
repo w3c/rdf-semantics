@@ -771,9 +771,7 @@
     <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
     but when IRIs listed in the
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of [[!RDF12-CONCEPTS]]
-    <em>are</em> <a>recognized</a>, they MUST be interpreted as described there, and
-    when the IRI <code>rdf:PlainLiteral</code> is <a>recognized</a>,
-    it MUST be interpreted to denote the datatype defined in [[!RDF-PLAIN-LITERAL]].
+    <em>are</em> <a>recognized</a>, they MUST be interpreted as described there.
     RDF processors MAY recognize other datatype IRIs,
     but when other datatype IRIs are <a>recognized</a>,
     the mapping between the datatype IRI and the datatype it <a>denotes</a>
@@ -2282,13 +2280,29 @@
   <h2>Substantive changes since RDF 1.1</h2>
 
   <ul>
+    <li> The major change between the RDF 1.1 and RDF 1.2 semantics is the addition of triple terms.
+      Various parts of the semantics have been updated to handle triple terms.
+    </li>
+
     <li> RDF entailment rule <a>rdfD1a</a> was added in RDF 1.2.  
       This rule should have been included in RDF 1.1 when the two built-in
       datatypes (<code>xsd:string</code> and <code>rdf:langString</code>)
       were added to RDF entailment.
     </li>
-    <li><code>rdf:dirLangString</code> added to the built-in datatypes.</li>
+
+    <li><code>rdf:dirLangString</code> was added to the built-in datatypes.</li>
+
+    <li>
+      In RDF 1.1 <code>rdf:PlainLiteral</code> was described as an optional datatype that, if recognized, 
+      MUST be interpreted to denote the datatype defined in [[RDF-PLAIN-LITERAL]].
+      <code>rdf:PlainLiteral</code> is not used elsewhere in the RDF documents,
+      so the requirement to give it this particular semantics has been removed.
+      It is recommended that <code>rdf:PlainLiteral</code> not be used in RDF.
+    </li>
+
   </ul>
+
+
 </section>
 
 </section>
