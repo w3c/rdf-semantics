@@ -794,7 +794,7 @@
     In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
     The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
     which have two syntactic components, a string and a language tag; and
-    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged strings</a>,
+    <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string">directional language-tagged strings</a>,
     assigned the type <code>rdf:dirLangString</code>,
     which have three syntactic components, a string, a language tag, and a base direction.
     A datatype is understood to define a mapping, called the
@@ -841,7 +841,7 @@
     thereby fixing a value of the <a>datatype map</a> of this IRI.</p>
 
   <p>Literals with <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>
-    or <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
+    or <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
     as their datatype IRI are given special treatment.
     The IRIs <code>rdf:langString</code> and <code>rdf:dirLangString</code>
     are classified as datatype IRIs and interpreted to denote a datatype,
@@ -904,7 +904,7 @@
 
     <p>The special datatypes
       <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a> and
-      <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged-string"><code>rdf:dirLangString</code></a>
+      <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>
       have no <a>ill-typed</a> literals.
       Any syntactically legal literal with one of these types will denote a value in every
       D-interpretation where D includes <code>rdf:langString</code> or <code>rdf:dirLangString</code>.
@@ -1051,7 +1051,7 @@
 
   <p>The datatype IRIs 
     <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string"><code>rdf:langString</code></a>,
-    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string"><code>rdf:dirLangString</code></a>,
+    <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string"><code>rdf:dirLangString</code></a>,
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
