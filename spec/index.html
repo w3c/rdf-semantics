@@ -177,7 +177,8 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-node">node</dfn><span id="dfn-node"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-blank-node">blank node</dfn><span id="dfn-blank-node"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-literal">literal</dfn><span id="dfn-literal"><!-- refer to RDF Concepts term --></span>,
-      <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"></span>, and
+      <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"></span>, 
+      <dfn data-cite="RDF12-CONCEPTS#dfn-appearing">appears in</dfn><span id="dfn-appears-in"></span>, and
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- refer to RDF Concepts term --></span>.
       All the definitions in this document apply unchanged to
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-triple">generalized RDF triples</dfn>, 
@@ -238,23 +239,6 @@
       A <dfn>proper subgraph</dfn> is a proper subset of the triples in the graph.</p>
 
     <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
-
-    <p>
-    An RDF term <dfn>appears in</dfn> a graph G if it is in the set TM(G),
-    defined inductively as follows:
-    (1) for each triple in the graph G,
-        its subject, predicate, and object are in TM(G);
-    (2) for each triple term in TM(G),
-        its subject, predicate, and object are in TM(G).
-    <br/><br/>
-    A triple <b><i>appears in</i></b> a graph G
-    if it is in G or
-    if the triple term composed by its subject, predicate, and object appears in G.
-    </p>
-
-
-
-
 
   <p>
     For RDF terms t, x, and y, we define the <dfn>substitution mapping</dfn> t[x/y] inductively, as follows:
