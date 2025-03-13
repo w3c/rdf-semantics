@@ -715,15 +715,15 @@
 
 	<p>We define the <dfn>set of facts</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;&lt;x, y, z&gt;&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}; it is easy to see that the facts are the propositions which are true in the interpretation. </p>
+	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;&lt;x, y, z&gt;&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
 
 	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
 
-	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;&lt;&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;&gt;&#65372;`s p o.` is in G&nbsp;}; we observe that given a blank node mapping, the asserted facts of a graph in an interpretation may not necessarily be among the facts of the interpretation.</p>
+	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;&lt;&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;&gt;&#65372;`s p o.` is in G&nbsp;}; we observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
 	
 	<p>Given a blank node mapping, we introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation as follows:</p>
 
-	<p class="fact">Given a blank node mapping, the facts asserted  in an interpretation by a graph are among the facts of the interpretation if and only if the interpretation (simply) satisfies the graph.</p>
+	<p class="fact">An interpretation (simply) satisfies a graph if and only if there exists a blank node mapping such that the facts asserted by the graph in the interpretation are among the facts of the interpretation.</p>
 	
   </section>
 </section>
