@@ -74,6 +74,14 @@
       background-color: #ffeecc;
       border: 1px solid black
   }
+  .postulate  {
+      padding: 0.5em;
+      margin: 1em 0;
+      position: relative;
+      clear: both;
+      background-color: #cceeff;
+      border: 1px solid black
+  }
 
     table { border-collapse:collapse; }
     table, td, th { border:1px solid black; }
@@ -635,6 +643,8 @@
     <p>completely characterizes simple entailment in syntactic
       terms. To detect whether one RDF graph <a>simply entails</a> another, check that
       there is some instance of the entailed graph which is a subset of the first graph.</p>
+
+  <p class="issue" data-number="76">The correctness of this claim may still be unclear.</p>
 
     <p class="technote">This is clearly decidable, but it is also difficult to determine in general,
       since one can encode the NP-hard <a>subgraph</a> problem (detecting whether
@@ -1698,7 +1708,7 @@
 
   <p>Where the entailment patterns have been applied to generalized RDF syntax but yield a final conclusion which is legal RDF.</p>
 
-  <p>With the generalized syntax, these rules are complete for both RDF and RDFS entailment. Stated exactly:</p>
+  <p>With the generalized syntax, these rules are postulated to be complete for both RDF and RDFS entailment. Stated exactly:</p>
 
   <p>Let S and E be RDF graphs. Define the <dfn>generalized RDF (RDFS) closure</dfn> <strong>of S towards E</strong>
     to be the set obtained by the following procedure.</p>
@@ -1713,9 +1723,9 @@
       to the set in all possible ways, to exhaustion.</li>
   </ol>
 
-  <p>Then we have the completeness result:</p>
+  <p>If these rules are complete, they would give rise to the following completeness result:</p>
 
-  <p class="fact">If S is RDF (RDFS) consistent, then S RDF entails (RDFS entails) E just
+  <p class="postulate">If S is RDF consistent (RDFS consistent), then S RDF entails (RDFS entails) E just
     when the <a>generalized RDF (RDFS) closure</a> of S towards E <a>simply entails</a> E. </p>
 
   <p>The closures are finite. The generation process is decidable and of polynomial complexity.
@@ -1735,7 +1745,7 @@
     requires attention to idiosyncratic properties of the particular datatypes.</p>
     
   <p>
-  The complete entailment pattern for generalized RDF with [=symmetric RDF triples=],
+  The entailment pattern for generalized RDF with [=symmetric RDF triples=],
   considering that, according to the semantics, the denotation of triple terms should
   be of type <code>rdfs:Proposition</code>, is the following:
   </p>
@@ -1804,6 +1814,8 @@
 
 <section id="proofs" class="informative appendix">
   <h2>Proofs of some results (Informative)</h2>
+
+  <p class="issue" data-number="76">These claims need to be checked.</p>
 
   <p class="fact"> The <a>empty graph</a> is simply entailed by
     any graph, and does not simply entail any graph except itself.
@@ -1899,7 +1911,7 @@
     violating the axiom of foundation was suggested by Christopher Menzel.
     The generalized RDF syntax used in <a href="#entailment_rules" class="sectionRef"></a>,
     and the example showing the need for it, were suggested by Herman ter Horst,
-    who also proved completeness and complexity results for the rule sets.
+    who also proved completeness and complexity results for the rule sets of RDF 1.1.
     Jeremy Carroll first showed that simple entailment is NP-complete in general.
     Antoine Zimmerman suggested several simplifications and improvements to the proofs and presentation.</p>
 
