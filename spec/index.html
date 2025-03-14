@@ -249,7 +249,7 @@
     <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
 
   <p>
-    For RDF terms t, x, and y, we define the <dfn>substitution mapping</dfn> t[x/y] inductively, as follows:
+    For RDF terms t, x, and y, where y is either not a triple term or x does not appear in y, we define the <dfn>substitution mapping</dfn> t[x/y] inductively, as follows:
   </p>
   <ol>
     <li>If t = x, then t[x/y] = y.</li>
