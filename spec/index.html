@@ -410,7 +410,7 @@
               set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
         <p>4. A mapping IS from IRIs into (IR union IP)</p>
         <p>5. A partial mapping IL from literals into IR </p>
-        <p>6. An injective mapping RE from IR x IP x IR into IR, called the interpretation of triple terms. </p>
+        <p>6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms. </p>
        </td>
     </tr>
   </table>
@@ -625,7 +625,7 @@
   </section>
 
   <section id="simple_entailment_properties" class="informative">
-    <h3>Properties of simple entailment (Informative)</h3>
+    <h3>Properties of simple entailment and satisfiability (Informative)</h3>
 
     <p>The properties described here apply only to simple entailment,
       not to extended notions of entailment introduced in later sections.
@@ -683,7 +683,25 @@
 
     <p class="fact"> If E contains an IRI which does not occur anywhere in S,
       then S does not simply entail E.</p>
+      
+    <p>The following semantic properties relate triple terms and triples asserted in a graph, and they introduce a general definition of satisfiability.</p>
+    
+    <p>We define the <dfn>set of propositions</dfn> in an interpretation as follows:</p>
 
+	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;RE(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}; we observe that a proposition is in the extension of <code>rdfs:Proposition</code>. </p>
+
+	<p>We define the <dfn>set of facts</dfn> in an interpretation as follows:</p>
+
+	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;RE(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
+
+	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
+
+	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;RE(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
+	
+	<p>We introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation as follows:</p>
+
+	<p class="fact">An interpretation (simply) satisfies a graph if and only if there exists a blank node mapping such that the facts asserted by the graph in the interpretation are among the facts of the interpretation.</p>
+	
   </section>
 </section>
 
