@@ -186,7 +186,7 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-blank-node">blank node</dfn><span id="dfn-blank-node"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-literal">literal</dfn><span id="dfn-literal"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"></span>, 
-      <dfn data-cite="RDF12-CONCEPTS#dfn-appearing">appears in</dfn><span id="dfn-appears-in"></span>, and
+      <dfn data-cite="RDF12-CONCEPTS#dfn-appear" data-lt="appearing in">appears in</dfn><span id="dfn-appears-in"></span>, and
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- refer to RDF Concepts term --></span>.
       All the definitions in this document apply unchanged to
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-triple">generalized RDF triples</dfn>, 
@@ -263,7 +263,7 @@
 
     <p>Suppose that M is a functional mapping from a set of blank
       nodes to some set of RDF terms. Any graph obtained
-      from a graph G by replacing some or all of the blank nodes N appearing in G by M(N) is
+      from a graph G by replacing some or all of the blank nodes N <a>appearing in</a> G by M(N) is
       an <dfn>instance</dfn> of G. Any graph is an instance of itself,
       an instance of an instance of G is an instance of G,
       and if H is an instance of G then every triple in H is an instance of at least one triple
@@ -1044,7 +1044,7 @@
           </tr>
           <tr >
             <td class="othertable"><dfn>rdfD1</dfn></td>
-            <td class="othertable">Any triple ttt such that <code>"</code>sss<code>"^^</code>ddd appears in ttt <br/>
+            <td class="othertable">Any triple ttt such that <code>"</code>sss<code>"^^</code>ddd <a>appears in</a> ttt <br/>
                 for ddd in D</td>
             <td class="othertable">ttt [<code>"</code>sss<code>"^^</code>ddd/_:nnn] <br/>
       _:nnn <code>rdf:type</code> ddd <code>.</code></td>
@@ -1447,7 +1447,7 @@
           </tr>
           <tr >
             <td class="othertable"><dfn>rdfs4</dfn></td>
-            <td class="othertable">Any triple ttt such that xxx appears in ttt</td> 
+            <td class="othertable">Any triple ttt such that xxx <a>appears in</a> ttt</td> 
             <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code>
           </tr>
           <tr >
@@ -1501,7 +1501,7 @@
           </tr>
           <tr >
             <td class="othertable"><dfn>rdfs14</dfn></td>
-            <td class="othertable">Any triple ttt such that &lt;&lt;(aaa bbb ccc)&gt;&gt; appears in ttt</td>
+            <td class="othertable">Any triple ttt such that &lt;&lt;(aaa bbb ccc)&gt;&gt; <a>appears in</a> ttt</td>
             <td class="othertable">ttt [&lt;&lt;(aaa bbb ccc)>>/_:nnn]<br/>
             _:nnn <code>rdf:type rdfs:Proposition .</code></td>
           </tr>
