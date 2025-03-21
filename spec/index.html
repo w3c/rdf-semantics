@@ -195,9 +195,10 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-graph">generalized RDF graphs</dfn>, and
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-dataset">generalized RDF datasets</dfn>.</p>
 
-    <p>A <dfn>ground</dfn> RDF graph is an RDF graph that no blank nodes appear in.
-    A <dfn>ground</dfn> RDF term is an RDF term that no blank nodes appear in.
-      A <dfn>ground</dfn> RDF triple is an RDF triple that no blank nodes appear in.</p>
+    <p>A <dfn>ground RDF graph</dfn> is an RDF graph that no blank nodes appear in.
+      A <dfn>ground RDF term</dfn> is an RDF term that no blank nodes appear in.
+      A <dfn>ground triple term</dfn> is a triple term  term that no blank nodes appear in.
+      A <dfn>ground RDF triple</dfn> is an RDF triple that no blank nodes appear in.</p>
     <!-- This may end up in RDF Concepts -->
 
     <p>An <dfn class="export">interpretation</dfn> is a mapping from <a>ground RDF terms</a> into a set,
@@ -501,10 +502,14 @@
 
     <p>Suppose I is a simple interpretation and A is a mapping from a set of blank nodes
       to the universe IR of I.
-      Define the mapping [I+A] to be I on <a>names</a>,
-      and A on blank nodes on the set: [I+A](x)=I(x) when x is a <a>name</a>
-      and [I+A](x)=A(x) when x is a blank node;
-      and extend this mapping to triples and RDF graphs using the rules given above for ground graphs.
+      Define the mapping [I+A] as </p>
+      <ul>
+	<li> [I+A](x)=I(x) when x is a <a>name</a>, </li>
+	<li> [I+A](x)=A(x) when x is a blank node, </li>
+	<li> [I+A](x)= RE( [I+A](x.s), [I+A](x.p), [I+A](x.o) )  where x.s, x.p, and x.o are the first, second, and third components of x, respectively. </li>
+      </ul>
+      <p>
+      Extend this mapping to triples and RDF graphs using the rules given above for ground graphs.
       Then the semantic conditions for an RDF graph are:</p>
 
     <table>
