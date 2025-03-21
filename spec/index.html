@@ -177,6 +177,7 @@
     <p>This document uses the following terminology for describing RDF graph syntax, all as defined in the companion RDF Concepts specification [[!RDF12-CONCEPTS]]:
       <dfn data-cite="RDF12-CONCEPTS#dfn-iri">IRI</dfn><span id="dfn-iri"></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-triple" data-lt="triple">RDF triple</dfn><span id="dfn-rdf-triple"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-triple-term">triple term</dfn><span id="dfn-triple-term"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-graph" data-lt="graph">RDF graph</dfn><span id="dfn-rdf-graph"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-subject">subject</dfn><span id="dfn-subject"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-predicate">predicate</dfn><span id="dfn-predicate"><!-- refer to RDF Concepts term --></span>,
@@ -185,6 +186,7 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-node">node</dfn><span id="dfn-node"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-blank-node">blank node</dfn><span id="dfn-blank-node"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-literal">literal</dfn><span id="dfn-literal"><!-- refer to RDF Concepts term --></span>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-term">RDF term</dfn><span id="dfn-rdf-term"><!-- refer to RDF Concepts term --></span>,
       <dfn data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</dfn><span id="dfn-isomorphic"></span>, 
       <dfn data-cite="RDF12-CONCEPTS#dfn-appear" data-lt="appearing in">appears in</dfn><span id="dfn-appears-in"></span>, and
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- refer to RDF Concepts term --></span>.
@@ -193,7 +195,12 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-graph">generalized RDF graphs</dfn>, and
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-dataset">generalized RDF datasets</dfn>.</p>
 
-    <p>An <dfn class="export">interpretation</dfn> is a mapping from IRIs and literals into a set,
+    <p>A <dfn>ground</dfn> RDF graph is an RDF graph that no blank nodes appear in.
+    A <dfn>ground</dfn> RDF term is an RDF term that no blank nodes appear in.
+      A <dfn>ground</dfn> RDF triple is an RDF triple that no blank nodes appear in.</p>
+    <!-- This may end up in RDF Concepts -->
+
+    <p>An <dfn class="export">interpretation</dfn> is a mapping from <a>ground RDF terms</a> into a set,
       together with some constraints upon the set and the mapping.
       This document defines various notions of interpretation,
       each corresponding in a standard way to an entailment regime.
@@ -204,7 +211,7 @@
       but if clear from the context might refer to a specific kind of interpretation.</p>
 
     <p>The word <dfn id="dfn-denote" data-cite="RDF12-CONCEPTS#dfn-denote" data-lt="denote" data-local-lt="denoted">denotes</dfn>
-      is used here for the relationship between an <a>IRI</a> or <a>literal</a>
+      is used here for the relationship between a <a>ground RDF term</a> 
       and what it refers to in a given interpretation,
       itself called the <dfn id="dfn-referent" data-cite="RDF12-CONCEPTS#dfn-referent">referent</dfn>.
       (The phrase <dfn class="no-export lint-ignore">refer to</dfn> is often used instead of denote and 
@@ -246,7 +253,8 @@
       so that each triple in a graph is considered to be a subgraph.
       A <dfn>proper subgraph</dfn> is a proper subset of the triples in the graph.</p>
 
-    <p>A <dfn>ground</dfn> RDF graph is one that contains no blank nodes.</p>
+    A <dfn>ground</dfn> RDF term is one that contains no blank nodes.</p>
+
 
   <p>
     For RDF terms t, x, and y, where either y is not a triple term or x does not appear in y, we define the <dfn>substitution mapping</dfn> t[x/y] inductively, as follows:
@@ -271,16 +279,9 @@
       
       <p class="issue">the defined term "RDF term" is not accessible from outside this document, which is a problem (RDF semantics, and probably other specs, need to reference it). There are other definitions in this spec that need to be exported - see <a href="https://github.com/w3c/rdf-concepts/issues/152">issue #152</a> in RDF-concepts.</p>
 
-
-    <p>An <dfn class="no-export lint-ignore">instance with respect to</dfn> a vocabulary
-      V is an <a>instance</a> in which all the
-      <a>names</a> in the instance that were substituted
-      for blank nodes in the original are <a>names</a>
-      from V.</p>
-
     <p>A <dfn>proper instance</dfn> of a graph
-      is an <a>instance</a> in which a blank node has been replaced by a <a>name</a>, or two blank
-      nodes in the graph have been mapped into the same node in the instance. </p>
+      is an <a>instance</a> in which a blank node has been mapped into something other than a blank node, or two blank
+      nodes in the graph have been mapped into the same blank node. </p>
 
     <p>Two graphs are <a data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
       mapping. As blank nodes have no particular identity beyond their location in a graph, we will often treat isomorphic graphs as identical.</p>
