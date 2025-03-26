@@ -1534,29 +1534,20 @@
 <section id="rdf_datasets">
   <h2>RDF Datasets</h2>
 
-  <!--
-  <p>An RDF <a data-cite="RDF12-CONCEPTS#section-dataset">dataset</a> (see [[!RDF12-CONCEPTS]])
-    is a finite set of RDF graphs each paired with an IRI or blank node called the <strong>graph name</strong>,
-    plus a <strong>default graph</strong>, without a <a>name</a>.
-    Graphs in a single dataset may share blank nodes.
-    The association of graph name IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
-    to allow queries to be directed against particular graphs.</p>
-  -->
-
   <p><a>RDF datasets</a>,
     defined in RDF Concepts [[!RDF12-CONCEPTS]],
     package up zero or more named RDF graphs along with a single unnamed, default RDF graph.
     The graphs in a single dataset may share blank nodes.
-    The association of graph <a>name</a> IRIs with graphs is used by SPARQL [[?SPARQL12-QUERY]]
+    SPARQL [[?SPARQL12-QUERY]] associates graph names with graphs
     to allow queries to be directed against particular graphs.</p>
 
   <p>Graph names in a dataset may denote something other than the graph they are paired with.
-    This allows IRIs denoting other kinds of entities, such as persons,
-    to be used in a dataset to <a>identify</a> graphs of information relevant to the entity <a>denoted</a> by the graph name IRI.</p>
+    This allows IRIs or blank nodes denoting other kinds of entities, such as persons,
+    to be used in a dataset to <a>identify</a> graphs of information relevant to the entity <a>denoted</a> by the graph name.</p>
 
   <p>When a graph name is used inside RDF triples in a dataset it may or may not denote the graph it names.
     The semantics does not require, nor should RDF engines presume,
-    without some external reason to do so, that graph names used in RDF triples denote to the graph they name.</p>
+    without some external reason to do so, that graph names used in RDF triples denote the graph they name.</p>
 
   <p>RDF datasets MAY be used to express RDF content.
     When used in this way, a dataset SHOULD be understood to have at least the same content as its default graph.
@@ -1579,7 +1570,7 @@
 	      is a set:<br/>
               { G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), . .
               . (&lt;u<sub>n</sub>&gt;, G<sub>n</sub>) }<br>
-              where n&ge;0 and G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI. Each
+              where n&ge;0, G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI or blank node. Each
               &lt;u<sub>i</sub>&gt; is distinct.</p>
             <p>G is called the default graph. (&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) are called named
               graphs.</p>
