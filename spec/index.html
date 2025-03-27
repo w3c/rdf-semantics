@@ -285,26 +285,26 @@
     <p>Two graphs are <a data-cite="RDF12-CONCEPTS#dfn-graph-isomorphism">isomorphic</a> when each maps into the other by a 1:1 mapping on blank nodes. Isomorphic graphs are mutual instances with an invertible instance
       mapping. As blank nodes have no particular identity beyond their location in a graph, we will often treat isomorphic graphs as identical.</p>
 
-    <p >An RDF graph is <dfn>lean</dfn> if it has no instance which is
+    <p>An RDF graph is <dfn>lean</dfn> if it has no instance which is
       a <a>proper subgraph</a> of itself. Non-lean graphs have internal redundancy
-      and express the same content as their lean <a>subgraphs</a>. For example, the graph</p>
+      and express the same content as their lean <a>subgraphs</a>. For example, the graph&nbsp;&mdash;</p>
 
     <pre class="example" title="Non-lean graph">
       ex:a ex:p _:x .
       _:y ex:p _:x .
     </pre>
 
-    <p >is not lean, but</p>
+    <p>&mdash;&nbsp;is not lean, but&nbsp;&mdash;</p>
 
     <pre class="example" title="Lean graph">
       ex:a ex:p _:x .
       _:x ex:p _:x .
     </pre>
 
-    <p>is lean. A <a>ground RDF graph</a> is lean. </p>
+    <p>&mdash;&nbsp;is lean. A <a>ground RDF graph</a> is lean.</p>
     
   <section id="unions_merges">
-    <h3>Shared blank nodes, unions and merges</h3>
+    <h3>Shared blank nodes, unions, and merges</h3>
 
     <p>Graphs share <a>blank nodes</a> only if they are derived from graphs
       described by documents or other structures (such as an RDF dataset)
@@ -313,7 +313,8 @@
       graph are the same as the blank nodes coming from other downloads of
       the same document or from the same <a>RDF source</a>.</p>
 
-    <p> RDF applications which manipulate concrete syntaxes for RDF which use <a data-cite="RDF12-CONCEPTS#dfn-blank-node-identifier">blank node identifiers</a>
+    <p> RDF applications which manipulate concrete syntaxes for RDF which use
+      <a data-cite="RDF12-CONCEPTS#dfn-blank-node-identifier">blank node identifiers</a>
       should take care to keep track of the identity of the blank nodes they identify.
       Blank node identifiers often have a local scope,
       so when RDF from different sources is combined,
@@ -324,11 +325,12 @@
       to identify a blank node, but unless these documents are in a shared identifier scope
       or are derived from a common source,
       the occurrences of "<code>_:x</code>" in one document
-      will identify a different blank node than the one in the graph described by the other document.
+      will identify a different blank node than the occurrences of "<code>_:x</code>"
+      in the graph described by the other document.
       When graphs are formed by combining RDF from multiple sources,
-      it may be necessary to <dfn class="no-export lint-ignore">standardize</dfn> apart the blank node identifiers
-      by replacing them by others which do not occur in the other document(s).
-      For example, the two graphs represented  by the following texts:</p>
+      it may be necessary to <dfn class="no-export lint-ignore">standardize</dfn> the blank node identifiers
+      by replacing them with other identifiers which do not occur in the other document(s).
+      For example, the two graphs represented  by the following texts&nbsp;&mdash;</p>
 
     <p><code>ex:a ex:p _:x . </code><br/><br/>
       <img src="RDF12SemanticsDiagrams/example1.svg" alt="Graph 1" /></p>
@@ -336,27 +338,29 @@
     <p><code>ex:b ex:q _:x . </code><br/><br/>
       <img src="RDF12SemanticsDiagrams/example2.svg" alt="Graph 2" ></p>
 
-    <p>contain four nodes. Their union would therefore also contain four nodes:</p>
+    <p>&mdash;&nbsp;contain four nodes. Their union would therefore also contain four nodes&nbsp;&mdash;</p>
 
     <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Union Graph"></p>
 
-    <p>However, the document formed by simply concatenating these textual surface representations:</p>
+    <p>However, the document formed by simply concatenating these textual surface representations&nbsp;&mdash;</p>
 
     <p><code>ex:a ex:p _:x .<br/>
     ex:b ex:q _:x .</code><br/></p>
 
-    <p>describes a graph containing three nodes:</p>
+    <p>&mdash;&nbsp;describes a graph containing three nodes&nbsp;&mdash;</p>
 
     <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Incorrect Union Graph"></p>
 
-    <p> since the two occurrences of the blank node identifier "<code>_:x</code>" occurring in a common identifier scope identify the same blank node. The four-node union of these two graphs is more properly described by a surface form such as:</p>
+    <p>&mdash;&nbsp;since the two occurrences of the blank node identifier "<code>_:x</code>
+      occurring in a common identifier scope identify the same blank node. The four-node union
+      of these two graphs is more properly described by a surface form such as&nbsp;&mdash;</p>
 
     <p><code>ex:a ex:p _:x1 .<br/>
       ex:b ex:q _:x2 .</code></p>
 
-    <p>in which the blank node identifiers have been <a data-lt="standardize">standardized</a>
+    <p>&mdash;&nbsp;in which the blank node identifiers have been <a data-lt="standardize">standardized</a>
       apart to avoid conflating the distinct blank nodes.
-      (The particular blank node identifiers used have no significance, only that they are distinct.)</p>
+      (The particular blank node identifiers used have no significance; it matters only that they are distinct.)</p>
 
     <p>It is possible for two or more graphs to share a blank node,
       for example if they are <a>subgraphs</a> of a single larger graph or derived from a common source.
@@ -369,11 +373,11 @@
       which occur in more than one graph, to be distinct in each graph.
       The resulting graph is called the <dfn data-lt="RDF graph merge">merge</dfn>.
       The merge of <a>subgraphs</a> of a graph may be larger than the original graph.
-      For example, the result of merging the two singleton subgraphs of the three-node graph</p>
+      For example, the result of merging the two singleton subgraphs of the three-node graph&nbsp;&mdash;</p>
 
     <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Three-node Graph"></p>
 
-    <p>is the four-node graph</p>
+    <p>&mdash;&nbsp;is the four-node graph&nbsp;&mdash;</p>
 
     <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Four-node Graph"></p>
 
