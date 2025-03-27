@@ -528,7 +528,7 @@
       they have no 'global' meaning.</p>
 
     <section id="shared_blank_nodes" class="informative">
-      <h3>Shared blank nodes (Informative)</h3>
+      <h3>Shared blank nodes</h3>
 
       <p> The semantics for blank nodes are stated in terms of the truth of a graph. However, when two (or more) graphs share a blank node, their meaning is not fully captured by treating them in isolation. For example, consider the overlapping graphs</p>
 
@@ -552,15 +552,6 @@
         Taking the union of graphs which share a blank node changes the implied quantifier scopes.</p>
     </section>
   </section>
-
-  <!-- commented out, to be removed later
-  <section id="intuitions" class="informative">
-    <h3>Intuitive summary (Informative)</h3>
-
-    <p>An RDF graph is true exactly when:</p>
-    <p>1. the IRIs and literals in subject or object position in the graph all refer to things,</p><p>2. there is some way to interpret all the blank nodes in the graph as referring to things,</p><p>3. the IRIs in property position refer to binary relationships,</p><p>4. and under these interpretations, each triple S P O in the graph asserts that the thing referred to as S, and the thing referred to as O, do in fact stand in the relationship referred to by P.</p>
-  </section>
-  -->
 
   <section id="simpleentailment">
     <h2>Simple Entailment</h2>
@@ -629,7 +620,7 @@
   </section>
 
   <section id="simple_entailment_properties" class="informative">
-    <h3>Properties of simple entailment and satisfiability (Informative)</h3>
+    <h3>Properties of simple entailment and satisfiability</h3>
 
     <p>The properties described here apply only to simple entailment,
       not to extended notions of entailment introduced in later sections.
@@ -710,7 +701,7 @@
 </section>
 
 <section id="skolemization" class="informative">
-  <h2>Skolemization (Informative)</h2>
+  <h2>Skolemization</h2>
 
   <p><dfn class="no-export lint-ignore">Skolemization</dfn> is a transformation on RDF graphs
     which eliminates blank nodes by replacing them with "new" IRIs,
@@ -905,7 +896,7 @@
       so if S <a>D-entails</a> G  then S <a>simply entails</a> G. </p>
 
     <section id="datatype_entailment_patterns" class="informative">
-      <h4>Patterns of datatype entailment (Informative)</h4>
+      <h4>Patterns of datatype entailment</h4>
 
       <p>Unlike <a>simple entailment</a>, it is not possible to give a single syntactic criterion
         to detect all D-entailments,
@@ -1032,7 +1023,7 @@
       and so are <a>RDF entail</a>ed by the empty graph, contradicting <a>interpolation</a> for RDF entailment. </p>
 
     <section id="rdf_entailment_patterns" class="informative">
-      <h4>Patterns of RDF entailment (Informative)</h4>
+      <h4>Patterns of RDF entailment</h4>
 
       <p>The last semantic condition in the above table gives the following entailment pattern for <a>recognized</a> datatype IRIs:</p>
 
@@ -1382,7 +1373,7 @@
     A property of a class is not necessarily a property of its members, nor vice versa.</p>
 
   <section id="rdfs_literal_note" class="informative">
-    <h4>A note on rdfs:Literal (Informative)</h4>
+    <h4>A note on rdfs:Literal</h4>
 
     <p>The class <code>rdfs:Literal</code> is not the class of literals,
       but rather that of literal values, which may also be denoted by IRIs.
@@ -1417,7 +1408,7 @@
     <p>where aaa is an IRI, are true in all RDFS interpretations.</p>
 
     <section id="rdfs_patterns" class="informative" data-dfn-for="RDFS entailment patterns">
-      <h4>Patterns of RDFS entailment (Informative)</h4>
+      <h4>Patterns of RDFS entailment</h4>
 
       <P>RDFS entailment holds for all the following patterns, 
         which correspond closely to the RDFS semantic conditions:</p>
@@ -1613,7 +1604,7 @@
 <h2 id="appendices">Appendices</h2>
 
 <section id="entailment_rules" class="informative appendix">
-  <h2>Entailment rules (Informative)</h2>
+  <h2>Entailment rules</h2>
 
   <p>(<em>This section is based on work described more fully in </em>[[HORST04]]<em>, </em>[[HORST05]]<em>,
     which should be consulted for technical details and proofs.</em>) </p>
@@ -1824,7 +1815,7 @@
 </section>
 
 <section id="proofs" class="informative appendix">
-  <h2>Proofs of some results (Informative)</h2>
+  <h2>Proofs of some results</h2>
 
   <p class="issue" data-number="76">These claims need to be checked.</p>
 
@@ -1903,7 +1894,7 @@
 </section>
 
 <section id="whatnot" class="informative appendix">
-  <h2 id="non_semantics">RDF reification, containers and collections (Informative)</h2>
+  <h2 id="non_semantics">RDF reification, containers and collections</h2>
 
   <p>The RDF semantic conditions do not place formal constraints on the meaning
     of much of the RDF vocabulary which is intended for use in describing containers and bounded collections,
@@ -2186,13 +2177,13 @@
 </section>
 
 <section id="privacy" class="informative appendix">
-  <h2>Privacy Considerations (Informative)</h2>
+  <h2>Privacy Considerations</h2>
   <p>
     See <a data-cite="RDF12-CONCEPTS#privacy">Privacy Considerations</a> in [[RDF12-CONCEPTS]].
   </p>
 </section>
 <section id="security" class="informative appendix">
-  <h2>Security Considerations (Informative)</h2>
+  <h2>Security Considerations</h2>
   <p>
     See <a data-cite="RDF12-CONCEPTS#security">Security Considerations</a> in [[RDF12-CONCEPTS]].
   </p>
