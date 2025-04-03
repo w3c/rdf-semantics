@@ -276,8 +276,6 @@
       and if H is an instance of G then every triple in H is an instance of at least one triple
       in G.</p>
       
-      <p class="issue">the defined term "RDF term" is not accessible from outside this document, which is a problem (RDF semantics, and probably other specs, need to reference it). There are other definitions in this spec that need to be exported - see <a href="https://github.com/w3c/rdf-concepts/issues/152">issue #152</a> in RDF-concepts.</p>
-
     <p>A <dfn>proper instance</dfn> of a graph
       is an <a>instance</a> in which a blank node has been mapped into something other than a blank node, or two blank
       nodes in the graph have been mapped into the same blank node. </p>
@@ -639,7 +637,7 @@
       terms. To detect whether one RDF graph <a>simply entails</a> another, check that
       there is some instance of the entailed graph which is a subset of the first graph.</p>
 
-  <p class="issue" data-number="76">The correctness of this claim may still be unclear.</p>
+  <p class="issue" data-number="102">The correctness of this claim may still be unclear.</p>
 
     <p class="technote">This is clearly decidable, but it is also difficult to determine in general,
       since one can encode the NP-hard <a>subgraph</a> problem (detecting whether
@@ -1606,6 +1604,9 @@
 <section id="entailment_rules" class="informative appendix">
   <h2>Entailment rules</h2>
 
+<p> <em> Note: This section is carried over from RDF 1.1 and is included here to show how sound and complete inference rules might be constructed for the current versions of RDF and RDFS.  It is believed that at most minor changes to the entailment rules here will be needed for sound and complete RDF and RDFS entailment. </em> </p>
+
+
   <p>(<em>This section is based on work described more fully in </em>[[HORST04]]<em>, </em>[[HORST05]]<em>,
     which should be consulted for technical details and proofs.</em>) </p>
 
@@ -1770,8 +1771,6 @@
     </tbody>
     </table>
   
-  <p class="issue" data-number="76">We don't have a completeness proof for the RDFS entailment rules (yet).</p>
-
 
 </section>
 
@@ -1817,7 +1816,7 @@
 <section id="proofs" class="informative appendix">
   <h2>Proofs of some results</h2>
 
-  <p class="issue" data-number="76">These claims need to be checked.</p>
+  <p class="issue" data-number="102">These claims still need to be checked.</p>
 
   <p class="fact"> The <a>empty graph</a> is simply entailed by
     any graph, and does not simply entail any graph except itself.
