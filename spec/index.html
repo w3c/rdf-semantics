@@ -498,15 +498,15 @@
 
     <p>Suppose I is a simple interpretation and A is a mapping from a set of blank nodes
       to the universe IR of I.
-      Define the mapping [I+A] as:</p>
+      Define the mapping [I+A] as below:</p>
       <ul>
-	<li> [I+A](x)=I(x) when x is a <a>name</a>; </li>
-	<li> [I+A](x)=A(x) when x is a blank node; </li>
-	<li> [I+A](x)= RE( [I+A](x.s), [I+A](x.p), [I+A](x.o) ) when x is a triple term, where x.s, x.p, and x.o are the first, second, and third components of x, respectively; </li>
-<li> [I+A](x)=true if x is a triple,  x.s, x.p, and x.o are the first, second, and third components of x, respectively, and [I+A](x.p) is in IP and the pair <[I+A](x.s),[I+A](x.o)> is in IEXT([I+A](x.p));</li>
-	<li> [I+A](x)=false when x is a triple, otherwise;
-	<li> [I+A](x)=false when x is an RDF graph and [I+A](x')=false for some triple x' in x;</li>
-	<li> [I+A](x)=true when x an RDF graph, otherwise</li>
+	<li> [I+A](x)=I(x) when x is a <a>name</a>. </li>
+	<li> [I+A](x)=A(x) when x is a blank node. </li>
+	<li> [I+A](x)=RE( [I+A](x.s), [I+A](x.p), [I+A](x.o) ) when x is a triple term, where x.s, x.p, and x.o are the first, second, and third components of x, respectively. </li>
+	<li> [I+A](x)=true when x is a triple, x.s, x.p, and x.o are the first, second, and third components of x, respectively, and [I+A](x.p) is in IP and the pair <[I+A](x.s),[I+A](x.o)> is in IEXT([I+A](x.p)). </li>
+	<li> [I+A](x)=false when x is a triple, otherwise. </li>
+	<li> [I+A](x)=false when x is an RDF graph and [I+A](x')=false for some triple x' in x. </li>
+	<li> [I+A](x)=true when x an RDF graph, otherwise. </li>
       </ul>
       <p>
       Extend this mapping to triples and RDF graphs using the rules given above for ground graphs.
