@@ -7,11 +7,21 @@
   <script src="./common/local-biblio.js" class="remove"></script>
   <script src="./common/fixup.js" class="remove"></script>
   <script class='remove'>
+    // Use fragment identifier of test as name.
+    function data_test_display() {
+        const test_references = document.querySelectorAll('details.respec-tests-details a');
+        for( const a of test_references ) {
+            const href = a.href;
+            const test_reference = href.split('#')[1];
+            a.textContent = test_reference;
+        }
+    }
+
     var respecConfig = {
       localBiblio:          localBibliography,
       specStatus:           "ED",
       edDraftURI:           "https://w3c.github.io/rdf-semantics/spec/",
-      testSuiteURI:         "https://w3c.github.io/rdf-tests/rdf-mt/",
+      testSuiteURI:         "https://w3c.github.io/rdf-tests/rdf/rdf12/",
       shortName:            "rdf12-semantics",
       copyrightStart:       "2004",
 
@@ -34,7 +44,7 @@
       doJsonLd:     true,
       wgPublicList: "public-rdf-star-wg", 
       xref:   [ "RDF12-CONCEPTS" ],
-//      localBiblio:          localBibliography,
+      postProcess: [data_test_display],
 
       lint: { "no-unused-dfns": false }
     };
@@ -630,12 +640,19 @@
 
     <p class="fact">Every graph is simply <a>satisfiable</a>.</p>
 
-    <p>This does not always hold for extended notions of interpretation.
+    <p id="ill-typed-tests" data-tests="
+      ../rdf11/rdf-mt/index.html#datatypes-non-well-formed-literal-2,
+      ../rdf11/rdf-mt/index.html#xmlsch-02-whitespace-facet-1,
+      ../rdf11/rdf-mt/index.html#xmlsch-02-whitespace-facet-2,
+      ../rdf11/rdf-mt/index.html#xmlsch-02-whitespace-facet-4">
+      This does not always hold for extended notions of interpretation.
       For example, a graph containing an <a>ill-typed</a> literal is <a>D-unsatisfiable</a>.</p>
 
     <p>The following <dfn>interpolation</dfn> <strong>lemma</strong> </p>
 
-    <p class="fact">G <a>simply entails</a> a graph E if and only if a <a>subgraph</a> of G is an instance of E.</p>
+    <p id="interpolation-lemma-tests" class="fact" data-tests="
+      rdf-semantics/index.html#all-identical-triple-terms-are-the-same">
+      G <a>simply entails</a> a graph E if and only if a <a>subgraph</a> of G is an instance of E.</p>
 
     <p>completely characterizes simple entailment in syntactic
       terms. To detect whether one RDF graph <a>simply entails</a> another, check that
@@ -832,7 +849,11 @@
     <table>
       <caption>Semantic conditions for literals.</caption>
       <tbody>
-        <tr><td class="semantictable">If <code>rdf:langString</code> is in D,
+        <tr><td id="d-int-langString-tests" class="semantictable" data-tests="
+          ../rdf11/rdf-mt/index.html#tex-01-language-tag-case-1,
+          ../rdf11/rdf-mt/index.html#tex-01-language-tag-case-2,
+          rdf-semantics/index.html#opaque-language-string-control">
+          If <code>rdf:langString</code> is in D,
           then for every language-tagged string E with lexical form sss and language tag ttt,
           IL(E)= &lt; sss, ttt' &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
         <tr><td class="semantictable">If <code>rdf:dirLangString</code> is in D,
