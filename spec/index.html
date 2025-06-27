@@ -418,7 +418,10 @@
               set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
         <p>4. A mapping IS from IRIs into (IR union IP)</p>
         <p>5. A partial mapping IL from literals into IR </p>
-        <p>6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms. </p>
+        <p id="simple-injective-tests" data-tests="rdf-semantics/index.html#all-identical-triple-terms-are-the-same,
+		       rdf-semantics/index.html#triple-term-not-asserted,
+		       rdf-semantics/index.html#triple-terms-no-spurious">
+	  6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms. </p>
        </td>
     </tr>
   </table>
@@ -526,7 +529,16 @@
       <caption>Semantic condition for blank nodes.</caption>
       <tbody>
         <tr>
-          <td class="semantictable">If E is an RDF graph then I(E) = true if [I+A](E) =
+          <td id="blank_nodes-semantic-condition-tests" class="semantictable" data-tests="rdf-semantics/index.html#bnodes-in-triple-term-object,
+						rdf-semantics/index.html#bnodes-in-triple-term-subject,
+						rdf-semantics/index.html#bnodes-in-triple-term-subject-and-object,
+						rdf-semantics/index.html#bnodes-in-triple-term-fail,
+						rdf-semantics/index.html#constrained-bnodes-in-triple-term-fail,
+						rdf-semantics/index.html#constrained-bnodes-in-triple-term-object,
+						rdf-semantics/index.html#constrained-bnodes-in-triple-term-subject,
+						rdf-semantics/index.html#same-bnode-same-quoted-term,
+						rdf-semantics/index.html#different-bnodes-same-triple-term">
+	    If E is an RDF graph then I(E) = true if [I+A](E) =
           true for some mapping A from the set of blank nodes in E to IR, otherwise
           I(E)= false.</td>
         </tr>
@@ -852,6 +864,7 @@
         <tr><td id="d-int-langString-tests" class="semantictable" data-tests="
           ../rdf11/rdf-mt/index.html#tex-01-language-tag-case-1,
           ../rdf11/rdf-mt/index.html#tex-01-language-tag-case-2,
+          rdf-semantics/index.html#opaque-language-string,
           rdf-semantics/index.html#opaque-language-string-control">
           If <code>rdf:langString</code> is in D,
           then for every language-tagged string E with lexical form sss and language tag ttt,
@@ -860,7 +873,20 @@
           then for every directional language-tagged string E with lexical form sss,
             language tag ttt, and base direction bbb,
           IL(E)= &lt; sss, ttt', bbb &gt;, where ttt' is ttt converted to lower case using US-ASCII rules</td></tr>
-        <tr><td class="semantictable">For every other IRI aaa in D,
+        <tr><td id="D_interpretations-literal-tests" class="semantictable" data-tests="rdf-semantics/index.html#malformed-literal,
+						  rdf-semantics/index.html#malformed-literal-accepted,
+						  rdf-semantics/index.html#malformed-literal-bnode,
+						  rdf-semantics/index.html#opaque-literal,
+						  rdf-semantics/index.html#opaque-literal-control,
+						  rdf-semantics/index.html#float-zero,
+						  rdf-semantics/index.html#float-round-different,
+						  rdf-semantics/index.html#float-round-same,
+						  rdf-semantics/index.html#float-infinity,
+						  rdf-semantics/index.html#double-zero,
+						  rdf-semantics/index.html#double-round-different,
+						  rdf-semantics/index.html#double-round-same,
+						  rdf-semantics/index.html#double-infinity">
+	    For every other IRI aaa in D,
           I(aaa) is the datatype identified by aaa, and for every literal
           "sss"^^aaa, IL("sss"^^aaa) = L2V(I(aaa))(sss)</td></tr>
      </tbody>
@@ -1024,7 +1050,14 @@
     and <a data-cite="XMLSCHEMA11-2#string"><code>xsd:string</code></a>
     MUST be <a>recognized</a> by all RDF interpretations.</p>
 
-  <p>Three other datatypes &mdash; <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>,
+<p id="rdf_d_interpretations-failure-tests" data-tests="rdf-semantics/index.html#json-array-unordered,
+		 rdf-semantics/index.html#json-object-ordered,
+		 rdf-semantics/index.html#json-zero,
+		 rdf-semantics/index.html#json-zero-array,
+		 rdf-semantics/index.html#json-round-different,
+		 rdf-semantics/index.html#json-round-same,
+		 rdf-semantics/index.html#json-infinity">
+    Three other datatypes &mdash; <a data-cite="RDF12-CONCEPTS#section-XMLLiteral"><code>rdf:XMLLiteral</code></a>,
     <a data-cite="RDF12-CONCEPTS#section-html"><code>rdf:HTML</code></a>, and
     <a data-cite="RDF12-CONCEPTS#section-json"><code>rdf:JSON</code></a> &mdash;
     are defined in [[!RDF12-CONCEPTS]].
