@@ -1301,9 +1301,7 @@
     </tr>
     <tr>
     <td class="semantictable" id="rdfssemcond11"><p>If
-      exist x,y,z such that RE(x,z,y)=r, or 
-      exists x such that &lt; x,r &gt; 
-        is in IEXT(I(<code>rdf:reifies</code>)), 
+      exist x,y,z such that RE(x,z,y)=r
       <br/> 
       then &lt; r,I(<code>rdfs:Proposition</code>)&gt; 
         is in IEXT(I(<code>rdf:type</code>))</p></td>
@@ -1314,6 +1312,7 @@
     <caption>RDFS axiomatic triples.</caption>
     <tr>
       <td class="ruletable"> <code>rdf:type rdfs:domain rdfs:Resource .<br/>
+        rdf:reifies rdfs:domain rdfs:Resource .<br/>
         rdfs:domain rdfs:domain rdf:Property .<br/>
         rdfs:range rdfs:domain rdf:Property .<br/>
         rdfs:subPropertyOf rdfs:domain rdf:Property .<br/>
@@ -1331,6 +1330,7 @@
         rdf:value rdfs:domain rdfs:Resource .<br/>
         <br/>
         rdf:type rdfs:range rdfs:Class .<br/>
+        rdf:reifies rdfs:range rdfs:Proposition .<br/>
         rdfs:domain rdfs:range rdfs:Class .<br/>
         rdfs:range rdfs:range rdfs:Class .<br/>
         rdfs:subPropertyOf rdfs:range rdf:Property .<br/>
@@ -1354,10 +1354,6 @@
         <br/>
         rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .<br/>
         <br/>
-
-        rdf:reifies rdfs:range rdfs:Proposition .<br/>
-        <br/>
-        
         rdfs:Datatype rdfs:subClassOf rdfs:Class .<br/>
         <br/>
         rdf:_1 rdf:type rdfs:ContainerMembershipProperty .<br/>
