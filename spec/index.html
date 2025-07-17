@@ -720,6 +720,16 @@
 
 	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;RE(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
 
+        <p>
+		Note however that reifying a proposition never entails a fact, and neither does a fact entail a reified proposition.
+		From that follows that an assertion on a reification can never be an assertion on a fact of the same form.
+		I.e. in the strict model-theoretic interpretation of semantics the connection between a (reified) proposition and a fact of the same form 
+		can only be understood as being merely coincidental, even if they occur in the same graph. 
+		A looser interpretation of that connection as one of <a href="https://w3c.github.io/rdf-semantics/spec/#dfn-identify">identification</a>, 
+		not <a href="https://www.w3.org/TR/rdf12-concepts/#dfn-denote">denotation</a>, as applied in RDF 1.2 Concepts and RDF 1.2 Primer,
+		may try to establish an operational semantics of such a connection between (reified) proposition and fact as convention and best practice.
+	</p>
+	  
 	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
 
 	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;RE(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
