@@ -287,21 +287,21 @@
 
     <p>An RDF graph is <dfn>lean</dfn> if it has no instance which is
       a <a>proper subgraph</a> of itself. Non-lean graphs have internal redundancy
-      and express the same content as their lean <a>subgraphs</a>. For example, the graph&nbsp;&mdash;</p>
+      and express the same content as their lean <a>subgraphs</a>. For example, the graph in Example 1 is not lean:</p>
 
     <pre class="example" title="Non-lean graph">
       ex:a ex:p _:x .
       _:y ex:p _:x .
     </pre>
 
-    <p>&mdash;&nbsp;is not lean, but&nbsp;&mdash;</p>
+    <p>In contrast, the graph in Example 2 <em>is</em> lean:</p>
 
     <pre class="example" title="Lean graph">
       ex:a ex:p _:x .
       _:x ex:p _:x .
     </pre>
 
-    <p>&mdash;&nbsp;is lean. A <a>ground RDF graph</a> is lean.</p>
+    <p>A <a>ground RDF graph</a> is also lean.</p>
     
   <section id="unions_merges">
     <h3>Shared blank nodes, unions, and merges</h3>
@@ -328,9 +328,10 @@
       will identify a different blank node than the occurrences of "<code>_:x</code>"
       in the graph described by the other document.
       When graphs are formed by combining RDF from multiple sources,
-      it may be necessary to <dfn class="no-export lint-ignore">standardize</dfn> the blank node identifiers
+      it may be necessary to <dfn class="no-export lint-ignore">standardize apart</dfn> the blank node identifiers
       by replacing them with other identifiers which do not occur in the other document(s).
-      For example, the two graphs represented by the following texts&nbsp;&mdash;</p>
+      For example, the two graphs represented by the two texts below contain two nodes each, 
+      for a total of four nodes:</p>
 
     <p><code>ex:a ex:p _:x . </code><br/><br/>
       <img src="RDF12SemanticsDiagrams/example1.svg" alt="Graph 1" /></p>
@@ -338,28 +339,31 @@
     <p><code>ex:b ex:q _:x . </code><br/><br/>
       <img src="RDF12SemanticsDiagrams/example2.svg" alt="Graph 2" ></p>
 
-    <p>&mdash;&nbsp;contain four nodes. Their union would therefore also contain four nodes&nbsp;&mdash;</p>
+    <p>Their union would also contain four nodes:</p>
 
     <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Union Graph"></p>
 
-    <p>However, the document formed by simply concatenating these textual surface representations&nbsp;&mdash;</p>
+    <p>However, if we simply concatenate these textual surface representations 
+      to form a new document, as shown below:</p>
 
     <p><code>ex:a ex:p _:x .<br/>
     ex:b ex:q _:x .</code><br/></p>
 
-    <p>&mdash;&nbsp;describes a graph containing three nodes&nbsp;&mdash;</p>
+    <p>This new document describes a graph containing three nodes, because
+      the two occurrences of the blank node identifier "<code>_:x</code>
+      now occur in a common identifier scope, and thus identify the same blank node,
+      as shown below:</p>
 
     <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Incorrect Union Graph"></p>
 
-    <p>&mdash;&nbsp;since the two occurrences of the blank node identifier "<code>_:x</code>
-      occurring in a common identifier scope identify the same blank node. The four-node union
-      of these two graphs is more properly described by a surface form such as&nbsp;&mdash;</p>
+    <p>The four-node union
+      of these two graphs is more properly described by a surface form such as the following:</p>
 
     <p><code>ex:a ex:p _:x1 .<br/>
       ex:b ex:q _:x2 .</code></p>
 
-    <p>&mdash;&nbsp;in which the blank node identifiers have been <a data-lt="standardize">standardized</a>
-      apart to avoid conflating the distinct blank nodes.
+    <p>Here the blank node identifiers have been <a data-lt="standardize apart">standardized apart</a>
+      to avoid conflating the distinct blank nodes.
       (The particular blank node identifiers used have no significance; it matters only that they are distinct.)</p>
 
     <p>It is possible for two or more graphs to share a blank node,
@@ -373,15 +377,16 @@
       which occur in more than one graph, to be distinct in each graph.
       The resulting graph is called the <dfn data-lt="RDF graph merge">merge</dfn>.
       The merge of <a>subgraphs</a> of a graph may be larger than the original graph.
-      For example, the result of merging the two singleton subgraphs of the three-node graph&nbsp;&mdash;</p>
+      For example, the result of merging the two singleton subgraphs of the three-node 
+      graph shown below, is the four-node graph shown beneath:</p>
 
     <p><img src="RDF12SemanticsDiagrams/example3.svg" alt="Three-node Graph"></p>
 
-    <p>&mdash;&nbsp;is the four-node graph&nbsp;&mdash;</p>
-
     <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Four-node Graph"></p>
 
-    <p>The union is always an instance of the merge. If graphs have no blank nodes in common, then their merge and union are identical. </p>
+    <p>The union is always an instance of the merge. If graphs have no blank nodes in common,
+      then their merge and union are identical. </p>
+
   </section>
 </section>
 
@@ -1513,18 +1518,17 @@
           </tr>
         </tbody>
       </table>
-      <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14, the following graph &mdash;</p>
+      <p>As an example of a RDFS entailment involving triple terms using the entailment pattern rdfs14,
+        the graph below RDFS entails the triples that follow:</p>
 
       <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d &lt;&lt;(ex:e ex:f ex:g)>> )>> .</code></p>
-
-      <p>&mdash; RDFS entails &mdash;</p>
 
       <p><code>ex:a ex:b &lt;&lt;( ex:c ex:d _:b1 )>> .<br/>
                ex:a ex:b _:b2 .<br/>
                _:b1 rdf:type rdfs:Proposition .<br/>
                _:b2 rdf:type rdfs:Proposition .</code></p>
 
-      <p>RDFS provides for several new ways to be <a>unsatisfiable</a> recognizing D.
+      <p>RDFS provides several new ways to be <a>unsatisfiable</a> recognizing D.
         For example, the following graph is RDFS unsatisfiable recognizing {<code>xsd:integer</code>, <code>xsd:boolean</code>}:</p>
 
       <p><code>ex:p rdfs:domain xsd:boolean .<br/>
