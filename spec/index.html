@@ -775,11 +775,14 @@
   <p>RDF literals and datatypes are fully described in the
     <a data-cite="RDF12-CONCEPTS#section-Datatypes">Datatypes</a> section of the RDF Concepts specification [[!RDF12-CONCEPTS]].
     In summary: with two exceptions, RDF literals combine a string and an IRI <a data-lt="identify">identifying</a> a datatype.
-    The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>, assigned the type <code>rdf:langString</code>,
-    which have two syntactic components, a string and a language tag; and
-    <a data-cite="RDF12-CONCEPTS#dfn-dir-lang-string">directional language-tagged strings</a>,
-    assigned the type <code>rdf:dirLangString</code>,
-    which have three syntactic components, a string, a language tag, and a base direction.
+    The exceptions are <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">language-tagged strings</a>,
+    which have the type <code>rdf:langString</code>, and
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged strings</a>,
+    which have the type <code>rdf:dirLangString</code>.
+    <a data-cite="RDF12-CONCEPTS#dfn-language-tagged-string">Language-tagged strings</a>
+    have two syntactic components: a string, and a language tag;
+    <a data-cite="RDF12-CONCEPTS#dfn-directional-language-tagged string">directional language-tagged strings</a>
+    have three syntactic components: a string, a language tag, and a base direction.
     A datatype is understood to define a mapping, called the
     <span id="dfn-lexical-to-value-mapping"></span>
     <dfn data-cite="RDF12-CONCEPTS#dfn-lexical-to-value-mapping">lexical-to-value mapping</dfn>,
