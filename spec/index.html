@@ -286,7 +286,7 @@
       mapping. As blank nodes have no particular identity beyond their location in a graph, we will often treat isomorphic graphs as identical.</p>
 
     <p>An RDF graph is <dfn>lean</dfn> if it has no instance which is
-      a <a>proper subgraph</a> of itself. Non-lean graphs have internal redundancy
+      a <a>proper subgraph</a> of itself. A <a>ground RDF graph</a> is lean. Non-lean graphs have internal redundancy
       and express the same content as their lean <a>subgraphs</a>. For example, the graph in Example 1 is not lean:</p>
 
     <pre class="example" title="Non-lean graph">
@@ -301,7 +301,6 @@
       _:x ex:p _:x .
     </pre>
 
-    <p>A <a>ground RDF graph</a> is lean.</p>
     
   <section id="unions_merges">
     <h3>Shared blank nodes, unions, and merges</h3>
