@@ -419,17 +419,17 @@
   <table>
     <caption>Definition of a simple interpretation.</caption>
     <tr>
-          <td class="semantictable">1. A non-empty set IR of resources, called the domain or universe
+          <td class="semantictable">1. A non-empty set IR, the resources of I, also called the domain or universe
               of I.
-        <p>2. <span >A set IP, called the set of properties of I.</span></p>
-            <p>3. A mapping IEXT from IP into the powerset of IR x IR i.e. the
-              set of sets of pairs &lt; x, y &gt; with x and y in IR .</p>
-        <p>4. A mapping IS from IRIs into (IR union IP)</p>
-        <p>5. A partial mapping IL from literals into IR </p>
+        <p>2. <span >A set IP, the properties of I.</span></p>
+            <p>3. A mapping IEXT from IP into the powerset of IR x IR (the
+              set of sets of pairs &lt; x, y &gt; with x and y in IR ), the extension mapping for properties in I.</p>
+        <p>4. A mapping IS from IRIs into (IR union IP), the denotation mapping for symbols in I.</p>
+        <p>5. A partial mapping IL from literals into IR, the denotation mapping for literals in I.</p>
         <p id="simple-injective-tests" data-tests="rdf-semantics/index.html#all-identical-triple-terms-are-the-same,
 		       rdf-semantics/index.html#triple-term-not-asserted,
 		       rdf-semantics/index.html#triple-terms-no-spurious">
-	  6. An injective mapping RE from IR x IP x IR into IR, called the denotation of triple terms. </p>
+	  6. An injective mapping RE from IR x IP x IR into IR, the extension mapping for triples in I. </p>
        </td>
     </tr>
   </table>
