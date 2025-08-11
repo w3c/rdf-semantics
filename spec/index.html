@@ -429,7 +429,7 @@
         <p id="simple-injective-tests" data-tests="rdf-semantics/index.html#all-identical-triple-terms-are-the-same,
 		       rdf-semantics/index.html#triple-term-not-asserted,
 		       rdf-semantics/index.html#triple-terms-no-spurious">
-	  6. An injective mapping RE from IR x IP x IR into IR, the extension mapping for triples in I. </p>
+	  6. An injective mapping IT from IR x IP x IR into IR, the extension mapping for triples in I. </p>
        </td>
     </tr>
   </table>
@@ -474,7 +474,7 @@
       </tr>
 
       <tr>
-        <td class="semantictable">if E is a ground triple term, then I(E) = RE(I(E.s), I(E.p), I(E.o)),<br/>
+        <td class="semantictable">if E is a ground triple term, then I(E) = IT(I(E.s), I(E.p), I(E.o)),<br/>
         where E.s, E.p, and E.o are the first, second, and third components of E, respectively</td>
       </tr>
 
@@ -523,7 +523,7 @@
       <ul>
 	<li> [I+A](x)=I(x) when x is a <a>name</a>. </li>
 	<li> [I+A](x)=A(x) when x is a blank node. </li>
-	<li> [I+A](x)=RE( [I+A](x.s), [I+A](x.p), [I+A](x.o) ) when x is a triple term, where x.s, x.p, and x.o are the first, second, and third components of x, respectively. </li>
+	<li> [I+A](x)=IT( [I+A](x.s), [I+A](x.p), [I+A](x.o) ) when x is a triple term, where x.s, x.p, and x.o are the first, second, and third components of x, respectively. </li>
 	<li> [I+A](x)=true when x is a triple; x.s, x.p, and x.o are the first, second, and third components of x, respectively; [I+A](x.p) is in IP; and the pair &lt; [I+A](x.s), [I+A](x.o) &gt; is in IEXT([I+A](x.p)). </li>
 	<li> [I+A](x)=false when x is a triple, otherwise. </li>
 	<li> [I+A](x)=false when x is an RDF graph and [I+A](x')=false for some triple x' in x. </li>
@@ -722,15 +722,15 @@
     
     <p>We define the <dfn>set of propositions</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;RE(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}; we observe that a proposition is in the extension of <code>rdfs:Proposition</code>. </p>
+	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;IT(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}; we observe that a proposition is in the extension of <code>rdfs:Proposition</code>. </p>
 
 	<p>We define the <dfn>set of facts</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;RE(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
+	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;IT(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
 
 	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
 
-	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;RE(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
+	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;IT(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
 	
 	<p>We introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation as follows:</p>
 
@@ -1312,7 +1312,7 @@
     </tr>
     <tr>
     <td class="semantictable" id="rdfssemcond11" data-tests="rdf-semantics/index.html#triple-terms-propositions"><p>If
-      exist x,y,z such that RE(x,z,y)=r
+      exist x,y,z such that IT(x,z,y)=r
       <br/> 
       then &lt; r,I(<code>rdfs:Proposition</code>)&gt; 
         is in IEXT(I(<code>rdf:type</code>))</p></td>
