@@ -1251,7 +1251,7 @@
     empty class extension. Two different classes can have the same class extension.
     The class extension of <code>rdfs:Class</code> contains the class <code>rdfs:Class</code>.</p>
     
-    <p>RDFS also introduces the special class <code>rdfs:Proposition</code>, i.e. a resource whose extension is the <a>set of propositions</a> as defined in [[[#simple_entailment_properties]]].</p>
+    <p>RDFS also introduces the class <code>rdfs:Proposition</code>, which denotes a resource whose extension is exactly the <a>set of propositions</a> as defined in [[[#simple_entailment_properties]]]. The denotation of <code>rdfs:Proposition</code> also includes the range of the <code>rdf:reifies</code> property. A triple where the predicate is <code>rdf:reifies</code> and the object is therefore a proposition, is a <dfn>reifying triple</dfn>, and its subject is called a <dfn>reifier</dfn>. 
 
   <p> An <dfn>RDFS interpretation</dfn> (<strong>recognizing D</strong>) is an <a>RDF interpretation</a> (recognizing D) I
     which <a>satisfies</a> the semantic conditions in the following table, and all the triples in the subsequent table of RDFS axiomatic triples.</p>
