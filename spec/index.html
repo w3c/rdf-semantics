@@ -722,17 +722,23 @@
     
     <p>We define the <dfn>set of propositions</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;IT(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}; we observe that a proposition is in the extension of <code>rdfs:Proposition</code>. </p>
+	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;IT(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}. </p>
+	
+	<p>The denotation of a triple, being it a triple term or an asserted triple, is a proposition. Given the semantics of <a href="#rdfs_interpretations">RDFS Interpretations</a>, a proposition is in the extension of the class <code>rdfs:Proposition</code>.</p>
 
 	<p>We define the <dfn>set of facts</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;IT(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
+	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;IT(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. </p>
+	
+	<p>A fact in an interpretation is a proposition which is true in the interpretation. In other words, a fact in an interpretation is the proposition corresponding to the denotation of an asserted triple in the interpretation. </p>
 
 	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
 
-	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;IT(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
+	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;IT(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. </p>
 	
-	<p>We introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation as follows:</p>
+	<p>Given a blank node mapping and an interpretation, an asserted fact in a graph is the proposition corresponding to the denotation of a triple in the graph. These asserted facts may not necessarily be among the facts in the interpretation.</p>
+	
+	<p>We introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation, based on the intuition that a graph is satisfied by an interpretation if the asserted facts by the graph are among the facts of the interpretation.:</p>
 
 	<p class="fact">An interpretation (simply) satisfies a graph if and only if there exists a blank node mapping such that the facts asserted by the graph in the interpretation are among the facts of the interpretation.</p>
 	
