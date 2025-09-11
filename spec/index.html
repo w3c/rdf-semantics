@@ -504,6 +504,8 @@
     the referent of the subject and object of any true triple will be in IR;
     so any IRI which occurs in a graph both as a predicate and as a subject or object
     will denote something in the intersection of IP and IR.</p>
+  <p>We observe that no IRI, not even those in the <code>rdf:</code> namespace,
+  has any special semantic condition associated with it in a simple interpretation.</p>
 
   <p><a>Semantic extensions</a> may impose further constraints upon interpretation mappings
     by requiring some IRIs to denote in particular ways.
@@ -722,19 +724,36 @@
     
     <p>We define the <dfn>set of propositions</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set of propositions in an interpretation I is IPR(I) = {&nbsp;IT(x, y, z)&#65372;x is in IR, y is in IP, z is in IR&nbsp;}; we observe that a proposition is in the extension of <code>rdfs:Proposition</code>. </p>
+	<p class="fact"> The set of propositions in an interpretation I is
+	IPR(I)&nbsp;= {&nbsp;IT(x, y, z)&nbsp;&#65372;&nbsp;x&nbsp;is in IR,
+	y&nbsp;is in IP, z&nbsp;is in IR&nbsp;}.</p>
+	
+	<p>The denotation of a triple is a proposition, whether it is used as a triple
+	term or an asserted triple. Under <a href="#rdfs_interpretations">RDFS
+	Interpretations</a> (see below), a proposition is in the extension of the
+	class <code>rdfs:Proposition</code>.</p>
 
 	<p>We define the <dfn>set of facts</dfn> in an interpretation as follows:</p>
 
-	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;IT(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. The set of facts is the set of propositions which are true in the interpretation. </p>
+	<p class="fact"> The set F of facts in an interpretation I is F(I) = {&nbsp;IT(x, y, z)&#65372;&lt;x, z&gt; is in IEXT(y)&nbsp;}. </p>
+	
+	<p>A fact in an interpretation is a proposition that holds in it, corresponding to a triple which is true in that interpretation.</p>
 
 	<p>Given a blank node mapping, we define the <dfn>set of facts asserted by a graph</dfn> in an interpretation as follows:</p>
 
-	<p class="fact">Given a blank node mapping A, the set of all facts asserted by a graph G in an interpretation I is FEXT(G, I, A) = {&nbsp;IT(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;`s p o.` is in G&nbsp;}. We then observe that given a blank node mapping, the asserted facts of a graph with respect to an interpretation may not necessarily be among the facts of the interpretation.</p>
+	<p class="fact">Given a blank node mapping&nbsp;A, the set of all facts
+	asserted by a graph&nbsp;G in an interpretation&nbsp;I is FEXT(G, I,
+	A)&nbsp;= {&nbsp;IT(&nbsp;[I+A](s), I(p), [I+A](o)&nbsp;)&#65372;
+	`s p o.`&nbsp;is in G&nbsp;}.</p>
 	
-	<p>We introduce a <dfn>general definition of satisfiability</dfn> of a graph in an interpretation as follows:</p>
+	<p>Given a blank node mapping and an interpretation, an asserted fact in a graph is the proposition corresponding to the denotation of a triple in the graph. These asserted facts may not necessarily be among the facts in the interpretation.
+	Intuitively, this would only be the case if the interpretation satisfies the graph.
+	</p>
 
-	<p class="fact">An interpretation (simply) satisfies a graph if and only if there exists a blank node mapping such that the facts asserted by the graph in the interpretation are among the facts of the interpretation.</p>
+	<p class="fact">An interpretation&nbsp;I (simply) <a>satisfies</a> a graph&nbsp;G
+	if and only if there exists a blank node mapping&nbsp;A such that the facts
+	asserted by the graph in the interpretation&nbsp;FEXT(G,I,A) are a subset of
+	the facts of the interpretation&nbsp;F(I).</p>
 	
   </section>
 </section>
@@ -1243,9 +1262,18 @@
     <em>Ext</em>ension in I) from IC to the set of subsets of IR.</p><p> A class may have an
     empty class extension. Two different classes can have the same class extension.
     The class extension of <code>rdfs:Class</code> contains the class <code>rdfs:Class</code>.</p>
+    
+  <p>RDFS also introduces the class <code>rdfs:Proposition</code>,
+    whose extension is exactly the <a>set of propositions</a> as defined
+    in [[[#simple_entailment_properties]]].
+    This class is also declared as `rdfs:range` of the `rdf:reifies` property.
+    In other words, the object of a <a data-cite="RDF12-CONCEPTS#dfn-reifying-triple">reifying triple</a>
+    always denotes a <a data-cite="RDF12-CONCEPTS#dfn-proposition">proposition</a>. 
 
-  <p> An <dfn>RDFS interpretation</dfn> (<strong>recognizing D</strong>) is an <a>RDF interpretation</a> (recognizing D) I
-    which <a>satisfies</a> the semantic conditions in the following table, and all the triples in the subsequent table of RDFS axiomatic triples.</p>
+  <p> An <dfn>RDFS interpretation</dfn> (<strong>recognizing D</strong>) is an
+  <a>RDF interpretation</a> (recognizing D)&nbsp;I which <a>satisfies</a> the
+  semantic conditions in the following table, and all the triples in the
+  subsequent table of RDFS axiomatic triples.</p>
 
   <table id="rdfs_semantic_conditions">
     <caption>RDFS semantic conditions.</caption>
