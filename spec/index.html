@@ -1829,14 +1829,13 @@
     <tbody>
       <tr>
         <th > </th>
-        <th ><strong>if S contains</strong></th>
+        <th ><strong>any S</strong></th>
         <th ><strong>then S RDFS entails</strong></th>
       </tr>
       <tr >
         <td class="othertable"><dfn>Grdfs14</dfn></td>
-        <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
-        yyy <code>rdf:type rdf:Property .</code><br/>
-        zzz <code>rdf:type rdfs:Resource .</code><br/>
+        <td class="othertable">if S contains <code>yyy rdf:type rdf:Property .</code><br/>
+          and <code>xxx</code> and <code>yyy</code> appear in E
         </td>
         <td class="othertable"><code>&lt;&lt;(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
       </tr>
@@ -1852,8 +1851,8 @@
     <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
     <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
     <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
-    <li>For every IRI or literal or triple term <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
-    <li>Apply the rules <a>GrdfD1</a>, <a>Grdfs14</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
+    <li>Apply the rule GrdfD1 (and rdfs1 and rdfs4) but using E instead of S in the antecedent.</li>
+    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a> and <a>Grdfs14</a>),
       with D={<code>rdf:langString</code>, <code>rdf:dirLangString</code>, <code>xsd:string</code>},
       to the set in all possible ways, to exhaustion.</li>
   </ol>
@@ -1867,9 +1866,9 @@
     Detecting simple entailment is NP-complete in general, but of low polynomial order when E contains no blank nodes.</p>
 
   <p>Every RDF(S) closure, even starting with the empty graph,
-    will contain all RDF(S) tautologies which can be expressed using the vocabulary of the original graph
+    will contain all RDF(S) tautologies which can be expressed using the vocabulary of the entailing and entailed graphs
     plus the RDF and RDFS vocabularies.
-    In practice there is little utility in re-deriving these,
+    In practice there is little utility in re-deriving these
     and a subset of the rules can be used to establish most entailments of practical interest.</p>
 
   <p>If it is important to stay within legal RDF syntax, rule <a>rdfD1</a> may be used instead of <a>GrdfD1</a>,
