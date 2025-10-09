@@ -436,10 +436,11 @@
 
   <p class="technote">Simple interpretations are required to interpret all <a>names</a>,
     and are therefore infinite.
-    This simplifies the exposition.
-    However, RDF can be interpreted using finite structures,
-    supporting decidable algorithms.
-    Details are given in <a href="#finite_interpretations" class="sectionRef"></a>. </p>
+    It was shown in
+	<a href="https://www.w3.org/TR/rdf11-mt/#finite-interpretations-informative">Appendix B</a> 
+    of RDF 1.1 Semantics spec.
+    that RDF 1.1 could  be interpreted using finite structures.
+    </p>
 
   <p>IEXT(x), called the <dfn class="no-export lint-ignore">extension</dfn> of x,
     is a set of pairs which identify the arguments for which the property is true,
@@ -1879,45 +1880,6 @@
     </tbody>
     </table>
   
-
-</section>
-
-<section id="finite_interpretations" class="informative appendix">
-  <h2>Finite interpretations</h2>
-
-  <p>To keep the exposition simple, the RDF semantics has been phrased in a way which requires interpretations
-    to be larger than absolutely necessary.
-    For example, all interpretations are required to interpret the whole IRI vocabulary,
-    and the universes of all D-interpretations where D contains
-    <code>xsd:string</code> must contain all possible strings and therefore be infinite.
-    This appendix sketches, without proof, how to re-state the semantics using smaller semantic structures
-     without changing any entailments. </p>
-
-  <p>Basically, it is only necessary for an interpretation structure to interpret the <a>names</a>
-    actually used in the graphs whose entailment is being considered, and to consider interpretations
-    whose universes are at most as big as the number of <a>name</a>s and blank nodes in the graphs.
-    More formally, we can define a <dfn>pre-interpretation</dfn> over a <a>vocabulary</a> V to be a structure I
-    similar to a <a>simple interpretation</a> but with a mapping only from V to its universe IR.
-    Then when determining whether G entails E, consider only pre-interpretations over the finite vocabulary
-    of <a>names</a> actually used in G union E. The universe of such a pre-interpretation can be restricted to the cardinality N+B+1, where N is the size of the vocabulary and B is the number of blank nodes in the graphs. Any such pre-interpretation may be extended to <a>simple interpretation</a>s, all of which will give the same truth values for any triples in G or E. Satisfiability, entailment and so on can then be defined with respect to these finite pre-interpretations, and shown to be identical to the ideas defined in the body of the specification.</p>
-
-  <p>When considering D-entailment, <a>pre-interpretation</a>s may be kept finite
-    by weakening the semantic conditions for literals so that IR needs to contain literal values
-    only for literals which actually occur in G or E, and the size of the universe restricted to (N+B)×(D+1),
-    where D is the number of recognized datatypes.
-    (A tighter bound is possible.) For RDF entailment,
-    only the finite part of the RDF vocabulary which includes those container membership properties
-    which actually occur in the graphs need to be interpreted,
-    and the second RDF semantic condition is weakened to apply only to values
-    which are values of literals which actually occur in the vocabulary.
-    For RDFS interpretations, again only that finite part of the infinite container membership property vocabulary
-    which actually occurs in the graphs under consideration needs to be interpreted.
-    In all these cases, a <a>pre-interpretation</a> of the vocabulary of a graph may be extended to a full interpretation
-    of the appropriate type without changing the truth-values of any triples in the graphs.</p>
-
-  <p>The whole semantics could be stated in terms of <a>pre-interpretation</a>s,
-    yielding the same entailments, and allowing finite RDF graphs to be interpreted in finite structures,
-    if the <em>finite model property</em> is considered important.</p>
 
 </section>
 
