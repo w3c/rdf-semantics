@@ -1913,8 +1913,9 @@
 
   <p class="fact">Every graph is simply <a>satisfiable</a>.</p>
 
-  <p>Consider the simple interpretation with universe {x}, IEXT(x)= &lt;x,x &gt; and I(aaa)=x for any IRI aaa. This interpretation satisfies every RDF graph. QED.</p>
-
+  <p>Consider the simple interpretation with universe {x} union all (abstract) triple terms which can be formed from x, 
+     IEXT(x)= &lt;x,x&gt;, IS(aaa)=x, IL(aaa) = x, IT(yyy,x,zzz) = &lt;yyy,x,zzz&gt;, for any term aaa and any elements of the domain of discourse yyy and zzz.  This interpretation satisfies every RDF graph. QED.</p>
+ 
   <p class="fact">
     G <a>simply entails</a> a graph E if and only if a <a>subgraph</a> of G is an instance of E.
   </p>
@@ -1922,8 +1923,8 @@
   <p>If a <a>subgraph</a> E' of G is an instance of E then G entails E' which entails E,
     so G entails E. Now suppose G entails E, and consider the
     <a href="http://en.wikipedia.org/wiki/Herbrand_interpretation">Herbrand interpretation</a> I of G defined as follows.
-    IR contains the <a>names</a> and blank nodes which occur in the graph, with I(n)=n
-    for each <a>name</a> n; n is in IP and &lt;a, b&gt; in IEXT(n) just when the triple &lt;a n b&gt; is in the graph.
+    IR contains the <a>names</a>, triple terms and blank nodes which appear in the graph, with I(n)=n
+    for each <a>name</a> n and IT(s,p,o)=&lt;s,p,o&gt;; n is in IP and &lt;a, b&gt; in IEXT(n) just when the triple &lt;a n b&gt; is in the graph.
     (For IRIs which do not occur in the graph, assign them values in IR at random.)
     I <a>satisfies</a> every triple &lt;s p o&gt; in E; that is,
     for some mapping A from the blank nodes of E to the vocabulary of G,
