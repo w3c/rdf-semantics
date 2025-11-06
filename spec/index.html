@@ -1815,48 +1815,12 @@
   <p><code>ex:a rdfs:subPropertyOf _:b .<br/>
     _:b rdfs:domain ex:c .<br/>
     ex:d ex:a ex:e .<br/>
-    ex:d _:b ex:c .</code>  by <a>rdfs7</a><br/>
+    ex:d _:b ex:e .</code>  by <a>rdfs7</a><br/>
     <code>ex:d rdf:type ex:c .</code> by <a>rdfs2</a></p>
 
   <p>Where the entailment patterns have been applied to generalized RDF syntax but yield a final conclusion which is legal RDF.</p>
-
-  <p>With the generalized syntax, these rules are postulated to be complete for both RDF and RDFS entailment. Stated exactly:</p>
-
-  <p>Let S and E be RDF graphs. Define the <dfn>generalized RDF (RDFS) closure</dfn> <strong>of S towards E</strong>
-    to be the set obtained by the following procedure.</p>
-
-  <ol>
-    <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
-    <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
-    <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
-    <li>For every IRI or literal <code>aaa</code> used in E, add <code>aaa rdf:type rdfs:Resource</code> to S.</li>
-    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
-      with D={<code>rdf:langString</code>, <code>rdf:dirLangString</code>, <code>xsd:string</code>},
-      to the set in all possible ways, to exhaustion.</li>
-  </ol>
-
-  <p>If these rules are complete, they would give rise to the following completeness result:</p>
-
-  <p class="postulate">If S is RDF consistent (RDFS consistent), then S RDF entails (RDFS entails) E just
-    when the <a>generalized RDF (RDFS) closure</a> of S towards E <a>simply entails</a> E. </p>
-
-  <p>The closures are finite. The generation process is decidable and of polynomial complexity.
-    Detecting simple entailment is NP-complete in general, but of low polynomial order when E contains no blank nodes.</p>
-
-  <p>Every RDF(S) closure, even starting with the empty graph,
-    will contain all RDF(S) tautologies which can be expressed using the vocabulary of the original graph
-    plus the RDF and RDFS vocabularies.
-    In practice there is little utility in re-deriving these,
-    and a subset of the rules can be used to establish most entailments of practical interest.</p>
-
-  <p>If it is important to stay within legal RDF syntax, rule <a>rdfD1</a> may be used instead of <a>GrdfD1</a>,
-    and the introduced blank node can be used as a substitute for the literal in subsequent derivations.
-    The resulting set of rules will not however be complete.</p>
-
-  <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
-    requires attention to idiosyncratic properties of the particular datatypes.</p>
-    
-  <p>
+  
+    <p>
   The entailment pattern for generalized RDF with [=symmetric RDF triples=],
   considering that, according to the semantics, the denotation of triple terms should
   be of type <code>rdfs:Proposition</code>, is the following:
@@ -1871,15 +1835,52 @@
       </tr>
       <tr >
         <td class="othertable"><dfn>Grdfs14</dfn></td>
-        <td class="othertable">xxx <code>rdf:type rdfs:Resource .</code><br/>
-        yyy <code>rdf:type rdf:Property .</code><br/>
-        zzz <code>rdf:type rdfs:Resource .</code><br/>
+        <td class="othertable"><code>yyy rdf:type rdf:Property .</code><br/>
+         <code>xxx rdf:type rdfs:Resource .</code>
+          <code>zzz rdf:type rdfs:Resource .</code>
         </td>
         <td class="othertable"><code>&lt;&lt;(xxx yyy zzz)>> rdf:type rdfs:Proposition .</code></td>
       </tr>
     </tbody>
     </table>
-  
+
+  <p>With the generalized syntax, these rules are postulated to be complete for both RDF and RDFS entailment. Stated exactly:</p>
+
+  <p>Let S and E be RDF graphs. Define the <dfn>generalized RDF (RDFS) closure</dfn> <strong>of S towards E</strong>
+    to be the set obtained by the following procedure.</p>
+
+  <ol>
+    <li>Add to S all the RDF (and RDFS) axiomatic triples which do not contain any container membership property IRI.</li>
+    <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
+    <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
+    <li>Apply the rule GrdfD1 (and rdfs1 and rdfs4) but using E instead of S in the antecedent.</li>
+    <li> Apply rule <a>Grdfs14</a>. </li>
+    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
+      with D={<code>rdf:langString</code>, <code>rdf:dirLangString</code>, <code>xsd:string</code>},
+      to the set in all possible ways, to exhaustion.</li>
+  </ol>
+
+  <p>If these rules are complete, they would give rise to the following completeness result:</p>
+
+  <p class="postulate">If S is RDF consistent (RDFS consistent), then S RDF entails (RDFS entails) E just
+    when the <a>generalized RDF (RDFS) closure</a> of S towards E <a>simply entails</a> E. </p>
+
+  <p>The closures are finite. The generation process is decidable and of polynomial complexity.
+    Detecting simple entailment is NP-complete in general, but of low polynomial order when E contains no blank nodes.</p>
+
+  <p>Every RDF(S) closure, even starting with the empty graph,
+    will contain all RDF(S) tautologies which can be expressed using the vocabulary of the entailing and entailed graphs
+    plus the RDF and RDFS vocabularies.
+    In practice there is little utility in re-deriving these
+    and a subset of the rules can be used to establish most entailments of practical interest.</p>
+
+  <p>If it is important to stay within legal RDF syntax, rule <a>rdfD1</a> may be used instead of <a>GrdfD1</a>,
+    and the introduced blank node can be used as a substitute for the literal in subsequent derivations.
+    The resulting set of rules will not however be complete.</p>
+
+  <p>As noted earlier, detecting datatype entailment for larger sets of datatype IRIs
+    requires attention to idiosyncratic properties of the particular datatypes.</p>
+    
 
 </section>
 
