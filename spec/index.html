@@ -1853,7 +1853,8 @@
     <li>For each container membership property IRI which occurs in E, add the RDF (and RDFS) axiomatic triples which contain that IRI.</li>
     <li>If no triples were added in step 2, add the RDF (and RDFS) axiomatic triples which contain <code>rdf:_1</code>.</li>
     <li>Apply the rule GrdfD1 (and rdfs1 and rdfs4) but using E instead of S in the antecedent.</li>
-    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a> and <a>Grdfs14</a>),
+    <li> Apply rule <a>Grdfs14</a>. </li>
+    <li>Apply the rules <a>GrdfD1</a>, <a>rdfD1a</a>, and <a>rdfD2</a> (and the rules <a>rdfs1</a> through <a>rdfs13</a>),
       with D={<code>rdf:langString</code>, <code>rdf:dirLangString</code>, <code>xsd:string</code>},
       to the set in all possible ways, to exhaustion.</li>
   </ol>
