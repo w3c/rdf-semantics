@@ -1924,7 +1924,7 @@
     so G entails E. Now suppose G entails E, and consider the
     <a href="http://en.wikipedia.org/wiki/Herbrand_interpretation">Herbrand interpretation</a> I of G defined as follows.
     IR contains the <a>names</a>, triple terms, and blank nodes which appear in the graph, with I(n)=n
-    for each <a>name</a> n and IT(s,p,o)=&lt;s,p,o&gt;; n is in IP and &lt;a, b&gt; in IEXT(n) just when the triple &lt;a n b&gt; is in the graph.
+    for each <a>name</a> n and IT(s,p,o)=&lt;s,p,o&gt;; n is in IP and &lt;a, b&gt; is in IEXT(n), only when the triple &lt;a n b&gt; is in the graph.
     (For IRIs which do not occur in the graph, assign them values in IR at random.)
     I <a>satisfies</a> every triple &lt;s p o&gt; in E; that is,
     for some mapping A from the blank nodes of E to the vocabulary of G,
