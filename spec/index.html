@@ -1513,6 +1513,40 @@
 
     <p> aaa <code>rdf:type rdfs:Resource .</code></p>
 
+	<p class="technote"> 
+		The RDFS semantic condition on the triple term mapping IT induces 
+		unwanted <i>non-well founded models</i> for propositions.
+		
+		For example, the asserted triple 
+		
+		<p></p>&lt;&lt;( :a :b :c )&gt;&gt; :p :o.</p>
+	  
+		is satisfied in the interpretation where IT maps &lt;x,y,z&gt; to x, 
+		and x is an instance of the denotation of rdfs:Proposition. 
+	  
+		In this interpretation, there is a proposition about a relation involving the proposition itself 
+		-- for example it could be intended as the proposition "the barber denies this very proposition",
+		leading to a self referential paradoxe. 
+	  
+	  However, it should be noted that: 
+	  
+		<ol>
+			<li> interpretations like the above do not induce any formal paradox, 
+				since in RDF the notion of proposition is very weak, and most importantly, </li>
+			
+			<li> it can be shown that if we tweak the semantic condition on IT 
+				by requiring the mapping to be well-founded -- in order to forbid 
+				"self-referential" interpretations like the above --
+				the simple, RDF, and RDFS entailments do not change.</li>
+		</ol>
+	  
+		Therefore, we do not impose a well foundedness condition on the definition of IT, 
+	    since this would have no practical consequence for simple, RDF, and RDFS entailments.
+		However, a well foundedness condition may be necessary in extensions of RDF 
+	    in which the indifference of entailment with respect to non-well founded interpretations 
+	    does not hold anymore, such as in the case of RDF extended with owl:sameAs.
+	</p> 
+
     <p>where aaa is an IRI, are true in all RDFS interpretations.</p>
 
     <section id="rdfs_patterns" class="informative" data-dfn-for="RDFS entailment patterns">
