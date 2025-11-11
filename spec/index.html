@@ -1887,8 +1887,6 @@
 <section id="proofs" class="informative appendix">
   <h2>Proofs of some results</h2>
 
-  <p class="issue" data-number="102">These claims still need to be checked.</p>
-
   <p class="fact"> The <a>empty graph</a> is simply entailed by
     any graph, and does not simply entail any graph except itself.
   <!-- <a href="#emptygraphlemmaprf" class="termref">[Proof]</a> -->
@@ -1961,6 +1959,59 @@
 
   <p>Using the terminology in the previous proof: if H does not contain any skolem IRIs, then H=ks(H).
     So if sk(G) entails H then G entails ks(H)=H; and if G entails H then sk(G) entails G entails H, so sk(G) entails H. QED.</p>
+    
+    
+    
+    
+    
+    <p class="fact"><b>Subgraph Lemma</b>.
+A graph S simply entails each of its its subgraphs E.</p>
+
+It follows from the semantic condition
+[I+A](g) = TRUE if and only if ∀ t ∈ g . [I+A](t) = TRUE. QED.
+
+<p class="fact"><b>Instance Lemma</b>.
+Each instance S of a graph E simply entails E.</p>
+
+It follows from the semantic condition
+A simple interpretation I simply satisfies a graph g
+if and only if ∃ A . [I+A](g) = TRUE. QED.
+
+<p class="fact"><b>Herbrand Lemma</b>.
+The Herbrand interpretation of a graph G simply satisfies G.</p>
+
+Given a nonempty graph G, the (simple) Herbrand interpretation of G, written Herb(G), is the interpretation defined as follows.
+
+<ul>
+<li>IRHerbBase = the set of all IRIs and literals and bnodes;
+
+<li>IRHerb = the set IRHerbBase extended with of all triple terms consistently built from IRHerbBase;
+
+<li>IPHerb(G) = the set of all IRIs which appear in property position of a triple in G;
+
+<li>IEXTHerb(G)(p) = { &lt;s,o&gt;: the triple s p o is in G }
+
+<li>ITHerb(s,p,o) = &lts,p,o&gt, with &lts,p,o&gt a triple term in IRHerb
+
+<li>ISHerb(i) = i, with i an IRI in IRHerb
+
+<li>ILHerb(l) = l, with l a literal l in IRHerb
+</ul>
+
+Clearly [Herb(G)+B], where B is the identity map on blank nodes in IRHerb, simply satisfies every triple in G, by construction, so Herb(G) simply satisfies G. QED.
+
+<p class="fact"><b>Interpolation Lemma</b>.
+S simply entails E if and only if a subgraph of S is an instance of E.</p>
+
+<i>'if'</i>&nbsp; follows from the subgraph and instance lemmas.<br/>
+<i>'only if'</i>&nbsp; uses the Herbrand construction.
+Suppose S simply entails E.
+Herb(S) simply satisfies S, so Herb(S) simply satisfies E, i.e. for some mapping A from the blank nodes of E to IRHerb(S), [Herb(S)+A] simply satisfies every triple s p o . in E, so S must contain the triple [Herb(E)+A](s) p [Herb(E)+A](o) . which is the instance of the previous triple under the instance mapping A. So the set of all such triples is a subgraph of S which is an instance of E. QED.
+
+
+    
+    
+    
 
 </section>
 
