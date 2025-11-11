@@ -1983,19 +1983,19 @@ The Herbrand interpretation of a graph G simply satisfies G.</p>
 <p>Given a nonempty graph G, the (simple) Herbrand interpretation of G, written Herb(G), is the interpretation defined as follows:</p>
 
 <ul>
-<li>IRHerbBase = the set of all IRIs and literals and bnodes;
+<li>IRHerbBase = the set of all IRIs, literals, and bnodes</li>
 
-<li>IRHerb = the set IRHerbBase extended with of all triple terms consistently built from IRHerbBase;
+<li>IRHerb = the set IRHerbBase, extended with all triple terms consistently built from IRHerbBase</li>
 
-<li>IPHerb(G) = the set of all IRIs which appear in property position of a triple in G;
+<li>IPHerb(G) = the set of all IRIs which appear in the property position of a triple in G</li>
 
-<li>IEXTHerb(G)(p) = { &lt;s,o&gt;: the triple s p o is in G }
+<li>IEXTHerb(G)(p) = { &lt;s,o&gt;: the triple s p o is in G }</li>
 
-<li>ITHerb(s,p,o) = &lts,p,o&gt, with &lts,p,o&gt a triple term in IRHerb
+<li>ITHerb(s,p,o) = &lts,p,o&gt, with &lts,p,o&gt being a triple term in IRHerb</li>
 
-<li>ISHerb(i) = i, with i an IRI in IRHerb
+<li>ISHerb(i) = i, with i being an IRI in IRHerb</li>
 
-<li>ILHerb(l) = l, with l a literal l in IRHerb
+<li>ILHerb(l) = l, with l being a literal l in IRHerb</li>
 </ul>
 
 Clearly [Herb(G)+B], where B is the identity map on blank nodes in IRHerb, simply satisfies every triple in G, by construction, so Herb(G) simply satisfies G. QED.
