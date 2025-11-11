@@ -1519,27 +1519,30 @@
 	  <p>
         The RDFS semantic condition on the triple term mapping IT induces 
 		potentially unwanted <i>non-well founded models</i> for propositions.		
-		For example, the asserted triple 		
-		&lt;&lt;( :a :b :c )&gt;&gt; :p :o.	  
-		is satisfied in the interpretation where IT maps the denotation of the triple term &lt;x,y,z&gt; 
-		to the denotation of its subject x, 
-		and x is (necessarily) an instance of the denotation of rdfs:Proposition. 	  
-		In this interpretation, there is a proposition about a relation involving the proposition itself 
-		-- for example it could be intended as the proposition "the barber denies this very proposition",
-		leading to a self referential paradox. 	  
-	  However, it should be noted that: 	  
-		(a) interpretations like the above do not induce any formal paradox, 
-				since in RDF the notion of proposition is very weak, and most importantly, 
-		(b) it can be shown that if we tweak the semantic condition on IT 
-				by requiring the mapping to be well-founded -- in order to forbid 
-				"self-referential" interpretations like the above --
-				the simple, RDF, and RDFS entailments do not change.
-		Therefore, we do not impose a well foundedness condition on the definition of IT, 
-	    since this would have no practical consequence for simple, RDF, and RDFS entailments.
-		However, a well foundedness condition may be necessary in extensions of RDF 
-	    in which the indifference of entailment with respect to non-well founded interpretations 
-	    does not hold anymore, such as in the case of RDF extended with owl:sameAs.
-	</p> 
+        <p>For example, the asserted triple <br>
+          &lt;&lt;( :a :b :c )&gt;&gt; :p :o . <br>
+          is satisfied in the interpretation where IT maps the denotation of the triple term &lt;x,y,z&gt;
+          to the denotation of its subject, x,
+          and x is (necessarily) an instance of the denotation of <code>rdfs:Proposition</code>.</p>
+        <p>In this interpretation, there is a proposition about a relation involving the proposition itself
+          &mdash; for example it could be intended as the proposition "the barber denies this very proposition" &mdash;
+          leading to a self-referential paradox.</p>
+        <p>However, it should be noted that:</p>
+          <ol type="a">
+            <li>Interpretations like the above do not induce any formal paradox,
+              since the notion of "proposition" in RDF is very weak.</li>
+            <li>Most importantly, it can be shown that if we tweak the semantic condition on IT,
+            by requiring the mapping to be well-founded &mdash; in order to forbid
+            "self-referential" interpretations like the above &mdash;
+            neither the simple, RDF, nor RDFS entailments change.</li>
+          </ol>
+        <p>Therefore, we do not impose a well-foundedness condition on the definition of IT,
+          since this would have no practical consequence for simple, RDF, or RDFS entailments.
+          However, such a well-foundedness condition may be necessary in extensions of RDF
+          in which the indifference of entailment with respect to non-well-founded interpretations
+          does not hold anymore, such as in the case of RDF extended with <code>owl:sameAs</code>.
+        </p>
+    <div class="technote">
 
     <section id="rdfs_patterns" class="informative" data-dfn-for="RDFS entailment patterns">
       <h4>Patterns of RDFS entailment</h4>
