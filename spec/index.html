@@ -1999,15 +1999,10 @@ The Herbrand interpretation of a graph G simply satisfies G.</p>
 <p class="fact"><b>Interpolation Lemma</b>.
 S simply entails E if and only if a subgraph of S is an instance of E.</p>
 
-<i>'if'</i>&nbsp; follows from the subgraph and instance lemmas.<br/>
-<i>'only if'</i>&nbsp; uses the Herbrand construction.
-Suppose S simply entails E.
-Herb(S) simply satisfies S, so Herb(S) simply satisfies E, i.e. for some mapping A from the blank nodes of E to IRHerb(S), [Herb(S)+A] simply satisfies every triple s p o . in E, so S must contain the triple [Herb(E)+A](s) p [Herb(E)+A](o) . which is the instance of the previous triple under the instance mapping A. So the set of all such triples is a subgraph of S which is an instance of E. QED.
-
-
-    
-    
-    
+<p><i>'if'</i>&nbsp; follows from the subgraph and instance lemmas.</p>
+<p><i>'only if'</i>&nbsp; uses the Herbrand construction.</p>
+<p>Suppose S simply entails E.
+Herb(S) simply satisfies S, so Herb(S) simply satisfies E, i.e., for some mapping A from the blank nodes of E to IRHerb(S), [Herb(S)+A] simply satisfies every triple s p o . in E, so S must contain the triple [Herb(E)+A](s) p [Herb(E)+A](o) . which is the instance of the previous triple under the instance mapping A. So the set of all such triples is a subgraph of S which is an instance of E. QED.</p>
 
 </section>
 
