@@ -50,10 +50,16 @@
     };
   </script>
   <style>
-  .semantictable {background-color: #FFFFAA; padding:0.5em;}
   .ruletable {background-color: #DDDDFF; padding:0.5em;}
   .othertable {background-color: #FDFDFD; padding:0.5em;}
   .tabletitle {font-size: small; font-weight: bolder;}
+
+  .semdef {
+      padding: 0.5em;
+      border-width: 1px;
+      border-style: solid;
+      background: #ffffaa;
+  }
 
   .technote {
       font-size:small;
@@ -416,23 +422,21 @@
 
   <p>A <dfn data-lt="simply entail">simple interpretation</dfn> I is a structure consisting of:</p>
 
-  <table>
-    <caption>Definition of a simple interpretation.</caption>
-    <tr>
-          <td class="semantictable">1. A non-empty set IR, the resources of I, also called the domain or universe
-              of I.
-        <p>2. <span >A set IP, the properties of I.</span></p>
-            <p>3. A mapping IEXT from IP into the powerset of IR x IR (the
-              set of sets of pairs &lt; x, y &gt; with x and y in IR ), the extension mapping for properties in I.</p>
-        <p>4. A mapping IS from IRIs into (IR union IP), the denotation mapping for symbols in I.</p>
-        <p>5. A partial mapping IL from literals into IR, the denotation mapping for literals in I.</p>
-        <p id="simple-injective-tests" data-tests="rdf-semantics/index.html#all-identical-triple-terms-are-the-same,
+  <div class="semdef"><p>
+    Definition of a simple interpretation.</p>
+    <ol>
+      <li>A non-empty set IR, the resources of I, also called the domain or universe of I.<\li>
+      <li><span >A set IP, the properties of I.</span><\li>
+      <li>A mapping IEXT from IP into the powerset of IR x IR (the set of sets of pairs
+	&lt; x, y &gt; with x and y in IR ), the extension mapping for properties in I.<\li>
+      <li>A mapping IS from IRIs into (IR union IP), the denotation mapping for symbols in I.<\li>
+      <li>A partial mapping IL from literals into IR, the denotation mapping for literals in I.\li>
+      <li id="simple-injective-tests" data-tests="rdf-semantics/index.html#all-identical-triple-terms-are-the-same,
 		       rdf-semantics/index.html#triple-term-not-asserted,
 		       rdf-semantics/index.html#triple-terms-no-spurious">
-	  6. An injective mapping IT from IR x IP x IR into IR, the extension mapping for triples in I. </p>
-       </td>
-    </tr>
-  </table>
+	  An injective mapping IT from IR x IP x IR into IR, the extension mapping for triples in I. </li>
+      </ol>
+  </div>
 
   <p class="technote">Simple interpretations are required to interpret all <a>names</a>,
     and are therefore infinite.
