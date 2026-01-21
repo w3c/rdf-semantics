@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
   <title>RDF 1.2 Semantics</title>
@@ -780,21 +780,21 @@
 
   <p>The second property means that a graph is not logically <a>equivalent</a> to its skolemization.
     Nevertheless, they are in a strong sense almost interchangeable in
-    <a data-cite="RDF12-SEMANTICS#simple">RDF simple interpretations</a>,
+    <a href="#simple">RDF simple interpretations</a>,
     as shown by the next two properties. The third property means that even
     when conclusions which do contain the new vocabulary are drawn with
-    <a data-cite="RDF12-SEMANTICS#simple">RDF simple entailment</a> from the
+    <a href="#simple">RDF simple entailment</a> from the
     skolemized graph, these will exactly mirror what could have been derived with
-    <a data-cite="RDF12-SEMANTICS#simple">RDF simple entailment</a> from the original
+    <a href="#simple">RDF simple entailment</a> from the original
     graph with the original blank nodes in place. The replacement of blank nodes
     with Skolem IRIs does not effectively alter what can be validly derived from the
-    graph with <a data-cite="RDF12-SEMANTICS#simple">RDF simple entailment</a>,
+    graph with <a href="#simple">RDF simple entailment</a>,
     other than by giving new <a>names</a> to what were formerly anonymous
     entities. The fourth property, which is a consequence of the third, clearly
     shows that in some sense, a skolemization of G can "stand in for" G as far
-    as <a data-cite="RDF12-SEMANTICS#simple">RDF simple entailments</a> are
+    as <a href="#simple">RDF simple entailments</a> are
     concerned. Using sk(G) instead of G will not affect any
-    <a data-cite="RDF12-SEMANTICS#simple">RDF simple entailments</a> which do not
+    <a href="#simple">RDF simple entailments</a> which do not
     involve the new skolem vocabulary.</p>
 
 </section>
@@ -1971,9 +1971,8 @@
     maps the denotation of the triple term &lt;&lt;( :a :b :c )&gt;&gt; 
     to the denotation of its object — i.e., IT( I(:a), I(:b), I(:c) ) = I(:c).
     Observe that I(:c) is a <i>proposition</i> in the interpretation I, 
-    namely it is an element of the set IPR(I) — as defined in the section on the
-    <a data-cite="RDF12-SEMANTICS#simple_entailment_properties">properties of
-    simple entailment and satisfiability</a> — and therefore I(:c) is
+    namely it is an element of the set IPR(I) — as defined in
+    Section <a href="#simple_entailment_properties"></a> — and therefore I(:c) is
     an instance of the denotation of <code>rdfs:Proposition</code>.</p>
     <p>In this interpretation, there is a proposition about a relation 
     involving the proposition itself — for example, it could be intended 
