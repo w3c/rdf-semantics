@@ -1658,48 +1658,19 @@
     between datasets would require RDF graph entailments between the graphs with the same <a>name</a>
     (adding in empty graphs as required).</p>
 
-  <table id="rdf-dataset">
-    <caption>Definition of an RDF dataset (from RDF Concepts <a>RDF Dataset</a>)</caption>
-    <tr>
-       <td class="semantictable">
-       <p>An <a>RDF dataset</a>
-	      is a set:<br/>
-              { G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), . .
-              . (&lt;u<sub>n</sub>&gt;, G<sub>n</sub>) }<br>
-              where n&ge;0, G and each G<sub>i</sub> are graphs, and each &lt;u<sub>i</sub>&gt; is an IRI or blank node. Each
-              &lt;u<sub>i</sub>&gt; is distinct.</p>
-            <p>G is called the default graph. (&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) are called named
-              graphs.</p>
-        </td>
-    </tr>
-  </table>
-
   <table id="dfn-rdf-dataset-merge">
     <caption>Definition of RDF dataset merge</caption>
     <tr>
        <td class="semantictable">
-            <p>Let DS1 = { G1, (&lt;u1<sub>1</sub>&gt;, G1<sub>1</sub>), (&lt;u1<sub>2</sub>&gt;,
-              G1<sub>2</sub>), . . . (&lt;u1<sub>n</sub>&gt;, G1<sub>n</sub>) },<br>
-              and DS2 = { G2, (&lt;u2<sub>1</sub>&gt;, G2<sub>1</sub>), (&lt;u2<sub>2</sub>&gt;,
-              G2<sub>2</sub>), . . . (&lt;u2<sub>m</sub>&gt;, G2<sub>m</sub>) }</p>
-            <p>The <dfn>RDF dataset merge</dfn> of DS1 and DS2 is:<br>
-              DS={ G, (&lt;u<sub>1</sub>&gt;, G<sub>1</sub>), (&lt;u<sub>2</sub>&gt;, G<sub>2</sub>), .
-              . . (&lt;u<sub>k</sub>&gt;, G<sub>k</sub>) }<br>
-              where:</p>
-            <p>Write N1 for { &lt;u1<sub>j</sub>&gt; j = 1 to n }<br>
-              Write N2 for { &lt;u2<sub>j</sub>&gt; j = 1 to m }<br></p>
-            <ul>
-              <li>G is the <a>merge</a> of G1 and G2
-              </li>
-              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is in N1 but not
-                in N2</li>
-              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is in N2 but not
-                in N1</li>
-              <li>(&lt;u<sub>i</sub>&gt;, G<sub>i</sub>) where &lt;u<sub>i</sub>&gt; is equal to
-                &lt;u<sub>j</sub>&gt; in N1 and equal to &lt;u<sub>k</sub>&gt; in N2 and G<sub>i</sub>
-                is the <a>merge</a> of G1<sub>j</sub> and G2<sub>k</sub>
-              </li>
-            </ul>
+            <p>Given two or more RDF datasets, their <dfn>RDF dataset merge</dfn> 
+            is defined by the following procedure:<br>
+            <ol>
+              <li>Force any blank nodes shared between the datasets to be unique in each dataset.</li>
+              <li>Label each triple in the datasets (a) with the name (a URI or a blank node) of the graph that includes it, 
+              and (b) with a special label "default" if it is included in a default graph.</li>
+<li>Let the default graph of the [=RDF dataset merge=] to be the set of triples with the label "default".</li>
+<li>For each label except the label "default", let the name of named graph of the [=RDF dataset merge=] to be that label, and the graph be the set of triples with that label.</li>
+            </ol>
         </td>
     </tr>
   </table>
