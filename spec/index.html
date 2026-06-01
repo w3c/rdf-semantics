@@ -169,8 +169,16 @@
         We will refer to entailment regimes by names such as <em> RDFS entailment</em>,
         <em>D-entailment</em>, etc. </p>
 
-      <p><a>Semantic extension</a>s MAY impose special syntactic conditions or restrictions upon RDF graphs,
-        such as requiring certain triples to be present,
+      <p>All entailment regimes MUST be <dfn class="no-export lint-ignore">monotonic</dfn> extensions
+        of the simple entailment regime described in the document,
+        in the sense that if A simply <a>entails</a> B then A also entails B under any extended notion of entailment,
+        provided that any syntactic conditions of the extension are also satisfied (see below).
+        Put another way, a <a>semantic extension</a> cannot "cancel" an entailment
+        made by a weaker entailment regime,
+        although it can treat the result as a syntax error.</p>
+
+	  <p><a>Semantic extensions</a> MAY impose special syntactic conditions or restrictions upon RDF graphs,
+        such as requiring certain triples to be present
         or prohibiting particular combinations of IRIs in triples,
         and MAY consider RDF graphs which do not conform to these conditions to be errors.
         For example, RDF statements of the form <br/><br/>
@@ -181,13 +189,6 @@
         None of the <a>semantic extension</a>s normatively defined in this document
         impose such syntactic restrictions on RDF graphs.</p>
 
-      <p>All entailment regimes MUST be <dfn class="no-export lint-ignore">monotonic</dfn> extensions
-        of the simple entailment regime described in the document,
-        in the sense that if A simply <a>entail</a>s B then A also entails B under any extended notion of entailment,
-        provided that any syntactic conditions of the extension are also satisfied.
-        Put another way, a <a>semantic extension</a> cannot "cancel" an entailment
-        made by a weaker entailment regime,
-        although it can treat the result as a syntax error.</p>
     </section>
 
   <section id="notation">
@@ -211,8 +212,12 @@
       <dfn data-cite="RDF12-CONCEPTS#dfn-rdf-dataset" data-lt="dataset">RDF dataset</dfn><span id="dfn-rdf-dataset"><!-- refer to RDF Concepts term --></span>.
       All the definitions in this document apply unchanged to
       <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-triple">generalized RDF triples</dfn>, 
-      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-graph">generalized RDF graphs</dfn>, and
-      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-dataset">generalized RDF datasets</dfn>.</p>
+      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-graph">generalized RDF graphs</dfn>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-generalized-rdf-dataset">generalized RDF datasets</dfn>,
+      <dfn data-cite="RDF12-CONCEPTS#dfn-symmetric-rdf-triple">symmetric RDF triples</dfn>, 
+      <dfn data-cite="RDF12-CONCEPTS#dfn-symmetric-rdf-graph">symmetric RDF graphs</dfn>, and
+      <dfn data-cite="RDF12-CONCEPTS#dfn-symmetric-rdf-dataset">symmetric RDF datasets</dfn>.
+	</p>
 
     <p>A <dfn>ground RDF graph</dfn> is an RDF graph in which no blank nodes appear.
       A <dfn>ground RDF term</dfn> is an RDF term in which no blank nodes appear.
@@ -355,7 +360,7 @@
     <p><code>ex:b ex:q _:x . </code><br/><br/>
       <img src="RDF12SemanticsDiagrams/example2.svg" alt="Graph 2" ></p>
 
-    <p>Their union would also contain four nodes:</p>
+    <p>Their <dfn class="no-export lint-ignore">union</dfn> would also contain four nodes:</p>
 
     <p><img src="RDF12SemanticsDiagrams/example4.svg" alt="Union Graph"></p>
 
@@ -476,7 +481,7 @@
     <caption>Semantic conditions for ground graphs.</caption>
     <tbody>
       <tr>
-        <td class="semantictable">if E is a literal then I(E) = IL(E)</td>
+        <td class="semantictable">if E is a literal, then I(E) = IL(E)</td>
       </tr>
 
       <tr>
@@ -493,12 +498,12 @@
           then I(E) = true if<br/>
           I(p) is in IP and the pair &lt;I(s),I(o)&gt;
           is in IEXT(I(p))<br/>
-          otherwise I(E) = false.</td>
+          otherwise I(E) = false</td>
       </tr>
 
       <tr>
-        <td class="semantictable">if E is a ground RDF graph then I(E) = false if I(E') =
-          false for some triple E' in E, otherwise I(E) =true.</td>
+        <td class="semantictable">if E is a ground RDF graph, then I(E) = false if I(E') =
+          false for some triple E' in E, otherwise I(E) =true</td>
       </tr>
     </tbody>
   </table>
@@ -1095,7 +1100,7 @@
     </tr>
   </table>
 
-  <p>RDF intrepretations impose no particular normative semantics on the rest of the RDF vocabulary.
+  <p>RDF interpretations impose no particular normative semantics on the rest of the RDF vocabulary.
 </p>
 
   <p>The datatype IRIs 
@@ -1135,6 +1140,8 @@
     <section id="rdf_entailment_patterns" class="informative">
       <h4>Patterns of RDF entailment</h4>
 
+      <p>In this Section we make use of the <a data-cite="RDF12-CONCEPTS#dfn-substitution-mapping">substitution mapping</a> notation.</p>
+		
       <p>The last semantic condition in the above table gives the following entailment pattern for <a>recognized</a> datatype IRIs:</p>
 
       <table>
@@ -1414,6 +1421,8 @@
         rdf:Bag rdfs:subClassOf rdfs:Container .<br/>
         rdf:Seq rdfs:subClassOf rdfs:Container .<br/>
         rdfs:ContainerMembershipProperty rdfs:subClassOf rdf:Property .<br/>
+		<br/>
+		rdfs:Proposition rdfs:subClassOf rdfs:Resource .<br/>
         <br/>
         rdfs:isDefinedBy rdfs:subPropertyOf rdfs:seeAlso .<br/>
         <br/>
@@ -1465,6 +1474,7 @@
         rdfs:ContainerMembershipProperty rdf:type rdfs:Class .<br/>
         rdf:Property rdf:type rdfs:Class .<br/>
         rdf:Statement rdf:type rdfs:Class .<br/>
+		rdfs:Proposition rdf:type rdfs:Class .<br/>
         <br/>
         rdfs:domain rdf:type rdf:Property .<br/>
         rdfs:range rdf:type rdf:Property .<br/>
@@ -1679,7 +1689,7 @@
             <p>Given two or more RDF datasets, their <dfn>RDF dataset merge</dfn> 
             is defined by the following procedure:<br>
             <ol>
-              <li>Force any blank nodes shared between the datasets to be unique in each dataset.</li>
+              <li><a data-lt="standardize">Standardize apart</a> any blank nodes that are shared between the datasets, to be unique in each dataset.</li>
               <li>Label each triple in the datasets (a) with the name (an IRI or a blank node) of the graph that includes it, 
               and (b) with a special label "default" if it is included in a default graph.</li>
               <li>Let the default graph of the [=RDF dataset merge=] be the set of
