@@ -52,9 +52,29 @@
     };
   </script>
   <style>
-  .semantictable {background-color: #FFFFAA; padding:0.5em;}
-  .ruletable {background-color: #DDDDFF; padding:0.5em;}
-  .othertable {background-color: #FDFDFD; padding:0.5em;}
+  body {
+    --semantictable-bg: #FFFFAA;
+    --ruletable-bg: #DDDDFF;
+    --othertable-bg: #FDFDFD;
+    --technote-bg: #e2fff0;
+    --technote-before-bg: #eff;
+    --fact-bg: #ffeecc;
+    --postulate-bg: #cceeff;
+  }
+
+  body.darkmode {
+    --semantictable-bg: #555500;
+    --ruletable-bg: #000022;
+    --othertable-bg: #202020;
+    --technote-bg: darkGreen;
+    --technote-before-bg: darkGreen;
+    --fact-bg: #332200;
+    --postulate-bg: #002233;
+  }
+
+  .semantictable {background-color: var(--semantictable-bg); padding:0.5em;}
+  .ruletable {background-color: var(--ruletable-bg); padding:0.5em;}
+  .othertable {background-color: var(--othertable-bg); padding:0.5em;}
   .tabletitle {font-size: small; font-weight: bolder;}
 
   .technote {
@@ -62,7 +82,7 @@
       margin: 2em 0em 0em;
       padding:    1em;
       border: 2px solid #cff6d9;
-      background: #e2fff0;
+      background: var(--technote-bg);
   }
 
   .technote::before {
@@ -72,7 +92,7 @@
       margin: -1.5em 0 0.5em 0;
       font-weight:    bold;
       border: 1px solid #cff6d9;
-      background: #eff;
+      background: var(--technote-before-bg);
       padding:    3px 1em;
   }
 
@@ -83,20 +103,20 @@
       margin: 1em 0;
       position: relative;
       clear: both;
-      background-color: #ffeecc;
-      border: 1px solid black
+      background-color: var(--fact-bg);
+      border: 1px solid var(--text);
   }
   .postulate  {
       padding: 0.5em;
       margin: 1em 0;
       position: relative;
       clear: both;
-      background-color: #cceeff;
-      border: 1px solid black
+      background-color: var(--postulate-bg);
+      border: 1px solid var(--text);
   }
 
     table { border-collapse:collapse; }
-    table, td, th { border:1px solid black; }
+    table, td, th { border:1px solid var(--text); }
     caption { font-weight: bold; text-align: left ; }
     code {color: #ff4500;}  /* Old W3C Style */
   </style>
