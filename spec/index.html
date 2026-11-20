@@ -1019,9 +1019,9 @@
     <p>In all of this language, 'D' is being used as a parameter to represent some set of datatype IRIs,
       and different D sets will yield different notions of satisfiability and entailment.
       The more datatypes are <a>recognized</a>, the stronger is the entailment,
-      so that if D &subset; E and S E-entails G then S must <a>D-entail</a> G.
+      so that if D &subset; E and S D-entails G then S must <a>E-entail</a> G.
       Simple entailment is {&nbsp;}-entailment, i.e. D-entailment when D is the empty set,
-      so if S <a>D-entails</a> G  then S <a>simply entails</a> G. </p>
+      so if S <a>simply entails</a> G  then S <a>D-entails</a> G. </p>
 
     <section id="datatype_entailment_patterns" class="informative">
       <h4>Patterns of datatype entailment</h4>
@@ -1543,7 +1543,7 @@
       which <a>satisfies</a> S also satisfies E.</p>
 
     <p> Since every <a>RDFS interpretation</a> is an <a>RDF interpretation</a>,
-      if S <a>RDFS entails</a> E then S also <a>RDF entail</a>s E;
+      if S <a>RDF entails</a> E then S also <a>RDFS entail</a>s E;
       but RDFS entailment is stronger than RDF entailment.
       Even the empty graph has a large number of RDFS entailments which are not RDF entailments,
       for example all triples of the form </p>
